@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="cyber•Congress team">
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Local Sync Chains - Cyber•Congress Docs</title>
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <link href="../../stylesheets/extra.css" rel="stylesheet">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../..">Cyber•Congress Docs</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                    <li >
+                        <a href="../..">Home</a>
+                    </li>
+                    <li >
+                        <a href="../../contribute/">Contributing</a>
+                    </li>
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Staging <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+<li >
+    <a href="../setup/">Mars Setup</a>
+</li>
+                            
+<li >
+    <a href="../continuous-delivery/">Continuous Delivery</a>
+</li>
+                            
+<li >
+    <a href="../run/">Running Application</a>
+</li>
+                            
+<li class="active">
+    <a href="./">Local Sync Chains</a>
+</li>
+                            
+<li >
+    <a href="../kubernetes/">Kubernetes</a>
+</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cybernode <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+<li >
+    <a href="../../cybernode/about/">About Node</a>
+</li>
+                            
+<li >
+    <a href="../../cybernode/dev-setup/">Development Setup</a>
+</li>
+                            
+<li >
+    <a href="../../cybernode/k8s-cheat-sheet/">K8s Cheat Sheet</a>
+</li>
+                            
+  <li class="dropdown-submenu">
+    <a href="#">Components</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../cybernode/components/monitoring/">Monitoring</a>
+</li>
+            
+<li >
+    <a href="../../cybernode/components/search/">Search</a>
+</li>
+            
+<li >
+    <a href="../../cybernode/components/markets/">Markets</a>
+</li>
+            
+<li >
+    <a href="../../cybernode/components/chain-nodes/">Chains Nodes</a>
+</li>
+    </ul>
+  </li>
+                            
+  <li class="dropdown-submenu">
+    <a href="#">Chains</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../cybernode/chains/bitcoin/">Bitcoin</a>
+</li>
+            
+<li >
+    <a href="../../cybernode/chains/ethereum/">Ethereum</a>
+</li>
+    </ul>
+  </li>
+                        </ul>
+                    </li>
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                    <li >
+                        <a rel="next" href="../run/">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../kubernetes/">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/cybercongress/knowledge/edit/master/docs/staging/chains.md">Edit on cyberCongress/knowledge</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#current-chains-nodes-tables">Current chains nodes tables</a></li>
+        <li class="main "><a href="#local-forwarding-port-for-chains">Local forwarding port for chains</a></li>
+        <li class="main "><a href="#commands-used-to-run-chain-and-live-probe">Commands used to run chain and live probe</a></li>
+            <li><a href="#bitcoind">Bitcoind</a></li>
+            <li><a href="#bitcoinabc">BitcoinABC</a></li>
+            <li><a href="#parity">Parity</a></li>
+            <li><a href="#parity-chain-classic">Parity --chain classic</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h2 id="current-chains-nodes-tables">Current chains nodes tables<a class="headerlink" href="#current-chains-nodes-tables" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>App</th>
+<th>data path</th>
+<th>port</th>
+<th>creds</th>
+<th>current size</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bitcoind - btc</td>
+<td>/cyberdata/ssd05tb/bitcoind</td>
+<td>8332</td>
+<td>cyber:cyber</td>
+<td>184 gb</td>
+</tr>
+<tr>
+<td>abc    -   bth</td>
+<td>/cyberdata/abc</td>
+<td>18332</td>
+<td>bitcoin:password</td>
+<td>156 gb</td>
+</tr>
+<tr>
+<td>parity -   eth</td>
+<td>/cyberdata/ssd05tb/eth</td>
+<td>8545</td>
+<td></td>
+<td>56  gb</td>
+</tr>
+<tr>
+<td>parity -   eth_c</td>
+<td>/cyberdata/ssd05tb/eth_c</td>
+<td>18545</td>
+<td></td>
+<td>5.3 gb</td>
+</tr>
+</tbody>
+</table>
+<h2 id="local-forwarding-port-for-chains">Local forwarding port for chains<a class="headerlink" href="#local-forwarding-port-for-chains" title="Permanent link">&para;</a></h2>
+<pre class="codehilite"><code>ssh -L 18332:localhost:18332 -L 8332:localhost:8332 \
+-L 18545:localhost:18545 -L 8545:localhost:8545 \
+mars@staging.cyber.fund  -p 33322</code></pre>
+
+
+<h2 id="commands-used-to-run-chain-and-live-probe">Commands used to run chain and live probe<a class="headerlink" href="#commands-used-to-run-chain-and-live-probe" title="Permanent link">&para;</a></h2>
+<h3 id="bitcoind">Bitcoind<a class="headerlink" href="#bitcoind" title="Permanent link">&para;</a></h3>
+<p>Run:</p>
+<pre class="codehilite"><code>sudo  docker run -d -p 8332:8332 --name bitcoind  --restart always \
+-v /cyberdata/ssd05tb/bitcoind:/home/bitcoin/.bitcoin ruimarinho/bitcoin-core:0.15.1 \
+-server -rest -txindex -rpcpassword=cyber -rpcuser=cyber -rpcallowip=0.0.0.0/0</code></pre>
+
+
+<p>Probe:</p>
+<pre class="codehilite"><code>curl -X POST -H &quot;Content-Type: application/json&quot; \
+--data '{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;getblockhash&quot;,&quot;params&quot;:[1],&quot;id&quot;:1}' \
+http://127.0.0.1:8332 -u cyber:cyber</code></pre>
+
+
+<h3 id="bitcoinabc">BitcoinABC<a class="headerlink" href="#bitcoinabc" title="Permanent link">&para;</a></h3>
+<p>Run:</p>
+<pre class="codehilite"><code>sudo  docker run -d -p 18332:8332 --name abc  --restart always 
+-v /cyberdata/abc:/data zquestz/bitcoin-abc:0.16.1 bitcoind -server -rest</code></pre>
+
+
+<p>Probe:</p>
+<pre class="codehilite"><code>curl -X POST -H &quot;Content-Type: application/json&quot; \
+--data '{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;getblockhash&quot;,&quot;params&quot;:[1],&quot;id&quot;:1}' \
+http://127.0.0.1:18332 -u cyber:cyber</code></pre>
+
+
+<h3 id="parity">Parity<a class="headerlink" href="#parity" title="Permanent link">&para;</a></h3>
+<p>Run:</p>
+<pre class="codehilite"><code>sudo  docker run -d -p 8545:8545 --name parity_eth  --restart always \
+-v /cyberdata/ssd05tb/eth:/cyberdata parity/parity:stable \
+--db-path /cyberdata --jsonrpc-hosts all --jsonrpc-interface all --jsonrpc-threads 10</code></pre>
+
+
+<p>Probe:</p>
+<pre class="codehilite"><code>curl -X POST -H &quot;Content-Type: application/json&quot; \
+--data '{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;eth_getBlockByNumber&quot;,&quot;params&quot;:[&quot;0x1&quot;, true],&quot;id&quot;:1}'\
+ http://127.0.0.1:8545</code></pre>
+
+
+<h3 id="parity-chain-classic">Parity --chain classic<a class="headerlink" href="#parity-chain-classic" title="Permanent link">&para;</a></h3>
+<p>Run:</p>
+<pre class="codehilite"><code>sudo  docker run -d -p 18545:8545 --name parity_etc  --restart always \
+-v /cyberdata/ssd05tb/eth_c:/cyberdata parity/parity:stable --db-path /cyberdata \
+--jsonrpc-hosts all --jsonrpc-interface all --chain classic --jsonrpc-threads 10</code></pre>
+
+
+<p>Probe:</p>
+<pre class="codehilite"><code>curl -X POST -H &quot;Content-Type: application/json&quot; \
+--data '{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;eth_getBlockByNumber&quot;,&quot;params&quot;:[&quot;0x1&quot;, true],&quot;id&quot;:1}' \
+http://127.0.0.1:18545</code></pre></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Copyright &copy; 2018 cyber • Congress</p>
+            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>var base_url = '../..';</script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/require.js"></script>
+        <script src="../../search/search.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td><kbd>&larr;</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td><kbd>&rarr;</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    </body>
+</html>
