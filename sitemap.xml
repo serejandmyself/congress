@@ -4,7 +4,7 @@
     
     <url>
      <loc>/</loc>
-     <lastmod>2018-04-24</lastmod>
+     <lastmod>2018-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -12,62 +12,28 @@
     
     <url>
      <loc>/contribute/</loc>
-     <lastmod>2018-04-24</lastmod>
+     <lastmod>2018-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
-    
-
-    
-        
-    <url>
-     <loc>/staging/setup/</loc>
-     <lastmod>2018-04-24</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/staging/continuous-delivery/</loc>
-     <lastmod>2018-04-24</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/staging/run/</loc>
-     <lastmod>2018-04-24</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/staging/chains/</loc>
-     <lastmod>2018-04-24</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/staging/kubernetes/</loc>
-     <lastmod>2018-04-24</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
     
 
     
         
     <url>
      <loc>/cybernode/about/</loc>
-     <lastmod>2018-04-24</lastmod>
+     <lastmod>2018-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/cybernode/dev-setup/</loc>
-     <lastmod>2018-04-24</lastmod>
+     <lastmod>2018-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/cybernode/k8s-cheat-sheet/</loc>
-     <lastmod>2018-04-24</lastmod>
+     <lastmod>2018-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -80,6 +46,56 @@
     <url>
      <loc></loc>
      <lastmod></lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc></loc>
+     <lastmod></lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>/cyberBrowser/Vision_and_Scope/</loc>
+     <lastmod>2018-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/cyberBrowser/staging/</loc>
+     <lastmod>2018-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/cyberBrowser/Changelog/</loc>
+     <lastmod>2018-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>/Chaingear/overview/</loc>
+     <lastmod>2018-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/Chaingear/contracts/</loc>
+     <lastmod>2018-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/Chaingear/development/</loc>
+     <lastmod>2018-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
         

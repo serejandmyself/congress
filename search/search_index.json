@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/", 
-            "text": "Welcome to Cyber Development Knowledge Base.\n\n\nRight now these docs cover two \ncyber-\n open source products:\n\n\n\n\nblockchain browser - https://github.com/cybercongress/cyber-browser - this service is responsible\n  for indexing and searching information stored in different chains\n\n\nmarkets analysis - https://github.com/cybercongress/cyber-markets - this service collects information\n  from crypto exchanges and does calculations of Cybernomics parameters", 
+            "text": "Welcome to Cyber\u2022Congress Knowledge Base.\n\n\nRight now these docs cover eight \ncyber-\n open source products:\n\n\n\n\nblockchain browser\n - this service is responsible for indexing and searching information stored in different chains\n\n\nmarkets analysis\n - this service collects information from crypto exchanges and does calculations of Cybernomics parameters\n\n\ncyberNode\n - smart node manager and transaction crawler\n\n\ncyberSearch\n - transaction parser for cyberNode\n\n\ncyber.js\n - cyberSearch javascript library\n\n\nchaingear\n - this service allows you to create your own Registry of general purpose entries on Ethereum blockchain.\n\n\ncyberd\n - research on the cyber protocol.\n\n\ncyberCongress\n - this is our project management system, delivery and distribution agreement, knowledge base. Community of of scientists, developers, engineers and craftsmen.", 
             "title": "Home"
         }, 
         {
@@ -24,131 +24,6 @@
             "location": "/contribute/#project-layout", 
             "text": "mkdocs.yml    # The configuration file.\ndocs/\n    index.md  # The documentation homepage.\n    ...       # Other markdown pages, images and other files.", 
             "title": "Project layout"
-        }, 
-        {
-            "location": "/staging/setup/", 
-            "text": "Mars is our \nstaging\n server. You may reuse its config for your own.\n\n\nCurrent Mars storage setup\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nSize\n\n\nLABEL\n\n\nMapping\n\n\n\n\n\n\n\n\n\n\nnvme0n1p1\n\n\nssd\n\n\n1 tb\n\n\nSDD1\n\n\n/cyberdata/ssd1tb\n\n\n\n\n\n\nnvme2n1p1\n\n\nssd\n\n\n500 gb\n\n\nSDD2\n\n\n/cyberdata/ssd05tb\n\n\n\n\n\n\nsdc1\n\n\nhdd\n\n\n3.5 tb\n\n\nHDD3\n\n\n/cyberdata/elassandra-markets\n\n\n\n\n\n\nsdb1\n\n\nhdd\n\n\n3.5 tb\n\n\nHDD2\n\n\n/cyberdata/elassandra-search\n\n\n\n\n\n\nsda1\n\n\nhdd\n\n\n3.5 tb\n\n\nHDD1\n\n\n/backupsData\n\n\n\n\n\n\nsdd1\n\n\nhdd\n\n\n3.5 tb\n\n\ncyberdata\n\n\n/cyberdata\n\n\n\n\n\n\n\n\n/cyberdata\n contents\n\n\n\n\n/cyberdata/portainer/\n - portainer data directory\n\n\n/cyberdata/cybernode/\n - clone of repo https://github.com/cyberFund/cybernode\n\n\n\n\nUseful commands\n\n\nFormat partition:\n\n\nsudo mkfs -t ext4 -L SSD1 /dev/nvme0n1p1\nsudo mkfs -t ext4 -L SSD2 /dev/nvme2n1p1\n\n\n\n\n\n/etc/fstab addition lines:\n\n\nLABEL=cyberdata /cyberdata ext4 defaults 0 0\nLABEL=SSD2 /cyberdata/ssd05tb ext4 nofail 0 0\nLABEL=SSD1 /cyberdata/ssd1tb ext4 nofail 0 0\nLABEL=HDD1 /backupsData ext4 defaults 0 0\nLABEL=HDD2 /cyberdata/elassandra-search ext4 defaults 0 0 \nLABEL=HDD3 /cyberdata/elassandra-markets ext4 defaults 0 0 \n\n\n\n\n\nCopy data:\n\n\nsudo cp -R --verbose /backupsData/chain/eth/eth /cyberdata/ssd05tb/eth/\nsudo cp -R --verbose /cyberdata/bitcoind /cyberdata/ssd05tb/bitcoind/", 
-            "title": "Mars Setup"
-        }, 
-        {
-            "location": "/staging/setup/#current-mars-storage-setup", 
-            "text": "Name  Type  Size  LABEL  Mapping      nvme0n1p1  ssd  1 tb  SDD1  /cyberdata/ssd1tb    nvme2n1p1  ssd  500 gb  SDD2  /cyberdata/ssd05tb    sdc1  hdd  3.5 tb  HDD3  /cyberdata/elassandra-markets    sdb1  hdd  3.5 tb  HDD2  /cyberdata/elassandra-search    sda1  hdd  3.5 tb  HDD1  /backupsData    sdd1  hdd  3.5 tb  cyberdata  /cyberdata", 
-            "title": "Current Mars storage setup"
-        }, 
-        {
-            "location": "/staging/setup/#cyberdata-contents", 
-            "text": "/cyberdata/portainer/  - portainer data directory  /cyberdata/cybernode/  - clone of repo https://github.com/cyberFund/cybernode", 
-            "title": "/cyberdata contents"
-        }, 
-        {
-            "location": "/staging/setup/#useful-commands", 
-            "text": "Format partition:  sudo mkfs -t ext4 -L SSD1 /dev/nvme0n1p1\nsudo mkfs -t ext4 -L SSD2 /dev/nvme2n1p1  /etc/fstab addition lines:  LABEL=cyberdata /cyberdata ext4 defaults 0 0\nLABEL=SSD2 /cyberdata/ssd05tb ext4 nofail 0 0\nLABEL=SSD1 /cyberdata/ssd1tb ext4 nofail 0 0\nLABEL=HDD1 /backupsData ext4 defaults 0 0\nLABEL=HDD2 /cyberdata/elassandra-search ext4 defaults 0 0 \nLABEL=HDD3 /cyberdata/elassandra-markets ext4 defaults 0 0   Copy data:  sudo cp -R --verbose /backupsData/chain/eth/eth /cyberdata/ssd05tb/eth/\nsudo cp -R --verbose /cyberdata/bitcoind /cyberdata/ssd05tb/bitcoind/", 
-            "title": "Useful commands"
-        }, 
-        {
-            "location": "/staging/continuous-delivery/", 
-            "text": "Circle Ci job example\n\n\nTo enable auto staging-redeploy for your application you should:\n\n\n\n\n\n\nEnable \nstaging\n docker images build. For example, you can use dockerhub tag \"STAGING\". \n\n\n\n\n\n\nAdd to \nthe repo\n you image running script.\n\n\n\n\n\n\nAdd a CircleCi job, depended on docker build\npush job. It's all.\n\n\n\n\n\n\nExample: build and deploy for all commits in master\n\n\naliases:\n - \nstaging_filter\n    filters:\n      tags:\n        only: /.*/\n      branches:\n        only: master\n\n\njobs:        \n  build_and_push_image_staging_image:\n    working_directory: ~/build\n    docker:\n      - image: docker:17.05.0-ce-git\n    steps:\n      - checkout\n      - setup_remote_docker:\n          version: 17.05.0-ce\n      - run:\n          name: Build and upload staging images\n          command: |\n            docker build -t build/cs-search-api -f ./devops/search-api/search-api ./\n            docker login -u $DOCKER_USER -p $DOCKER_PASS\n            docker tag build/cs-search-api cybernode/cs-search-api:staging\n            docker push cybernode/cs-search-api:staging\n\n    deploy_stagin_image:\n      working_directory: ~/build\n      docker:\n        - image: docker:17.05.0-ce-git\n      steps:\n        - run:\n            name: Rerun image on staging\n            command: \n-\n              ssh mars@staging.cyber.fund -p 33322 -o \nStrictHostKeyChecking no\n\n              \ncd /cyberdata/cybernode \n git pull \n sh /cyberdata/cybernode/up.search.sh\n\n\n\nworkflows:\n  version: 2\n  staging_cd:\n    jobs:\n      - build_and_push_image_staging_image:\n          \n: *staging_filter\n      - deploy_stagin_image:\n          \n: *staging_filter\n          requires:\n            - build_and_push_image_staging_image", 
-            "title": "Continuous Delivery"
-        }, 
-        {
-            "location": "/staging/continuous-delivery/#circle-ci-job-example", 
-            "text": "To enable auto staging-redeploy for your application you should:    Enable  staging  docker images build. For example, you can use dockerhub tag \"STAGING\".     Add to  the repo  you image running script.    Add a CircleCi job, depended on docker build push job. It's all.", 
-            "title": "Circle Ci job example"
-        }, 
-        {
-            "location": "/staging/continuous-delivery/#example-build-and-deploy-for-all-commits-in-master", 
-            "text": "aliases:\n -  staging_filter\n    filters:\n      tags:\n        only: /.*/\n      branches:\n        only: master\n\n\njobs:        \n  build_and_push_image_staging_image:\n    working_directory: ~/build\n    docker:\n      - image: docker:17.05.0-ce-git\n    steps:\n      - checkout\n      - setup_remote_docker:\n          version: 17.05.0-ce\n      - run:\n          name: Build and upload staging images\n          command: |\n            docker build -t build/cs-search-api -f ./devops/search-api/search-api ./\n            docker login -u $DOCKER_USER -p $DOCKER_PASS\n            docker tag build/cs-search-api cybernode/cs-search-api:staging\n            docker push cybernode/cs-search-api:staging\n\n    deploy_stagin_image:\n      working_directory: ~/build\n      docker:\n        - image: docker:17.05.0-ce-git\n      steps:\n        - run:\n            name: Rerun image on staging\n            command:  -\n              ssh mars@staging.cyber.fund -p 33322 -o  StrictHostKeyChecking no \n               cd /cyberdata/cybernode   git pull   sh /cyberdata/cybernode/up.search.sh \n\n\nworkflows:\n  version: 2\n  staging_cd:\n    jobs:\n      - build_and_push_image_staging_image:\n           : *staging_filter\n      - deploy_stagin_image:\n           : *staging_filter\n          requires:\n            - build_and_push_image_staging_image", 
-            "title": "Example: build and deploy for all commits in master"
-        }, 
-        {
-            "location": "/staging/run/", 
-            "text": "Port mapping\n\n\nPorts that are not accessible from internet. Use ssh forwarding.\n\n\n\n\n8332 - chain btc\n\n\n18332 - chain bth\n\n\n8545 - chain eth\n\n\n\n\n18545 - chain etc\n\n\n\n\n\n\n2181 - zookeper\n\n\n\n\n9092 - kafka\n\n\n9042 - elassandra search\n\n\n9043 - elassandra markets\n\n\n9200 - elastic rest search\n\n\n9201 - elastic rest markets\n\n\n9300 - elastic transport search\n\n\n9301 - elastic transport markets\n\n\n\n\nPorts open for internet.\n\n\n\n\n32001 - portainer\n\n\n32002 - grafana (monitoring)\n\n\n32500 - browser-ui\n\n\n32600 - chaingear 1.0 api\n\n\n32800 - markets rest api\n\n\n32801 - markets stream api\n\n\n32901 - search api\n\n\n\n\nDocker data\n\n\nRun chains\n\n\nChains should be run manually once and ideally should not require addition work. To run chains, execute:\n\n\nsudo bash /cyberdata/cybernode/chains/up.sh\n\n\n\n\n\nRun portainer.io\n\n\nRun once\n\n\ndocker run -d -p 32001:9000 --name portainer --restart always \\\n-v /var/run/docker.sock:/var/run/docker.sock \\\n-v /cyberdata/portainer:/data portainer/portainer\n\n\n\n\n\nRun components\n\n\nsudo bash /cyberdata/cybernode/up.browser.sh\nsudo bash /cyberdata/cybernode/up.chaingear.sh\nsudo bash /cyberdata/cybernode/up.ethereum.index.sh\nsudo bash /cyberdata/cybernode/up.search.api.sh\n\n\n\n\n\nThen go into each \nkafka\n, \nelassandra\n and run\n\n\ndocker-compose up -d\n\n\n\n\n\nTo access \nmonitoring\n dashboard, run \ndocker-compose up -d\n\nin \nmonitoring\n as well.", 
-            "title": "Running Application"
-        }, 
-        {
-            "location": "/staging/run/#port-mapping", 
-            "text": "Ports that are not accessible from internet. Use ssh forwarding.   8332 - chain btc  18332 - chain bth  8545 - chain eth   18545 - chain etc    2181 - zookeper   9092 - kafka  9042 - elassandra search  9043 - elassandra markets  9200 - elastic rest search  9201 - elastic rest markets  9300 - elastic transport search  9301 - elastic transport markets   Ports open for internet.   32001 - portainer  32002 - grafana (monitoring)  32500 - browser-ui  32600 - chaingear 1.0 api  32800 - markets rest api  32801 - markets stream api  32901 - search api", 
-            "title": "Port mapping"
-        }, 
-        {
-            "location": "/staging/run/#docker-data", 
-            "text": "", 
-            "title": "Docker data"
-        }, 
-        {
-            "location": "/staging/run/#run-chains", 
-            "text": "Chains should be run manually once and ideally should not require addition work. To run chains, execute:  sudo bash /cyberdata/cybernode/chains/up.sh", 
-            "title": "Run chains"
-        }, 
-        {
-            "location": "/staging/run/#run-portainerio", 
-            "text": "Run once  docker run -d -p 32001:9000 --name portainer --restart always \\\n-v /var/run/docker.sock:/var/run/docker.sock \\\n-v /cyberdata/portainer:/data portainer/portainer", 
-            "title": "Run portainer.io"
-        }, 
-        {
-            "location": "/staging/run/#run-components", 
-            "text": "sudo bash /cyberdata/cybernode/up.browser.sh\nsudo bash /cyberdata/cybernode/up.chaingear.sh\nsudo bash /cyberdata/cybernode/up.ethereum.index.sh\nsudo bash /cyberdata/cybernode/up.search.api.sh  Then go into each  kafka ,  elassandra  and run  docker-compose up -d  To access  monitoring  dashboard, run  docker-compose up -d \nin  monitoring  as well.", 
-            "title": "Run components"
-        }, 
-        {
-            "location": "/staging/chains/", 
-            "text": "Current chains nodes tables\n\n\n\n\n\n\n\n\nApp\n\n\ndata path\n\n\nport\n\n\ncreds\n\n\ncurrent size\n\n\n\n\n\n\n\n\n\n\nbitcoind - btc\n\n\n/cyberdata/ssd05tb/bitcoind\n\n\n8332\n\n\ncyber:cyber\n\n\n184 gb\n\n\n\n\n\n\nabc    -   bth\n\n\n/cyberdata/abc\n\n\n18332\n\n\nbitcoin:password\n\n\n156 gb\n\n\n\n\n\n\nparity -   eth\n\n\n/cyberdata/ssd05tb/eth\n\n\n8545\n\n\n\n\n56  gb\n\n\n\n\n\n\nparity -   eth_c\n\n\n/cyberdata/ssd05tb/eth_c\n\n\n18545\n\n\n\n\n5.3 gb\n\n\n\n\n\n\n\n\nLocal forwarding port for chains\n\n\nssh -L 18332:localhost:18332 -L 8332:localhost:8332 \\\n-L 18545:localhost:18545 -L 8545:localhost:8545 \\\nmars@staging.cyber.fund  -p 33322\n\n\n\n\n\nCommands used to run chain and live probe\n\n\nBitcoind\n\n\nRun:\n\n\nsudo  docker run -d -p 8332:8332 --name bitcoind  --restart always \\\n-v /cyberdata/ssd05tb/bitcoind:/home/bitcoin/.bitcoin ruimarinho/bitcoin-core:0.15.1 \\\n-server -rest -txindex -rpcpassword=cyber -rpcuser=cyber -rpcallowip=0.0.0.0/0\n\n\n\n\n\nProbe:\n\n\ncurl -X POST -H \nContent-Type: application/json\n \\\n--data \n{\njsonrpc\n:\n2.0\n,\nmethod\n:\ngetblockhash\n,\nparams\n:[1],\nid\n:1}\n \\\nhttp://127.0.0.1:8332 -u cyber:cyber\n\n\n\n\n\nBitcoinABC\n\n\nRun:\n\n\nsudo  docker run -d -p 18332:8332 --name abc  --restart always \n-v /cyberdata/abc:/data zquestz/bitcoin-abc:0.16.1 bitcoind -server -rest\n\n\n\n\n\nProbe:\n\n\ncurl -X POST -H \nContent-Type: application/json\n \\\n--data \n{\njsonrpc\n:\n2.0\n,\nmethod\n:\ngetblockhash\n,\nparams\n:[1],\nid\n:1}\n \\\nhttp://127.0.0.1:18332 -u cyber:cyber\n\n\n\n\n\nParity\n\n\nRun:\n\n\nsudo  docker run -d -p 8545:8545 --name parity_eth  --restart always \\\n-v /cyberdata/ssd05tb/eth:/cyberdata parity/parity:stable \\\n--db-path /cyberdata --jsonrpc-hosts all --jsonrpc-interface all --jsonrpc-threads 10\n\n\n\n\n\nProbe:\n\n\ncurl -X POST -H \nContent-Type: application/json\n \\\n--data \n{\njsonrpc\n:\n2.0\n,\nmethod\n:\neth_getBlockByNumber\n,\nparams\n:[\n0x1\n, true],\nid\n:1}\n\\\n http://127.0.0.1:8545\n\n\n\n\n\nParity --chain classic\n\n\nRun:\n\n\nsudo  docker run -d -p 18545:8545 --name parity_etc  --restart always \\\n-v /cyberdata/ssd05tb/eth_c:/cyberdata parity/parity:stable --db-path /cyberdata \\\n--jsonrpc-hosts all --jsonrpc-interface all --chain classic --jsonrpc-threads 10\n\n\n\n\n\nProbe:\n\n\ncurl -X POST -H \nContent-Type: application/json\n \\\n--data \n{\njsonrpc\n:\n2.0\n,\nmethod\n:\neth_getBlockByNumber\n,\nparams\n:[\n0x1\n, true],\nid\n:1}\n \\\nhttp://127.0.0.1:18545", 
-            "title": "Local Sync Chains"
-        }, 
-        {
-            "location": "/staging/chains/#current-chains-nodes-tables", 
-            "text": "App  data path  port  creds  current size      bitcoind - btc  /cyberdata/ssd05tb/bitcoind  8332  cyber:cyber  184 gb    abc    -   bth  /cyberdata/abc  18332  bitcoin:password  156 gb    parity -   eth  /cyberdata/ssd05tb/eth  8545   56  gb    parity -   eth_c  /cyberdata/ssd05tb/eth_c  18545   5.3 gb", 
-            "title": "Current chains nodes tables"
-        }, 
-        {
-            "location": "/staging/chains/#local-forwarding-port-for-chains", 
-            "text": "ssh -L 18332:localhost:18332 -L 8332:localhost:8332 \\\n-L 18545:localhost:18545 -L 8545:localhost:8545 \\\nmars@staging.cyber.fund  -p 33322", 
-            "title": "Local forwarding port for chains"
-        }, 
-        {
-            "location": "/staging/chains/#commands-used-to-run-chain-and-live-probe", 
-            "text": "", 
-            "title": "Commands used to run chain and live probe"
-        }, 
-        {
-            "location": "/staging/chains/#bitcoind", 
-            "text": "Run:  sudo  docker run -d -p 8332:8332 --name bitcoind  --restart always \\\n-v /cyberdata/ssd05tb/bitcoind:/home/bitcoin/.bitcoin ruimarinho/bitcoin-core:0.15.1 \\\n-server -rest -txindex -rpcpassword=cyber -rpcuser=cyber -rpcallowip=0.0.0.0/0  Probe:  curl -X POST -H  Content-Type: application/json  \\\n--data  { jsonrpc : 2.0 , method : getblockhash , params :[1], id :1}  \\\nhttp://127.0.0.1:8332 -u cyber:cyber", 
-            "title": "Bitcoind"
-        }, 
-        {
-            "location": "/staging/chains/#bitcoinabc", 
-            "text": "Run:  sudo  docker run -d -p 18332:8332 --name abc  --restart always \n-v /cyberdata/abc:/data zquestz/bitcoin-abc:0.16.1 bitcoind -server -rest  Probe:  curl -X POST -H  Content-Type: application/json  \\\n--data  { jsonrpc : 2.0 , method : getblockhash , params :[1], id :1}  \\\nhttp://127.0.0.1:18332 -u cyber:cyber", 
-            "title": "BitcoinABC"
-        }, 
-        {
-            "location": "/staging/chains/#parity", 
-            "text": "Run:  sudo  docker run -d -p 8545:8545 --name parity_eth  --restart always \\\n-v /cyberdata/ssd05tb/eth:/cyberdata parity/parity:stable \\\n--db-path /cyberdata --jsonrpc-hosts all --jsonrpc-interface all --jsonrpc-threads 10  Probe:  curl -X POST -H  Content-Type: application/json  \\\n--data  { jsonrpc : 2.0 , method : eth_getBlockByNumber , params :[ 0x1 , true], id :1} \\\n http://127.0.0.1:8545", 
-            "title": "Parity"
-        }, 
-        {
-            "location": "/staging/chains/#parity-chain-classic", 
-            "text": "Run:  sudo  docker run -d -p 18545:8545 --name parity_etc  --restart always \\\n-v /cyberdata/ssd05tb/eth_c:/cyberdata parity/parity:stable --db-path /cyberdata \\\n--jsonrpc-hosts all --jsonrpc-interface all --chain classic --jsonrpc-threads 10  Probe:  curl -X POST -H  Content-Type: application/json  \\\n--data  { jsonrpc : 2.0 , method : eth_getBlockByNumber , params :[ 0x1 , true], id :1}  \\\nhttp://127.0.0.1:18545", 
-            "title": "Parity --chain classic"
-        }, 
-        {
-            "location": "/staging/kubernetes/", 
-            "text": "Prerequisites\n\n\n\n\n\n\nInstall \nkubectl\n\nfor interacting with Kubernetes.\n\n\n\n\n\n\nInstall \nminikube\n if you want to\ntest setup locally. Make sure to install driver for your OS or else slow\nVirtualBox will be used.\n\n\n\n\n\n\nRunning \nminikube\n for local testing\n\n\n$ minikube start --vm-driver kvm2\nStarting local Kubernetes v1.9.0 cluster...\nStarting VM...\nGetting VM IP address...\nMoving files into cluster...\nSetting up certs...\nConnecting to cluster...\nSetting up kubeconfig...\nStarting cluster components...\nKubectl is now configured to use the cluster.\nLoading cached images from config file.\n\n\n\n\n\nCheck status.\n\n\n$ minikube status\nminikube: Running\ncluster: Running\nkubectl: Correctly Configured: pointing to minikube-vm at 192.168.39.6\n\n\n\n\n\nRun dashboard.\n\n\n$ minikube dashboard\nOpening kubernetes dashboard in default browser...\n\n\n\n\n\nRun single container in a cluster\n\n\n$ kubectl run miniecho --image=k8s.gcr.io/echoserver:1.9 --port=8080\n\n\n\n\n\nThis adds \ndeployment\n called \nminiecho\n to cluster, runs Docker \nechoserver\n\nimage in it and tells docker to open port 8080. The port is not accessible\nuntil we create \nservice\n.\n\n\n$ kubectl expose deployment miniecho --type=NodePort\nservice \nminiecho\n exposed\n\n\n\n\n\nThis makes \nminiecho\n service accessible from your machine on random port.\n\n\n$ minikube service list\n|-------------|----------------------|---------------------------|\n|  NAMESPACE  |         NAME         |            URL            |\n|-------------|----------------------|---------------------------|\n| default     | kubernetes           | No node port              |\n| default     | miniecho             | http://192.168.39.6:30426 |\n| kube-system | kube-dns             | No node port              |\n| kube-system | kubernetes-dashboard | http://192.168.39.6:30000 |\n|-------------|----------------------|---------------------------|", 
-            "title": "Kubernetes"
-        }, 
-        {
-            "location": "/staging/kubernetes/#prerequisites", 
-            "text": "Install  kubectl \nfor interacting with Kubernetes.    Install  minikube  if you want to\ntest setup locally. Make sure to install driver for your OS or else slow\nVirtualBox will be used.", 
-            "title": "Prerequisites"
-        }, 
-        {
-            "location": "/staging/kubernetes/#running-minikube-for-local-testing", 
-            "text": "$ minikube start --vm-driver kvm2\nStarting local Kubernetes v1.9.0 cluster...\nStarting VM...\nGetting VM IP address...\nMoving files into cluster...\nSetting up certs...\nConnecting to cluster...\nSetting up kubeconfig...\nStarting cluster components...\nKubectl is now configured to use the cluster.\nLoading cached images from config file.  Check status.  $ minikube status\nminikube: Running\ncluster: Running\nkubectl: Correctly Configured: pointing to minikube-vm at 192.168.39.6  Run dashboard.  $ minikube dashboard\nOpening kubernetes dashboard in default browser...", 
-            "title": "Running minikube for local testing"
-        }, 
-        {
-            "location": "/staging/kubernetes/#run-single-container-in-a-cluster", 
-            "text": "$ kubectl run miniecho --image=k8s.gcr.io/echoserver:1.9 --port=8080  This adds  deployment  called  miniecho  to cluster, runs Docker  echoserver \nimage in it and tells docker to open port 8080. The port is not accessible\nuntil we create  service .  $ kubectl expose deployment miniecho --type=NodePort\nservice  miniecho  exposed  This makes  miniecho  service accessible from your machine on random port.  $ minikube service list\n|-------------|----------------------|---------------------------|\n|  NAMESPACE  |         NAME         |            URL            |\n|-------------|----------------------|---------------------------|\n| default     | kubernetes           | No node port              |\n| default     | miniecho             | http://192.168.39.6:30426 |\n| kube-system | kube-dns             | No node port              |\n| kube-system | kubernetes-dashboard | http://192.168.39.6:30000 |\n|-------------|----------------------|---------------------------|", 
-            "title": "Run single container in a cluster"
         }, 
         {
             "location": "/cybernode/about/", 
@@ -296,6 +171,131 @@
             "title": "Chain Nodes Components"
         }, 
         {
+            "location": "/cybernode/staging/setup/", 
+            "text": "Mars is our \nstaging\n server. You may reuse its config for your own.\n\n\nCurrent Mars storage setup\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nSize\n\n\nLABEL\n\n\nMapping\n\n\n\n\n\n\n\n\n\n\nnvme0n1p1\n\n\nssd\n\n\n1 tb\n\n\nSDD1\n\n\n/cyberdata/ssd1tb\n\n\n\n\n\n\nnvme2n1p1\n\n\nssd\n\n\n500 gb\n\n\nSDD2\n\n\n/cyberdata/ssd05tb\n\n\n\n\n\n\nsdc1\n\n\nhdd\n\n\n3.5 tb\n\n\nHDD3\n\n\n/cyberdata/elassandra-markets\n\n\n\n\n\n\nsdb1\n\n\nhdd\n\n\n3.5 tb\n\n\nHDD2\n\n\n/cyberdata/elassandra-search\n\n\n\n\n\n\nsda1\n\n\nhdd\n\n\n3.5 tb\n\n\nHDD1\n\n\n/backupsData\n\n\n\n\n\n\nsdd1\n\n\nhdd\n\n\n3.5 tb\n\n\ncyberdata\n\n\n/cyberdata\n\n\n\n\n\n\n\n\n/cyberdata\n contents\n\n\n\n\n/cyberdata/portainer/\n - portainer data directory\n\n\n/cyberdata/cybernode/\n - clone of repo https://github.com/cyberFund/cybernode\n\n\n\n\nUseful commands\n\n\nFormat partition:\n\n\nsudo mkfs -t ext4 -L SSD1 /dev/nvme0n1p1\nsudo mkfs -t ext4 -L SSD2 /dev/nvme2n1p1\n\n\n\n\n\n/etc/fstab addition lines:\n\n\nLABEL=cyberdata /cyberdata ext4 defaults 0 0\nLABEL=SSD2 /cyberdata/ssd05tb ext4 nofail 0 0\nLABEL=SSD1 /cyberdata/ssd1tb ext4 nofail 0 0\nLABEL=HDD1 /backupsData ext4 defaults 0 0\nLABEL=HDD2 /cyberdata/elassandra-search ext4 defaults 0 0 \nLABEL=HDD3 /cyberdata/elassandra-markets ext4 defaults 0 0 \n\n\n\n\n\nCopy data:\n\n\nsudo cp -R --verbose /backupsData/chain/eth/eth /cyberdata/ssd05tb/eth/\nsudo cp -R --verbose /cyberdata/bitcoind /cyberdata/ssd05tb/bitcoind/", 
+            "title": "Mars Setup"
+        }, 
+        {
+            "location": "/cybernode/staging/setup/#current-mars-storage-setup", 
+            "text": "Name  Type  Size  LABEL  Mapping      nvme0n1p1  ssd  1 tb  SDD1  /cyberdata/ssd1tb    nvme2n1p1  ssd  500 gb  SDD2  /cyberdata/ssd05tb    sdc1  hdd  3.5 tb  HDD3  /cyberdata/elassandra-markets    sdb1  hdd  3.5 tb  HDD2  /cyberdata/elassandra-search    sda1  hdd  3.5 tb  HDD1  /backupsData    sdd1  hdd  3.5 tb  cyberdata  /cyberdata", 
+            "title": "Current Mars storage setup"
+        }, 
+        {
+            "location": "/cybernode/staging/setup/#cyberdata-contents", 
+            "text": "/cyberdata/portainer/  - portainer data directory  /cyberdata/cybernode/  - clone of repo https://github.com/cyberFund/cybernode", 
+            "title": "/cyberdata contents"
+        }, 
+        {
+            "location": "/cybernode/staging/setup/#useful-commands", 
+            "text": "Format partition:  sudo mkfs -t ext4 -L SSD1 /dev/nvme0n1p1\nsudo mkfs -t ext4 -L SSD2 /dev/nvme2n1p1  /etc/fstab addition lines:  LABEL=cyberdata /cyberdata ext4 defaults 0 0\nLABEL=SSD2 /cyberdata/ssd05tb ext4 nofail 0 0\nLABEL=SSD1 /cyberdata/ssd1tb ext4 nofail 0 0\nLABEL=HDD1 /backupsData ext4 defaults 0 0\nLABEL=HDD2 /cyberdata/elassandra-search ext4 defaults 0 0 \nLABEL=HDD3 /cyberdata/elassandra-markets ext4 defaults 0 0   Copy data:  sudo cp -R --verbose /backupsData/chain/eth/eth /cyberdata/ssd05tb/eth/\nsudo cp -R --verbose /cyberdata/bitcoind /cyberdata/ssd05tb/bitcoind/", 
+            "title": "Useful commands"
+        }, 
+        {
+            "location": "/cybernode/staging/continuous-delivery/", 
+            "text": "Circle Ci job example\n\n\nTo enable auto staging-redeploy for your application you should:\n\n\n\n\n\n\nEnable \nstaging\n docker images build. For example, you can use dockerhub tag \"STAGING\". \n\n\n\n\n\n\nAdd to \nthe repo\n you image running script.\n\n\n\n\n\n\nAdd a CircleCi job, depended on docker build\npush job. It's all.\n\n\n\n\n\n\nExample: build and deploy for all commits in master\n\n\naliases:\n - \nstaging_filter\n    filters:\n      tags:\n        only: /.*/\n      branches:\n        only: master\n\n\njobs:        \n  build_and_push_image_staging_image:\n    working_directory: ~/build\n    docker:\n      - image: docker:17.05.0-ce-git\n    steps:\n      - checkout\n      - setup_remote_docker:\n          version: 17.05.0-ce\n      - run:\n          name: Build and upload staging images\n          command: |\n            docker build -t build/cs-search-api -f ./devops/search-api/search-api ./\n            docker login -u $DOCKER_USER -p $DOCKER_PASS\n            docker tag build/cs-search-api cybernode/cs-search-api:staging\n            docker push cybernode/cs-search-api:staging\n\n    deploy_stagin_image:\n      working_directory: ~/build\n      docker:\n        - image: docker:17.05.0-ce-git\n      steps:\n        - run:\n            name: Rerun image on staging\n            command: \n-\n              ssh mars@staging.cyber.fund -p 33322 -o \nStrictHostKeyChecking no\n\n              \ncd /cyberdata/cybernode \n git pull \n sh /cyberdata/cybernode/up.search.sh\n\n\n\nworkflows:\n  version: 2\n  staging_cd:\n    jobs:\n      - build_and_push_image_staging_image:\n          \n: *staging_filter\n      - deploy_stagin_image:\n          \n: *staging_filter\n          requires:\n            - build_and_push_image_staging_image", 
+            "title": "Continuous Delivery"
+        }, 
+        {
+            "location": "/cybernode/staging/continuous-delivery/#circle-ci-job-example", 
+            "text": "To enable auto staging-redeploy for your application you should:    Enable  staging  docker images build. For example, you can use dockerhub tag \"STAGING\".     Add to  the repo  you image running script.    Add a CircleCi job, depended on docker build push job. It's all.", 
+            "title": "Circle Ci job example"
+        }, 
+        {
+            "location": "/cybernode/staging/continuous-delivery/#example-build-and-deploy-for-all-commits-in-master", 
+            "text": "aliases:\n -  staging_filter\n    filters:\n      tags:\n        only: /.*/\n      branches:\n        only: master\n\n\njobs:        \n  build_and_push_image_staging_image:\n    working_directory: ~/build\n    docker:\n      - image: docker:17.05.0-ce-git\n    steps:\n      - checkout\n      - setup_remote_docker:\n          version: 17.05.0-ce\n      - run:\n          name: Build and upload staging images\n          command: |\n            docker build -t build/cs-search-api -f ./devops/search-api/search-api ./\n            docker login -u $DOCKER_USER -p $DOCKER_PASS\n            docker tag build/cs-search-api cybernode/cs-search-api:staging\n            docker push cybernode/cs-search-api:staging\n\n    deploy_stagin_image:\n      working_directory: ~/build\n      docker:\n        - image: docker:17.05.0-ce-git\n      steps:\n        - run:\n            name: Rerun image on staging\n            command:  -\n              ssh mars@staging.cyber.fund -p 33322 -o  StrictHostKeyChecking no \n               cd /cyberdata/cybernode   git pull   sh /cyberdata/cybernode/up.search.sh \n\n\nworkflows:\n  version: 2\n  staging_cd:\n    jobs:\n      - build_and_push_image_staging_image:\n           : *staging_filter\n      - deploy_stagin_image:\n           : *staging_filter\n          requires:\n            - build_and_push_image_staging_image", 
+            "title": "Example: build and deploy for all commits in master"
+        }, 
+        {
+            "location": "/cybernode/staging/run/", 
+            "text": "Port mapping\n\n\nPorts that are not accessible from internet. Use ssh forwarding.\n\n\n\n\n8332 - chain btc\n\n\n18332 - chain bth\n\n\n8545 - chain eth\n\n\n\n\n18545 - chain etc\n\n\n\n\n\n\n2181 - zookeper\n\n\n\n\n9092 - kafka\n\n\n9042 - elassandra search\n\n\n9043 - elassandra markets\n\n\n9200 - elastic rest search\n\n\n9201 - elastic rest markets\n\n\n9300 - elastic transport search\n\n\n9301 - elastic transport markets\n\n\n\n\nPorts open for internet.\n\n\n\n\n32001 - portainer\n\n\n32002 - grafana (monitoring)\n\n\n32500 - browser-ui\n\n\n32600 - chaingear 1.0 api\n\n\n32800 - markets rest api\n\n\n32801 - markets stream api\n\n\n32901 - search api\n\n\n\n\nDocker data\n\n\nRun chains\n\n\nChains should be run manually once and ideally should not require addition work. To run chains, execute:\n\n\nsudo bash /cyberdata/cybernode/chains/up.sh\n\n\n\n\n\nRun portainer.io\n\n\nRun once\n\n\ndocker run -d -p 32001:9000 --name portainer --restart always \\\n-v /var/run/docker.sock:/var/run/docker.sock \\\n-v /cyberdata/portainer:/data portainer/portainer\n\n\n\n\n\nRun components\n\n\nsudo bash /cyberdata/cybernode/up.browser.sh\nsudo bash /cyberdata/cybernode/up.chaingear.sh\nsudo bash /cyberdata/cybernode/up.ethereum.index.sh\nsudo bash /cyberdata/cybernode/up.search.api.sh\n\n\n\n\n\nThen go into each \nkafka\n, \nelassandra\n and run\n\n\ndocker-compose up -d\n\n\n\n\n\nTo access \nmonitoring\n dashboard, run \ndocker-compose up -d\n\nin \nmonitoring\n as well.", 
+            "title": "Running Application"
+        }, 
+        {
+            "location": "/cybernode/staging/run/#port-mapping", 
+            "text": "Ports that are not accessible from internet. Use ssh forwarding.   8332 - chain btc  18332 - chain bth  8545 - chain eth   18545 - chain etc    2181 - zookeper   9092 - kafka  9042 - elassandra search  9043 - elassandra markets  9200 - elastic rest search  9201 - elastic rest markets  9300 - elastic transport search  9301 - elastic transport markets   Ports open for internet.   32001 - portainer  32002 - grafana (monitoring)  32500 - browser-ui  32600 - chaingear 1.0 api  32800 - markets rest api  32801 - markets stream api  32901 - search api", 
+            "title": "Port mapping"
+        }, 
+        {
+            "location": "/cybernode/staging/run/#docker-data", 
+            "text": "", 
+            "title": "Docker data"
+        }, 
+        {
+            "location": "/cybernode/staging/run/#run-chains", 
+            "text": "Chains should be run manually once and ideally should not require addition work. To run chains, execute:  sudo bash /cyberdata/cybernode/chains/up.sh", 
+            "title": "Run chains"
+        }, 
+        {
+            "location": "/cybernode/staging/run/#run-portainerio", 
+            "text": "Run once  docker run -d -p 32001:9000 --name portainer --restart always \\\n-v /var/run/docker.sock:/var/run/docker.sock \\\n-v /cyberdata/portainer:/data portainer/portainer", 
+            "title": "Run portainer.io"
+        }, 
+        {
+            "location": "/cybernode/staging/run/#run-components", 
+            "text": "sudo bash /cyberdata/cybernode/up.browser.sh\nsudo bash /cyberdata/cybernode/up.chaingear.sh\nsudo bash /cyberdata/cybernode/up.ethereum.index.sh\nsudo bash /cyberdata/cybernode/up.search.api.sh  Then go into each  kafka ,  elassandra  and run  docker-compose up -d  To access  monitoring  dashboard, run  docker-compose up -d \nin  monitoring  as well.", 
+            "title": "Run components"
+        }, 
+        {
+            "location": "/cybernode/staging/chains/", 
+            "text": "Current chains nodes tables\n\n\n\n\n\n\n\n\nApp\n\n\ndata path\n\n\nport\n\n\ncreds\n\n\ncurrent size\n\n\n\n\n\n\n\n\n\n\nbitcoind - btc\n\n\n/cyberdata/ssd05tb/bitcoind\n\n\n8332\n\n\ncyber:cyber\n\n\n184 gb\n\n\n\n\n\n\nabc    -   bth\n\n\n/cyberdata/abc\n\n\n18332\n\n\nbitcoin:password\n\n\n156 gb\n\n\n\n\n\n\nparity -   eth\n\n\n/cyberdata/ssd05tb/eth\n\n\n8545\n\n\n\n\n56  gb\n\n\n\n\n\n\nparity -   eth_c\n\n\n/cyberdata/ssd05tb/eth_c\n\n\n18545\n\n\n\n\n5.3 gb\n\n\n\n\n\n\n\n\nLocal forwarding port for chains\n\n\nssh -L 18332:localhost:18332 -L 8332:localhost:8332 \\\n-L 18545:localhost:18545 -L 8545:localhost:8545 \\\nmars@staging.cyber.fund  -p 33322\n\n\n\n\n\nCommands used to run chain and live probe\n\n\nBitcoind\n\n\nRun:\n\n\nsudo  docker run -d -p 8332:8332 --name bitcoind  --restart always \\\n-v /cyberdata/ssd05tb/bitcoind:/home/bitcoin/.bitcoin ruimarinho/bitcoin-core:0.15.1 \\\n-server -rest -txindex -rpcpassword=cyber -rpcuser=cyber -rpcallowip=0.0.0.0/0\n\n\n\n\n\nProbe:\n\n\ncurl -X POST -H \nContent-Type: application/json\n \\\n--data \n{\njsonrpc\n:\n2.0\n,\nmethod\n:\ngetblockhash\n,\nparams\n:[1],\nid\n:1}\n \\\nhttp://127.0.0.1:8332 -u cyber:cyber\n\n\n\n\n\nBitcoinABC\n\n\nRun:\n\n\nsudo  docker run -d -p 18332:8332 --name abc  --restart always \n-v /cyberdata/abc:/data zquestz/bitcoin-abc:0.16.1 bitcoind -server -rest\n\n\n\n\n\nProbe:\n\n\ncurl -X POST -H \nContent-Type: application/json\n \\\n--data \n{\njsonrpc\n:\n2.0\n,\nmethod\n:\ngetblockhash\n,\nparams\n:[1],\nid\n:1}\n \\\nhttp://127.0.0.1:18332 -u cyber:cyber\n\n\n\n\n\nParity\n\n\nRun:\n\n\nsudo  docker run -d -p 8545:8545 --name parity_eth  --restart always \\\n-v /cyberdata/ssd05tb/eth:/cyberdata parity/parity:stable \\\n--db-path /cyberdata --jsonrpc-hosts all --jsonrpc-interface all --jsonrpc-threads 10\n\n\n\n\n\nProbe:\n\n\ncurl -X POST -H \nContent-Type: application/json\n \\\n--data \n{\njsonrpc\n:\n2.0\n,\nmethod\n:\neth_getBlockByNumber\n,\nparams\n:[\n0x1\n, true],\nid\n:1}\n\\\n http://127.0.0.1:8545\n\n\n\n\n\nParity --chain classic\n\n\nRun:\n\n\nsudo  docker run -d -p 18545:8545 --name parity_etc  --restart always \\\n-v /cyberdata/ssd05tb/eth_c:/cyberdata parity/parity:stable --db-path /cyberdata \\\n--jsonrpc-hosts all --jsonrpc-interface all --chain classic --jsonrpc-threads 10\n\n\n\n\n\nProbe:\n\n\ncurl -X POST -H \nContent-Type: application/json\n \\\n--data \n{\njsonrpc\n:\n2.0\n,\nmethod\n:\neth_getBlockByNumber\n,\nparams\n:[\n0x1\n, true],\nid\n:1}\n \\\nhttp://127.0.0.1:18545", 
+            "title": "Local Sync Chains"
+        }, 
+        {
+            "location": "/cybernode/staging/chains/#current-chains-nodes-tables", 
+            "text": "App  data path  port  creds  current size      bitcoind - btc  /cyberdata/ssd05tb/bitcoind  8332  cyber:cyber  184 gb    abc    -   bth  /cyberdata/abc  18332  bitcoin:password  156 gb    parity -   eth  /cyberdata/ssd05tb/eth  8545   56  gb    parity -   eth_c  /cyberdata/ssd05tb/eth_c  18545   5.3 gb", 
+            "title": "Current chains nodes tables"
+        }, 
+        {
+            "location": "/cybernode/staging/chains/#local-forwarding-port-for-chains", 
+            "text": "ssh -L 18332:localhost:18332 -L 8332:localhost:8332 \\\n-L 18545:localhost:18545 -L 8545:localhost:8545 \\\nmars@staging.cyber.fund  -p 33322", 
+            "title": "Local forwarding port for chains"
+        }, 
+        {
+            "location": "/cybernode/staging/chains/#commands-used-to-run-chain-and-live-probe", 
+            "text": "", 
+            "title": "Commands used to run chain and live probe"
+        }, 
+        {
+            "location": "/cybernode/staging/chains/#bitcoind", 
+            "text": "Run:  sudo  docker run -d -p 8332:8332 --name bitcoind  --restart always \\\n-v /cyberdata/ssd05tb/bitcoind:/home/bitcoin/.bitcoin ruimarinho/bitcoin-core:0.15.1 \\\n-server -rest -txindex -rpcpassword=cyber -rpcuser=cyber -rpcallowip=0.0.0.0/0  Probe:  curl -X POST -H  Content-Type: application/json  \\\n--data  { jsonrpc : 2.0 , method : getblockhash , params :[1], id :1}  \\\nhttp://127.0.0.1:8332 -u cyber:cyber", 
+            "title": "Bitcoind"
+        }, 
+        {
+            "location": "/cybernode/staging/chains/#bitcoinabc", 
+            "text": "Run:  sudo  docker run -d -p 18332:8332 --name abc  --restart always \n-v /cyberdata/abc:/data zquestz/bitcoin-abc:0.16.1 bitcoind -server -rest  Probe:  curl -X POST -H  Content-Type: application/json  \\\n--data  { jsonrpc : 2.0 , method : getblockhash , params :[1], id :1}  \\\nhttp://127.0.0.1:18332 -u cyber:cyber", 
+            "title": "BitcoinABC"
+        }, 
+        {
+            "location": "/cybernode/staging/chains/#parity", 
+            "text": "Run:  sudo  docker run -d -p 8545:8545 --name parity_eth  --restart always \\\n-v /cyberdata/ssd05tb/eth:/cyberdata parity/parity:stable \\\n--db-path /cyberdata --jsonrpc-hosts all --jsonrpc-interface all --jsonrpc-threads 10  Probe:  curl -X POST -H  Content-Type: application/json  \\\n--data  { jsonrpc : 2.0 , method : eth_getBlockByNumber , params :[ 0x1 , true], id :1} \\\n http://127.0.0.1:8545", 
+            "title": "Parity"
+        }, 
+        {
+            "location": "/cybernode/staging/chains/#parity-chain-classic", 
+            "text": "Run:  sudo  docker run -d -p 18545:8545 --name parity_etc  --restart always \\\n-v /cyberdata/ssd05tb/eth_c:/cyberdata parity/parity:stable --db-path /cyberdata \\\n--jsonrpc-hosts all --jsonrpc-interface all --chain classic --jsonrpc-threads 10  Probe:  curl -X POST -H  Content-Type: application/json  \\\n--data  { jsonrpc : 2.0 , method : eth_getBlockByNumber , params :[ 0x1 , true], id :1}  \\\nhttp://127.0.0.1:18545", 
+            "title": "Parity --chain classic"
+        }, 
+        {
+            "location": "/cybernode/staging/kubernetes/", 
+            "text": "Prerequisites\n\n\n\n\n\n\nInstall \nkubectl\n\nfor interacting with Kubernetes.\n\n\n\n\n\n\nInstall \nminikube\n if you want to\ntest setup locally. Make sure to install driver for your OS or else slow\nVirtualBox will be used.\n\n\n\n\n\n\nRunning \nminikube\n for local testing\n\n\n$ minikube start --vm-driver kvm2\nStarting local Kubernetes v1.9.0 cluster...\nStarting VM...\nGetting VM IP address...\nMoving files into cluster...\nSetting up certs...\nConnecting to cluster...\nSetting up kubeconfig...\nStarting cluster components...\nKubectl is now configured to use the cluster.\nLoading cached images from config file.\n\n\n\n\n\nCheck status.\n\n\n$ minikube status\nminikube: Running\ncluster: Running\nkubectl: Correctly Configured: pointing to minikube-vm at 192.168.39.6\n\n\n\n\n\nRun dashboard.\n\n\n$ minikube dashboard\nOpening kubernetes dashboard in default browser...\n\n\n\n\n\nRun single container in a cluster\n\n\n$ kubectl run miniecho --image=k8s.gcr.io/echoserver:1.9 --port=8080\n\n\n\n\n\nThis adds \ndeployment\n called \nminiecho\n to cluster, runs Docker \nechoserver\n\nimage in it and tells docker to open port 8080. The port is not accessible\nuntil we create \nservice\n.\n\n\n$ kubectl expose deployment miniecho --type=NodePort\nservice \nminiecho\n exposed\n\n\n\n\n\nThis makes \nminiecho\n service accessible from your machine on random port.\n\n\n$ minikube service list\n|-------------|----------------------|---------------------------|\n|  NAMESPACE  |         NAME         |            URL            |\n|-------------|----------------------|---------------------------|\n| default     | kubernetes           | No node port              |\n| default     | miniecho             | http://192.168.39.6:30426 |\n| kube-system | kube-dns             | No node port              |\n| kube-system | kubernetes-dashboard | http://192.168.39.6:30000 |\n|-------------|----------------------|---------------------------|", 
+            "title": "Kubernetes"
+        }, 
+        {
+            "location": "/cybernode/staging/kubernetes/#prerequisites", 
+            "text": "Install  kubectl \nfor interacting with Kubernetes.    Install  minikube  if you want to\ntest setup locally. Make sure to install driver for your OS or else slow\nVirtualBox will be used.", 
+            "title": "Prerequisites"
+        }, 
+        {
+            "location": "/cybernode/staging/kubernetes/#running-minikube-for-local-testing", 
+            "text": "$ minikube start --vm-driver kvm2\nStarting local Kubernetes v1.9.0 cluster...\nStarting VM...\nGetting VM IP address...\nMoving files into cluster...\nSetting up certs...\nConnecting to cluster...\nSetting up kubeconfig...\nStarting cluster components...\nKubectl is now configured to use the cluster.\nLoading cached images from config file.  Check status.  $ minikube status\nminikube: Running\ncluster: Running\nkubectl: Correctly Configured: pointing to minikube-vm at 192.168.39.6  Run dashboard.  $ minikube dashboard\nOpening kubernetes dashboard in default browser...", 
+            "title": "Running minikube for local testing"
+        }, 
+        {
+            "location": "/cybernode/staging/kubernetes/#run-single-container-in-a-cluster", 
+            "text": "$ kubectl run miniecho --image=k8s.gcr.io/echoserver:1.9 --port=8080  This adds  deployment  called  miniecho  to cluster, runs Docker  echoserver \nimage in it and tells docker to open port 8080. The port is not accessible\nuntil we create  service .  $ kubectl expose deployment miniecho --type=NodePort\nservice  miniecho  exposed  This makes  miniecho  service accessible from your machine on random port.  $ minikube service list\n|-------------|----------------------|---------------------------|\n|  NAMESPACE  |         NAME         |            URL            |\n|-------------|----------------------|---------------------------|\n| default     | kubernetes           | No node port              |\n| default     | miniecho             | http://192.168.39.6:30426 |\n| kube-system | kube-dns             | No node port              |\n| kube-system | kubernetes-dashboard | http://192.168.39.6:30000 |\n|-------------|----------------------|---------------------------|", 
+            "title": "Run single container in a cluster"
+        }, 
+        {
             "location": "/cybernode/chains/bitcoin/", 
             "text": "", 
             "title": "Bitcoin"
@@ -309,6 +309,276 @@
             "location": "/cybernode/chains/ethereum/#known-issues", 
             "text": "For  2806264 block  there is a transaction with size more than 1mb, general rule, size of item can be  1mb.", 
             "title": "Known issues"
+        }, 
+        {
+            "location": "/cyberBrowser/Vision_and_Scope/", 
+            "text": "Tha main purpose of this document is to describe requirements and the structure of browser pages. With installed draw.io application or using the online version you can open mockups and check the current state of work.\n\n\nProject description\n\n\nCyber browser - an entrance point to start working with blockchains.\n\n\nRequirements\n\n\n1. Business Requirements\n\n\n\n\nLead users to make payable actions (create registry, develop custom browser app, pay for developing functionality)\n\n\nAttract mimimum 100 000 active users till token distribution\n\n\n\n\n2. Business rules\n\n\n\n\nFocusing on developers and Metamask users\n\n\nDeveloping in terms of web 3.0 principles\n\n\nFull tokenization of economy processes (valuation, transfering data)\n\n\nCollect feedback and create analytics with use of instruments that aviod collect personal data\n\n\n\n\n3. Common functional requirements\n\n\n\n\nIntegration with Metamask \n\n\nIPFS integration\n\n\nAvoid pagination in all tables (use scrolling instead)\n\n\nPrefered type of data structure - tables\n\n\n\n\n3. Common non-functional requirements\n\n\n\n\nSimple and attractive design\n\n\nIntuitive UI\n\n\nAdaptive design for mobile devices\n\n\n\n\n3. System requirements\n\n\n\n\nless than 1 second for loading page\n\n\nless than 3 seconds for loading all data\n\n\nWeb version of browser (React)\n\n\nDesktop version (Electron + React) \n\n\nMobile web version\n\n\n\n\nBrowser Pages\n\n\n1. Main Page\n\n\nPurpose:\n accent the user's attention to search function. \n\n\nDesign \n UI features:\n simple and attractive design, hints to start usage of cyber products.\n\n\nThere is a status text below search panel which describes technical information about cyber.Search products:\n\n\nSearch in 134 M transactions in 2 blockchain systems with 135 parsed tokens. Database size : 369 GBs\n \n\n\nwhere transactions are the number of all indexed transactions from all blockchains connected to Cybernode, blockchain systems - all blockchains processed by Cybernode, tokens - all unique tokens from all blockchains indexed, database size - size of Cassandra (index) database.\n\n\nThere are 3 main widgets below the status string describing the cryptoeconomy, registers and portfolio:\n1. Total market cap [billions of USD] - is a summ of all token capitalizations, valuated in USD. \n\n\n_**Call to action:** transition to cybernomics page_.\n\n\n\n\n\n\n\n\n\nChaingear registers [number] - number of user's registers (for authorized ones with created registers) or number of created registers in Chaingear.\n\n\nCall to action:\n transition to Chaingear page\n.\n\n\n\n\n\n\nPortfolio volume [valuation in BTC] - volume of user's portfolio (for authorized ones) valuated in BTC or hint to create portfolio (for non authorized users).\n\n\nCall to action:\n transition to Portfolio page\n.\n\n\n\n\n\n\nAt the bottom of the page 5 project links are placed:\n1. GitHub - GitHub repository of cyber.Search\n2. Roadmap - roadmap of all cyber.Search projects\n3. Cybernode - Cybeernode landing page\n4. Dashboard - a link user's custom dashboard\n5. Knowledge - a link to knowledge database of cyber.Search projects\n\n\nProposals:\n\n\n\n\nPlace a hint to use Metamask for getting the full functionality (when page requires metamask - make the icon active/ otherwise - non active).\n\n\nPlugs for developing functionality\n\n\nPlace transition to roadmap where users can donate for developing options\n\n\n\n\n2. Search Results Page\n\n\nPurpose:\n provide easy and quick functionality for working with blockchain search.\n\n\nDesign \n UI  features:\n strictly logical UI, adaptive preferenses of filtration and sorting. \n\n\nObjects of search.\n\n\nThere are 2 types of search provided by browser:\n1. Global search (searching in whole ecosystem of indexed objects)\n2. Context search (searching the data in certain pages)\n\n\nThere are 4 systems (blockchains) in which you can find data:\n\n\n\n\nBitcoin\n\n\nBitcoin Cash\n\n\nEthereum\n\n\nEthereum Classic\n\n\n\n\nThere are 4 types of objects that can be foung in listed systems:\n\n\n\n\nContracts\n\n\nTransactions\n\n\nBlocks\n\n\nUncle blocks\n\n\n\n\nObjects can be found by entering next types of queries:\n\n\n\n\nFull hash (address, block, uncle, transaction)\n\n\nNumber (block/uncle)\n\n\n\n\nThe search pannel in general should include next functions:\n1. Global and local search (GitHub style)\n2. Autocomplete function\n\n\nSearch results.\n\n\nLeft menu includes next hardcoded functions:\n\n\n\n\nDisplay listed systems (blockchains)\n\n\nDisplay listed objects\n\n\n\n\nSearch results in general are shown as a list of object preview. Each object preview its own structure:\n\n\n\n\nTransaction:\n\n\nHash\n\n\nValue\n\n\nTime of finalization (or time of confirmation or \"Mempool\" status)\n\n\n\"From\" address hash (Only for Ethereum and Ethereum Classic)\n\n\n\n\n\"To\" address hash (Only for Ethereum and Ethereum Classic) \n\n\n\n\n\n\nBlock\n\n\n\n\nBlock number\n\n\nHash\n\n\nNumber of transactions\n\n\n\n\nTime of creation\n\n\n\n\n\n\nUncle\n\n\n\n\nHash\n\n\nUncle position\n\n\n\n\nTime  of creation\n\n\n\n\n\n\nContract\n\n\n\n\nHash\n\n\nValue\n\n\nTime of creation\n\n\n\n\nEach preview has clickable hash string, that leads to block/uncle, contract or transaction page.\n\n\nThere is a pagination function on results page. It should be implemented via button \"show more\" at the bottom of the page.\n\n\n2.1 Contract Page\n\n\n2.2 Transaction Page\n\n\n2.3 Block Page\n\n\nCurrently browser shows 3 types of block pages:\n\n\n\n\nEthereum (Ethereum Classic) block page\n\n\nEthereum (Ethereum Classic) uncle block page\n\n\nBitcoin (Bitcoin Cash) block page\n\n\n\n\n2.3.1 Bitcoin block\n\n\nData which is displayed (including options and user actions):\n\n\n\n\nBitcoin block number [number] (header of page)\n\n\nTime (UTC) [date] - time of block generation\n\n\nBloch hash [string] - hash of block\n\n\nMerkle root [string] - hash of merkle tree\n\n\nBlock version [number] - number of block\n\n\nBlock size [number + number of bytes]\n\n\nNonce [string] - answer to PoW\n\n\nMiner [string] - miner hash\n\n\nDifficulty [number] - mining difficulty\n\n\nStatic block reward [number + currency] - static reward for block mining\n\n\nFees [number + currency] - \n\n\n\n\n3. Blockchains Page\n\n\n3.1 Blockchain Page\n\n\n4. Tokens Page\n\n\n4.1 Token Page\n\n\n5. Exchanges Page\n\n\n5.1 Exchange page\n\n\n6. Chaingear Page\n\n\nPurpose:\n provide easy integration with Chaingear. \n\nDesign \n UI  features:\n simple UI, autoupdate register data, preview of changes.\n\n\nAll functionality is available after Metamask authorization.\n\n\nMain functions of the page:\n\n\n\n\nWatch and label created registers.\n\n\nCreate register\n\n\nEdit register (entry)\n\n\nDelete register\n\n\nTransfer the rights of usage to another account\n\n\nUpload content to register via IPFS\n\n\nJSON import of custom fields\n\n\nReal time calculation of registry creation costs\n\n\nData import from smart contract\n\n\n\n\n7. Cybernode Page\n\n\n8. Labels Page\n\n\n9. Portfolio Page\n\n\n10. FAQ Page", 
+            "title": "About browser"
+        }, 
+        {
+            "location": "/cyberBrowser/Vision_and_Scope/#project-description", 
+            "text": "Cyber browser - an entrance point to start working with blockchains.", 
+            "title": "Project description"
+        }, 
+        {
+            "location": "/cyberBrowser/Vision_and_Scope/#requirements", 
+            "text": "", 
+            "title": "Requirements"
+        }, 
+        {
+            "location": "/cyberBrowser/Vision_and_Scope/#1-business-requirements", 
+            "text": "Lead users to make payable actions (create registry, develop custom browser app, pay for developing functionality)  Attract mimimum 100 000 active users till token distribution", 
+            "title": "1. Business Requirements"
+        }, 
+        {
+            "location": "/cyberBrowser/Vision_and_Scope/#2-business-rules", 
+            "text": "Focusing on developers and Metamask users  Developing in terms of web 3.0 principles  Full tokenization of economy processes (valuation, transfering data)  Collect feedback and create analytics with use of instruments that aviod collect personal data", 
+            "title": "2. Business rules"
+        }, 
+        {
+            "location": "/cyberBrowser/Vision_and_Scope/#3-common-functional-requirements", 
+            "text": "Integration with Metamask   IPFS integration  Avoid pagination in all tables (use scrolling instead)  Prefered type of data structure - tables", 
+            "title": "3. Common functional requirements"
+        }, 
+        {
+            "location": "/cyberBrowser/Vision_and_Scope/#3-common-non-functional-requirements", 
+            "text": "Simple and attractive design  Intuitive UI  Adaptive design for mobile devices", 
+            "title": "3. Common non-functional requirements"
+        }, 
+        {
+            "location": "/cyberBrowser/Vision_and_Scope/#3-system-requirements", 
+            "text": "less than 1 second for loading page  less than 3 seconds for loading all data  Web version of browser (React)  Desktop version (Electron + React)   Mobile web version", 
+            "title": "3. System requirements"
+        }, 
+        {
+            "location": "/cyberBrowser/Vision_and_Scope/#browser-pages", 
+            "text": "", 
+            "title": "Browser Pages"
+        }, 
+        {
+            "location": "/cyberBrowser/Vision_and_Scope/#1-main-page", 
+            "text": "Purpose:  accent the user's attention to search function.   Design   UI features:  simple and attractive design, hints to start usage of cyber products.  There is a status text below search panel which describes technical information about cyber.Search products:  Search in 134 M transactions in 2 blockchain systems with 135 parsed tokens. Database size : 369 GBs    where transactions are the number of all indexed transactions from all blockchains connected to Cybernode, blockchain systems - all blockchains processed by Cybernode, tokens - all unique tokens from all blockchains indexed, database size - size of Cassandra (index) database.  There are 3 main widgets below the status string describing the cryptoeconomy, registers and portfolio:\n1. Total market cap [billions of USD] - is a summ of all token capitalizations, valuated in USD.   _**Call to action:** transition to cybernomics page_.    Chaingear registers [number] - number of user's registers (for authorized ones with created registers) or number of created registers in Chaingear.  Call to action:  transition to Chaingear page .    Portfolio volume [valuation in BTC] - volume of user's portfolio (for authorized ones) valuated in BTC or hint to create portfolio (for non authorized users).  Call to action:  transition to Portfolio page .    At the bottom of the page 5 project links are placed:\n1. GitHub - GitHub repository of cyber.Search\n2. Roadmap - roadmap of all cyber.Search projects\n3. Cybernode - Cybeernode landing page\n4. Dashboard - a link user's custom dashboard\n5. Knowledge - a link to knowledge database of cyber.Search projects  Proposals:   Place a hint to use Metamask for getting the full functionality (when page requires metamask - make the icon active/ otherwise - non active).  Plugs for developing functionality  Place transition to roadmap where users can donate for developing options", 
+            "title": "1. Main Page"
+        }, 
+        {
+            "location": "/cyberBrowser/Vision_and_Scope/#2-search-results-page", 
+            "text": "Purpose:  provide easy and quick functionality for working with blockchain search.  Design   UI  features:  strictly logical UI, adaptive preferenses of filtration and sorting.", 
+            "title": "2. Search Results Page"
+        }, 
+        {
+            "location": "/cyberBrowser/Vision_and_Scope/#objects-of-search", 
+            "text": "There are 2 types of search provided by browser:\n1. Global search (searching in whole ecosystem of indexed objects)\n2. Context search (searching the data in certain pages)  There are 4 systems (blockchains) in which you can find data:   Bitcoin  Bitcoin Cash  Ethereum  Ethereum Classic   There are 4 types of objects that can be foung in listed systems:   Contracts  Transactions  Blocks  Uncle blocks   Objects can be found by entering next types of queries:   Full hash (address, block, uncle, transaction)  Number (block/uncle)   The search pannel in general should include next functions:\n1. Global and local search (GitHub style)\n2. Autocomplete function", 
+            "title": "Objects of search."
+        }, 
+        {
+            "location": "/cyberBrowser/Vision_and_Scope/#search-results", 
+            "text": "Left menu includes next hardcoded functions:   Display listed systems (blockchains)  Display listed objects   Search results in general are shown as a list of object preview. Each object preview its own structure:   Transaction:  Hash  Value  Time of finalization (or time of confirmation or \"Mempool\" status)  \"From\" address hash (Only for Ethereum and Ethereum Classic)   \"To\" address hash (Only for Ethereum and Ethereum Classic)     Block   Block number  Hash  Number of transactions   Time of creation    Uncle   Hash  Uncle position   Time  of creation    Contract   Hash  Value  Time of creation   Each preview has clickable hash string, that leads to block/uncle, contract or transaction page.  There is a pagination function on results page. It should be implemented via button \"show more\" at the bottom of the page.", 
+            "title": "Search results."
+        }, 
+        {
+            "location": "/cyberBrowser/Vision_and_Scope/#21-contract-page", 
+            "text": "", 
+            "title": "2.1 Contract Page"
+        }, 
+        {
+            "location": "/cyberBrowser/Vision_and_Scope/#22-transaction-page", 
+            "text": "", 
+            "title": "2.2 Transaction Page"
+        }, 
+        {
+            "location": "/cyberBrowser/Vision_and_Scope/#23-block-page", 
+            "text": "Currently browser shows 3 types of block pages:   Ethereum (Ethereum Classic) block page  Ethereum (Ethereum Classic) uncle block page  Bitcoin (Bitcoin Cash) block page", 
+            "title": "2.3 Block Page"
+        }, 
+        {
+            "location": "/cyberBrowser/Vision_and_Scope/#231-bitcoin-block", 
+            "text": "Data which is displayed (including options and user actions):   Bitcoin block number [number] (header of page)  Time (UTC) [date] - time of block generation  Bloch hash [string] - hash of block  Merkle root [string] - hash of merkle tree  Block version [number] - number of block  Block size [number + number of bytes]  Nonce [string] - answer to PoW  Miner [string] - miner hash  Difficulty [number] - mining difficulty  Static block reward [number + currency] - static reward for block mining  Fees [number + currency] -", 
+            "title": "2.3.1 Bitcoin block"
+        }, 
+        {
+            "location": "/cyberBrowser/Vision_and_Scope/#3-blockchains-page", 
+            "text": "", 
+            "title": "3. Blockchains Page"
+        }, 
+        {
+            "location": "/cyberBrowser/Vision_and_Scope/#31-blockchain-page", 
+            "text": "", 
+            "title": "3.1 Blockchain Page"
+        }, 
+        {
+            "location": "/cyberBrowser/Vision_and_Scope/#4-tokens-page", 
+            "text": "", 
+            "title": "4. Tokens Page"
+        }, 
+        {
+            "location": "/cyberBrowser/Vision_and_Scope/#41-token-page", 
+            "text": "", 
+            "title": "4.1 Token Page"
+        }, 
+        {
+            "location": "/cyberBrowser/Vision_and_Scope/#5-exchanges-page", 
+            "text": "", 
+            "title": "5. Exchanges Page"
+        }, 
+        {
+            "location": "/cyberBrowser/Vision_and_Scope/#51-exchange-page", 
+            "text": "", 
+            "title": "5.1 Exchange page"
+        }, 
+        {
+            "location": "/cyberBrowser/Vision_and_Scope/#6-chaingear-page", 
+            "text": "Purpose:  provide easy integration with Chaingear.  Design   UI  features:  simple UI, autoupdate register data, preview of changes.  All functionality is available after Metamask authorization.  Main functions of the page:   Watch and label created registers.  Create register  Edit register (entry)  Delete register  Transfer the rights of usage to another account  Upload content to register via IPFS  JSON import of custom fields  Real time calculation of registry creation costs  Data import from smart contract", 
+            "title": "6. Chaingear Page"
+        }, 
+        {
+            "location": "/cyberBrowser/Vision_and_Scope/#7-cybernode-page", 
+            "text": "", 
+            "title": "7. Cybernode Page"
+        }, 
+        {
+            "location": "/cyberBrowser/Vision_and_Scope/#8-labels-page", 
+            "text": "", 
+            "title": "8. Labels Page"
+        }, 
+        {
+            "location": "/cyberBrowser/Vision_and_Scope/#9-portfolio-page", 
+            "text": "", 
+            "title": "9. Portfolio Page"
+        }, 
+        {
+            "location": "/cyberBrowser/Vision_and_Scope/#10-faq-page", 
+            "text": "", 
+            "title": "10. FAQ Page"
+        }, 
+        {
+            "location": "/cyberBrowser/staging/", 
+            "text": "Staging server\n\n\nTo avoid conflicts with other services on the same ports, we run our services on the following ports:\n\n\ncyber-ui :32500\nchaingear-api :32600\ncyber-search-api :32700\ncyber-markets-api :32800\n\n\n\n\n\nStaging runs 4 \ncomponents\n:\n\n\n\n\ncyber-ui\n\n\ncyber-search\n\n\ncyber-markets\n\n\nchaingear\n\n\n\n\nEach component is composed from different \ncontainers\n. Some containers are shared to save resources.\n\n\nServer setup\n\n\nThis is only needed to be done once.\n\n\n\n\n\n\nSSH to staging server. Make sure you're in \ndocker\n group:\n\n\n$ groups\n   anatoli docker wheel cyber\n\n\n\n\n\n\nCheckout \ncyber-ui\n repo with staging setup:\n\n\n$ git clone https://github.com/cyberFund/cyber-ui\n\n\n\n\n\n\nUpdate running containers\n\n\nUpdate running containers:\n\n\n   $ cd cyber-ui \n git pull\n   $ ./devops/staging/up.sh\n\n\n\n\n\nThis uses \ndocker-compose\n to start containers from DockerHub. It doesn't rebuild them.\n\n\nRebuilding\n\n\nTODO: Move stuff out of CircleCI configs into build scripts + conventions.", 
+            "title": "Staging"
+        }, 
+        {
+            "location": "/cyberBrowser/staging/#staging-server", 
+            "text": "To avoid conflicts with other services on the same ports, we run our services on the following ports:  cyber-ui :32500\nchaingear-api :32600\ncyber-search-api :32700\ncyber-markets-api :32800  Staging runs 4  components :   cyber-ui  cyber-search  cyber-markets  chaingear   Each component is composed from different  containers . Some containers are shared to save resources.", 
+            "title": "Staging server"
+        }, 
+        {
+            "location": "/cyberBrowser/staging/#server-setup", 
+            "text": "This is only needed to be done once.    SSH to staging server. Make sure you're in  docker  group:  $ groups\n   anatoli docker wheel cyber    Checkout  cyber-ui  repo with staging setup:  $ git clone https://github.com/cyberFund/cyber-ui", 
+            "title": "Server setup"
+        }, 
+        {
+            "location": "/cyberBrowser/staging/#update-running-containers", 
+            "text": "Update running containers:     $ cd cyber-ui   git pull\n   $ ./devops/staging/up.sh  This uses  docker-compose  to start containers from DockerHub. It doesn't rebuild them.", 
+            "title": "Update running containers"
+        }, 
+        {
+            "location": "/cyberBrowser/staging/#rebuilding", 
+            "text": "TODO: Move stuff out of CircleCI configs into build scripts + conventions.", 
+            "title": "Rebuilding"
+        }, 
+        {
+            "location": "/cyberBrowser/Changelog/", 
+            "text": "Changelog\n\n\nAll major changes of cyber browser will be documented in this file.\n\n\nSprint 7-8:\n\n\n1. Created Key Pages (Main Page, Search Results Page):\n\n- Documented requirements \n features\n- Created mockups and graphic design\n- Implemented code\n\n\n2. Created initial version of Chaingear:\n\n- Documented requirements \n features\n- Created mockups and graphic design\n- Implemented code\n\n\n3. Created initial version of Block, Transaction, Contract Pages:\n \n- Documented requirements \n features\n- Created mockups and graphic design\n- Implemented code\n\n\n4. Initial browser deployment is done\n\n\nhttp://35.184.7.30/registers\n\n\n\n\nGoogle Cloud deployment\n\n\nSeveral names for domains choosed", 
+            "title": "Changelog"
+        }, 
+        {
+            "location": "/cyberBrowser/Changelog/#changelog", 
+            "text": "All major changes of cyber browser will be documented in this file.", 
+            "title": "Changelog"
+        }, 
+        {
+            "location": "/cyberBrowser/Changelog/#sprint-7-8", 
+            "text": "1. Created Key Pages (Main Page, Search Results Page): \n- Documented requirements   features\n- Created mockups and graphic design\n- Implemented code  2. Created initial version of Chaingear: \n- Documented requirements   features\n- Created mockups and graphic design\n- Implemented code  3. Created initial version of Block, Transaction, Contract Pages:  \n- Documented requirements   features\n- Created mockups and graphic design\n- Implemented code  4. Initial browser deployment is done  http://35.184.7.30/registers   Google Cloud deployment  Several names for domains choosed", 
+            "title": "Sprint 7-8:"
+        }, 
+        {
+            "location": "/Chaingear/overview/", 
+            "text": "Most expensive Registry\n\n\n\n\n  Chaingear is an Ethereum ERC721-based registries framework.\n\n\n\n\n\n\n\n  \n\n  \n\n  \n\n  \n\n  \n\n  \n \n\n\n\n\n\n\n  \nBuilt by\n  \ncyber\u2022Search\n and\n  \n\n    contributors\n  \n\n\n\n\n\nOverview\n\n\nThis project allows you to create your own Registry of general purpose entries on Ethereum blockchain.\nEntry type is defined during creation, so you can put into entry any custom logic you want (validation, entry-level permission control). Entries are tokenized as NFT.\n\n\nYour creating your registry in Chaingear - metaregistry, which are one point of access to all registries. Registries on chaingear level are tokenized as NFT. Chaingear is most expensive registry, so you should pay for your registry creation.\n\n\nFeatures\n\n\nChaingear\n\n\n\n\n1\n\n\n2\n\n\n3\n\n\n\n\nCustom registry\n\n\n\n\n1\n\n\n2\n\n\n3\n\n\n\n\nChaingear in browser\n\n\n\n\n1\n\n\n2\n\n\n3", 
+            "title": "About chaingear"
+        }, 
+        {
+            "location": "/Chaingear/overview/#overview", 
+            "text": "This project allows you to create your own Registry of general purpose entries on Ethereum blockchain.\nEntry type is defined during creation, so you can put into entry any custom logic you want (validation, entry-level permission control). Entries are tokenized as NFT.  Your creating your registry in Chaingear - metaregistry, which are one point of access to all registries. Registries on chaingear level are tokenized as NFT. Chaingear is most expensive registry, so you should pay for your registry creation.", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/Chaingear/overview/#features", 
+            "text": "", 
+            "title": "Features"
+        }, 
+        {
+            "location": "/Chaingear/overview/#chaingear", 
+            "text": "1  2  3", 
+            "title": "Chaingear"
+        }, 
+        {
+            "location": "/Chaingear/overview/#custom-registry", 
+            "text": "1  2  3", 
+            "title": "Custom registry"
+        }, 
+        {
+            "location": "/Chaingear/overview/#chaingear-in-browser", 
+            "text": "1  2  3", 
+            "title": "Chaingear in browser"
+        }, 
+        {
+            "location": "/Chaingear/contracts/", 
+            "text": "Contracts Overview\n\n\n/chaingear\n\n\n\n\nChaingear\n allows any user to create his own registry. Building fee is collecting by new registry creation. All builded registries are tokenized with ERC721 NFT token standard and saved in Chaingear metaregistry with registry metainformation. Creator of registry may transfer tokenized ownership of registry and destroy registry with token burning. Chaingear supports multiple benefitiaries witch have access to collected fees.\n\n\n\n\n###### depends on:\n    - \nERC721Token\n\n    - \nSplitPaymentChangeable\n\n    - \nChaingearCore\n\n    - \nRegistry (int)\n\n\n\n\nChaingearCore\n holds general logic of Chaingear. Allows change chaingear's metainformation, amount of registration fee, set registry creator contract.\n\n\n\n\n###### depends on:\n    - \nRegistryBase\n\n    - \nIPFSeable\n\n    - \nDestructible\n\n    - \nPausable\n\n    - \nRegistryCreator (int)\n\n\n\n\n\n\nRegistryBase\n holds struct of data with describes registry metainformation which associated with token, views function for registry metainformation.\n\n\n\n\n\n\nRegistryCreator\n contains the bytecode of current version of Registry. This bytecode used by Chaingear for Registry Creation. Registry Creator address can be changed in Chaingear by it's owner. Creation function can be only called by setted out chaingear address.\n\n\n\n\n\n\n###### depends on:\n    - \nRegistry\n\n    - \nOwnable\n\n\n/common\n\n\n\n\n\n\nSeriality\n is a library for serializing and de-serializing all the Solidity types in a very efficient way which mostly written in solidity-assembly.\n\n\n\n\n\n\nIPFSeable\n contains logic which allows view and save links to CID in IPFS with ABI, source code and contract metainformation. Inherited by Chaingear and Registry.\n\n\n\n\n\n\n###### depends on:\n    - \nOwnable\n\n\n\n\nRegistySafe\n allows inherited contract transfer ETHs to safe and client claim from safe, accounting logic holded by inherited contract. Inherited by Chaingear and Registry.\n\n\n\n\n###### depends on:\n    - \nOwnable\n\n    - \nDestructible\n\n\n\n\nSplitPaymentChangeable\n allows add beneficiaries to contract (addresses and shares amount) and change payee address. Beneficiaries can claim ETHs from contract proportionally to their shares. Inherited by Chaingear and Registry.\n\n\n\n\n###### depends on:\n    - \nOwnable\n\n    - \nSplitPayment\n\n\n/registry\n\n\n\n\nChaingeareable\n holds basic logic of Registry as registry basic information, balance and fees amount. Contains getters and setters for registry name, desciption, tags, entry base address.\n\n\n\n\n###### depends on:\n    - \nIPFSeable\n\n    - \nRegistryAccessControl\n\n\n\n\n\n\nEntryBase\n base for \nEntryCore\n. Holds entry metainformation and interfaces of functions (\nC\n \nR\n \nUD\n) which should be implemented in \nEntryCore\n.\n\n\n\n\n\n\nEntryCore\n partilly codegenerated contract where registry creator setup their custom entry structure and setters/getters. \nEntryCore\n then goes to Registry constructor as bytecode, where \nEntryCore\n contract creates. Registry goes as owner of contract (and acts as proxy) with entries creating, transfering and deleting.\n\n\n\n\n\n\n###### depends on:\n    - \nEntryBase\n\n    - \nOwnable\n\n    - \nSeriality\n\n\n\n\nRegistry\n contract witch tokenize entries as NFT tokens via ERC721 standard. Users can create entries with structure described in \nEntryCore\n sent serialized params according to entry access policy. Also users can fund entries with ETHs which send to \nRegistrySafe\n where owner of entry can claim funds.\n\n\n\n\n###### depends on:\n    - \nChaingeareable\n\n    - \nERC721Token\n\n    - \nSplitPaymentChangeable\n\n    - \nEntryBase (int)\n\n\n\n\nRegistryAccessControl\n holds logic of controlling registry and accessing to entries creation. Policy options to entries creation are OnlyCreator, Whitelist, AllUsers. Chaingear acts as owner of registry and creator of registry acts of creator with separated policies to Registry functions.\n\n\n\n\n###### depends on:\n    - \nOwnable\n\n    - \nDestructible", 
+            "title": "Contracts overwiev"
+        }, 
+        {
+            "location": "/Chaingear/contracts/#contracts-overview", 
+            "text": "", 
+            "title": "Contracts Overview"
+        }, 
+        {
+            "location": "/Chaingear/contracts/#chaingear", 
+            "text": "Chaingear  allows any user to create his own registry. Building fee is collecting by new registry creation. All builded registries are tokenized with ERC721 NFT token standard and saved in Chaingear metaregistry with registry metainformation. Creator of registry may transfer tokenized ownership of registry and destroy registry with token burning. Chaingear supports multiple benefitiaries witch have access to collected fees.   ###### depends on:\n    -  ERC721Token \n    -  SplitPaymentChangeable \n    -  ChaingearCore \n    -  Registry (int)   ChaingearCore  holds general logic of Chaingear. Allows change chaingear's metainformation, amount of registration fee, set registry creator contract.   ###### depends on:\n    -  RegistryBase \n    -  IPFSeable \n    -  Destructible \n    -  Pausable \n    -  RegistryCreator (int)    RegistryBase  holds struct of data with describes registry metainformation which associated with token, views function for registry metainformation.    RegistryCreator  contains the bytecode of current version of Registry. This bytecode used by Chaingear for Registry Creation. Registry Creator address can be changed in Chaingear by it's owner. Creation function can be only called by setted out chaingear address.    ###### depends on:\n    -  Registry \n    -  Ownable", 
+            "title": "/chaingear"
+        }, 
+        {
+            "location": "/Chaingear/contracts/#common", 
+            "text": "Seriality  is a library for serializing and de-serializing all the Solidity types in a very efficient way which mostly written in solidity-assembly.    IPFSeable  contains logic which allows view and save links to CID in IPFS with ABI, source code and contract metainformation. Inherited by Chaingear and Registry.    ###### depends on:\n    -  Ownable   RegistySafe  allows inherited contract transfer ETHs to safe and client claim from safe, accounting logic holded by inherited contract. Inherited by Chaingear and Registry.   ###### depends on:\n    -  Ownable \n    -  Destructible   SplitPaymentChangeable  allows add beneficiaries to contract (addresses and shares amount) and change payee address. Beneficiaries can claim ETHs from contract proportionally to their shares. Inherited by Chaingear and Registry.   ###### depends on:\n    -  Ownable \n    -  SplitPayment", 
+            "title": "/common"
+        }, 
+        {
+            "location": "/Chaingear/contracts/#registry", 
+            "text": "Chaingeareable  holds basic logic of Registry as registry basic information, balance and fees amount. Contains getters and setters for registry name, desciption, tags, entry base address.   ###### depends on:\n    -  IPFSeable \n    -  RegistryAccessControl    EntryBase  base for  EntryCore . Holds entry metainformation and interfaces of functions ( C   R   UD ) which should be implemented in  EntryCore .    EntryCore  partilly codegenerated contract where registry creator setup their custom entry structure and setters/getters.  EntryCore  then goes to Registry constructor as bytecode, where  EntryCore  contract creates. Registry goes as owner of contract (and acts as proxy) with entries creating, transfering and deleting.    ###### depends on:\n    -  EntryBase \n    -  Ownable \n    -  Seriality   Registry  contract witch tokenize entries as NFT tokens via ERC721 standard. Users can create entries with structure described in  EntryCore  sent serialized params according to entry access policy. Also users can fund entries with ETHs which send to  RegistrySafe  where owner of entry can claim funds.   ###### depends on:\n    -  Chaingeareable \n    -  ERC721Token \n    -  SplitPaymentChangeable \n    -  EntryBase (int)   RegistryAccessControl  holds logic of controlling registry and accessing to entries creation. Policy options to entries creation are OnlyCreator, Whitelist, AllUsers. Chaingear acts as owner of registry and creator of registry acts of creator with separated policies to Registry functions.   ###### depends on:\n    -  Ownable \n    -  Destructible", 
+            "title": "/registry"
+        }, 
+        {
+            "location": "/Chaingear/development/", 
+            "text": "Configuring, development and deploying\n\n\nDeploy contract:\n\n\nparity ui --chain=kovan\n\ntruffle migrate --network=kovan\n\n\n\n\n\nPS: approve transaction in parity ui (http://127.0.0.1:8180/)\n\n\nBuild contract in file:\n\n\ntruffle-flattener contracts/common/Chaingeareable.sol \n app/src/Chaingeareable.sol\n\n\n\n\n\nLinting:\n\n\nnpm install -g solium\n\nsolium -d contracts\n\n\n\n\n\nDevelopment environment\n\n\nRecommending to use \nRemix Ethereum Online IDE\n  or \ndesktop electron-based Remix IDE\n\n\nPS: to import to IDE open-zeppelin contacts follow this:\n\n\nimport \ngithub.com/openZeppelin/zeppelin-solidity/contracts/ownership/Ownable.sol\n;\n\n\n\n\n\nTruffle + Ganache workflow\n\n\nInstall Ganache from \nlatest release\n, then =\n\n\nnpm install -g ganache-cli\n\n\n\n\n\nConfigure development config in truffle.js and launch Ganache (configure them too if needed) and:\n\n\nganache-cli -p 7545 (in first tab)\ntruffle migrate --network development --reset (in second tab)\ntruffle console --network development (in second tab)\n\n\n\n\n\nCreate new registry\n\n\nvar chaingear = Chaingear.at(Chaingear.address)\n\nvar beneficiaries = []\nvar shares = []\nvar buildingFee = 1000000\nvar gas = 10000000\n\nchaingear.registerRegistry(beneficiaries, shares, \nBlockchainRegistry\n, \nBLR\n, \n, EntryCore.bytecode, {value: buildingFee, gas: 10000000})", 
+            "title": "Development"
+        }, 
+        {
+            "location": "/Chaingear/development/#configuring-development-and-deploying", 
+            "text": "", 
+            "title": "Configuring, development and deploying"
+        }, 
+        {
+            "location": "/Chaingear/development/#deploy-contract", 
+            "text": "parity ui --chain=kovan\n\ntruffle migrate --network=kovan  PS: approve transaction in parity ui (http://127.0.0.1:8180/)  Build contract in file:  truffle-flattener contracts/common/Chaingeareable.sol   app/src/Chaingeareable.sol", 
+            "title": "Deploy contract:"
+        }, 
+        {
+            "location": "/Chaingear/development/#linting", 
+            "text": "npm install -g solium\n\nsolium -d contracts", 
+            "title": "Linting:"
+        }, 
+        {
+            "location": "/Chaingear/development/#development-environment", 
+            "text": "Recommending to use  Remix Ethereum Online IDE   or  desktop electron-based Remix IDE  PS: to import to IDE open-zeppelin contacts follow this:  import  github.com/openZeppelin/zeppelin-solidity/contracts/ownership/Ownable.sol ;", 
+            "title": "Development environment"
+        }, 
+        {
+            "location": "/Chaingear/development/#truffle-ganache-workflow", 
+            "text": "Install Ganache from  latest release , then =  npm install -g ganache-cli  Configure development config in truffle.js and launch Ganache (configure them too if needed) and:  ganache-cli -p 7545 (in first tab)\ntruffle migrate --network development --reset (in second tab)\ntruffle console --network development (in second tab)", 
+            "title": "Truffle + Ganache workflow"
+        }, 
+        {
+            "location": "/Chaingear/development/#create-new-registry", 
+            "text": "var chaingear = Chaingear.at(Chaingear.address)\n\nvar beneficiaries = []\nvar shares = []\nvar buildingFee = 1000000\nvar gas = 10000000\n\nchaingear.registerRegistry(beneficiaries, shares,  BlockchainRegistry ,  BLR ,  , EntryCore.bytecode, {value: buildingFee, gas: 10000000})", 
+            "title": "Create new registry"
         }
     ]
 }
