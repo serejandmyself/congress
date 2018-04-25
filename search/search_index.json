@@ -832,33 +832,18 @@
         }, 
         {
             "location": "/Chaingear/overview/", 
-            "text": "Most expensive Registry\n\n\n\n\n  Chaingear is an Ethereum ERC721-based registries framework.\n\n\n\n\n\n\n\n  \n\n  \n\n  \n\n  \n\n  \n\n  \n \n\n\n\n\n\n\n  \nBuilt by\n  \ncyber\u2022Search\n and\n  \n\n    contributors\n  \n\n\n\n\n\nOverview\n\n\nThis project allows you to create your own Registry of general purpose entries on Ethereum blockchain.\nEntry type is defined during creation, so you can put into entry any custom logic you want (validation, entry-level permission control). Entries are tokenized as NFT.\n\n\nYour creating your registry in Chaingear - metaregistry, which are one point of access to all registries. Registries on chaingear level are tokenized as NFT. Chaingear is most expensive registry, so you should pay for your registry creation.\n\n\nFeatures\n\n\nChaingear\n\n\n\n\n1\n\n\n2\n\n\n3\n\n\n\n\nCustom registry\n\n\n\n\n1\n\n\n2\n\n\n3\n\n\n\n\nChaingear in browser\n\n\n\n\n1\n\n\n2\n\n\n3", 
+            "text": "Overview\n\n\nChaingear is an Ethereum ERC721-based registries framework.\n\n\nThis project allows you to create your own Registry of general purpose entries on Ethereum blockchain.\nEntry type is defined during creation, so you can put into entry any custom logic you want (validation, entry-level permission control). Entries are tokenized as NFT.\n\n\nYour creating your registry in Chaingear - metaregistry, which are one point of access to all registries. Registries on chaingear level are tokenized as NFT. Chaingear is most expensive registry, so you should pay for your registry creation.\n\n\nFeatures\n\n\nFeatures work in progress", 
             "title": "About chaingear"
         }, 
         {
             "location": "/Chaingear/overview/#overview", 
-            "text": "This project allows you to create your own Registry of general purpose entries on Ethereum blockchain.\nEntry type is defined during creation, so you can put into entry any custom logic you want (validation, entry-level permission control). Entries are tokenized as NFT.  Your creating your registry in Chaingear - metaregistry, which are one point of access to all registries. Registries on chaingear level are tokenized as NFT. Chaingear is most expensive registry, so you should pay for your registry creation.", 
+            "text": "Chaingear is an Ethereum ERC721-based registries framework.  This project allows you to create your own Registry of general purpose entries on Ethereum blockchain.\nEntry type is defined during creation, so you can put into entry any custom logic you want (validation, entry-level permission control). Entries are tokenized as NFT.  Your creating your registry in Chaingear - metaregistry, which are one point of access to all registries. Registries on chaingear level are tokenized as NFT. Chaingear is most expensive registry, so you should pay for your registry creation.", 
             "title": "Overview"
         }, 
         {
             "location": "/Chaingear/overview/#features", 
-            "text": "", 
+            "text": "Features work in progress", 
             "title": "Features"
-        }, 
-        {
-            "location": "/Chaingear/overview/#chaingear", 
-            "text": "1  2  3", 
-            "title": "Chaingear"
-        }, 
-        {
-            "location": "/Chaingear/overview/#custom-registry", 
-            "text": "1  2  3", 
-            "title": "Custom registry"
-        }, 
-        {
-            "location": "/Chaingear/overview/#chaingear-in-browser", 
-            "text": "1  2  3", 
-            "title": "Chaingear in browser"
         }, 
         {
             "location": "/Chaingear/contracts/", 
