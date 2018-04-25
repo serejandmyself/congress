@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/", 
-            "text": "Welcome to Cyber\u2022Congress Knowledge Base.\n\n\nRight now these docs cover eight \ncyber-\n open source products:\n\n\n\n\nblockchain browser\n - this service is responsible for indexing and searching information stored in different chains\n\n\nmarkets analysis\n - this service collects information from crypto exchanges and does calculations of Cybernomics parameters\n\n\ncyberNode\n - smart node manager and transaction crawler\n\n\ncyberSearch\n - transaction parser for cyberNode\n\n\ncyber.js\n - cyberSearch javascript library\n\n\nchaingear\n - this service allows you to create your own Registry of general purpose entries on Ethereum blockchain.\n\n\ncyberd\n - research on the cyber protocol.\n\n\ncyberCongress\n - this is our project management system, delivery and distribution agreement, knowledge base. Community of of scientists, developers, engineers and craftsmen.", 
+            "text": "Welcome to cyber\u2022Search knowledge base.\n\n\nRight now these docs cover eight open source projects:\n\n\n\n\ncybernode\n - smart node manager and transaction crawler\n\n\ncyber-search\n - transaction parser for cybernode\n\n\ncyber-markets\n - toolchain for parsing of orders and trades\n\n\ncyberjs\n - cyber-search javascript library\n\n\ncyber-browser\n - indexing and searching information stored in different chains\n\n\nchaingear\n - create your own Registry of general purpose entries on Ethereum blockchain\n\n\ncyberd\n - research on the cyber protocol\n\n\ncybercongress\n - community of of scientists, developers, engineers and craftsmen", 
             "title": "Home"
         }, 
         {
@@ -28,17 +28,12 @@
         {
             "location": "/cybernode/about/", 
             "text": "", 
-            "title": "About Node"
-        }, 
-        {
-            "location": "/cybernode/dev-setup/", 
-            "text": "", 
-            "title": "Development Setup"
+            "title": "About node"
         }, 
         {
             "location": "/cybernode/k8s-cheat-sheet/", 
             "text": "K8s cheat sheet\n\n\nk8s dashboard\n\n\nLocal dashboard proxy:\n\n\nkubectl proxy\n\n\n\n\n\nGet cluster access token:\n\n\nkubectl config view \n|\n grep -A10 \nname: \n$(\nkubectl config current-context\n)\n \n|\n awk \n$1==\naccess-token:\n{print $2}\n\n\n\n\n\n\nForward pod port on localhost\n\n\nkubectl port-forward -n monitoring prometheus-kube-prometheus-0 \n9090\n\n\n\n\n\n\nElassandra commands\n\n\nGet nodes status:\n\n\nkubectl \nexec\n -n search elassandra-0 -- nodetool status\n\n\n\n\n\nOpen cqlsh CLI tool\n\n\nkubectl \nexec\n -it -n search elassandra-0 -- cqlsh\n\n\n\n\n\nDive into elassandra docker container shell(index stats, delete index commands examples)\n\n\nkubectl \nexec\n -n search -it elassandra-0 bash\ncurl -XGET \nlocalhost:9200/_cat/indices?v\npretty\n\ncurl -XDELETE \nlocalhost:9200/twitter?pretty", 
-            "title": "K8s Cheat Sheet"
+            "title": "K8s cheat cheet"
         }, 
         {
             "location": "/cybernode/k8s-cheat-sheet/#k8s-cheat-sheet", 
@@ -96,74 +91,9 @@
             "title": "Grafana Alerts"
         }, 
         {
-            "location": "/cybernode/components/search/", 
-            "text": "Search Components\n\n\n\n\n\n\n\n\nComponent\n\n\nScale\n\n\nDescription\n\n\nCluster Address\n\n\nMetrics\n\n\nExternal\n\n\n\n\n\n\n\n\n\n\nKafka\n\n\n1\n\n\nData Entry\n\n\n\n\n\n\n\n\n\n\n\n\nKafka Manager\n\n\n1\n\n\nKafka Explorer\n\n\n\n\n\n\n\n\n\n\n\n\nElassandra\n\n\n1 - N\n\n\nData Back And Search\n\n\nelassandra.search.svc:9042\n\n\n\n\n\n\n\n\n\n\nEthereum Pump\n\n\n1\n\n\nEthereum Chain Data Kafka Pump\n\n\n\n\n8080:/actuator/metrics\n\n\n\n\n\n\n\n\nEthereum Cassandra Dump\n\n\n1\n\n\nDump Kafka Topics Into Cassandra\n\n\n\n\n8080:/actuator/metrics\n\n\n\n\n\n\n\n\nEthereum Contract Summary\n\n\n1 - N\n\n\nCalculates Contract Summaries (balances and etc)\n\n\n\n\n8080:/actuator/metrics\n\n\n\n\n\n\n\n\nSearch Api\n\n\n1 - N\n\n\nApi To Search Chain Entities\n\n\nsearch-api.search.svc:80\n\n\n8080:/actuator/metrics\n\n\ny\n\n\n\n\n\n\nSearch Api Docs\n\n\n1 - N\n\n\nSearch Api Docs Based On Swagger\n\n\nsearch-api-docs.search.svc:80\n\n\n\n\ny\n\n\n\n\n\n\n\n\n\n\nKafka\n\n\nKafka\n is message queue used as main data entry. All raw data firstly goes into kafka, than \n various services consume it to provide new functionality.\n\n\nElassandra (Elastic + Cassandra)\n\n\nElassandra\n is used as main backend storage with linear growth fulltext-search\n index on source cassandra data.\n\n\nEthereum Pump\n\n\nPumps Ethereum raw data(block,tx,uncles) into Kafka.\n\n\nEthereum Cassandra Dump\n\n\nConsumes Ethereum raw data from Kafka topics, translate it into cassandra entities and store them into Elassandra.\n\n\nEthereum Contract Summary\n\n\nCollects summary for each contract stored in Ethereum chain. Consumes Kafka topics and update data in Elassandra.", 
-            "title": "Search"
-        }, 
-        {
-            "location": "/cybernode/components/search/#search-components", 
-            "text": "Component  Scale  Description  Cluster Address  Metrics  External      Kafka  1  Data Entry       Kafka Manager  1  Kafka Explorer       Elassandra  1 - N  Data Back And Search  elassandra.search.svc:9042      Ethereum Pump  1  Ethereum Chain Data Kafka Pump   8080:/actuator/metrics     Ethereum Cassandra Dump  1  Dump Kafka Topics Into Cassandra   8080:/actuator/metrics     Ethereum Contract Summary  1 - N  Calculates Contract Summaries (balances and etc)   8080:/actuator/metrics     Search Api  1 - N  Api To Search Chain Entities  search-api.search.svc:80  8080:/actuator/metrics  y    Search Api Docs  1 - N  Search Api Docs Based On Swagger  search-api-docs.search.svc:80   y", 
-            "title": "Search Components"
-        }, 
-        {
-            "location": "/cybernode/components/search/#kafka", 
-            "text": "Kafka  is message queue used as main data entry. All raw data firstly goes into kafka, than \n various services consume it to provide new functionality.", 
-            "title": "Kafka"
-        }, 
-        {
-            "location": "/cybernode/components/search/#elassandra-elastic-cassandra", 
-            "text": "Elassandra  is used as main backend storage with linear growth fulltext-search\n index on source cassandra data.", 
-            "title": "Elassandra (Elastic + Cassandra)"
-        }, 
-        {
-            "location": "/cybernode/components/search/#ethereum-pump", 
-            "text": "Pumps Ethereum raw data(block,tx,uncles) into Kafka.", 
-            "title": "Ethereum Pump"
-        }, 
-        {
-            "location": "/cybernode/components/search/#ethereum-cassandra-dump", 
-            "text": "Consumes Ethereum raw data from Kafka topics, translate it into cassandra entities and store them into Elassandra.", 
-            "title": "Ethereum Cassandra Dump"
-        }, 
-        {
-            "location": "/cybernode/components/search/#ethereum-contract-summary", 
-            "text": "Collects summary for each contract stored in Ethereum chain. Consumes Kafka topics and update data in Elassandra.", 
-            "title": "Ethereum Contract Summary"
-        }, 
-        {
-            "location": "/cybernode/components/markets/", 
-            "text": "Markets Components\n\n\n\n\n\n\n\n\nComponent\n\n\nScale\n\n\nDescription\n\n\nCluster Address\n\n\nMetrics\n\n\nExternal\n\n\n\n\n\n\n\n\n\n\nKafka\n\n\n1\n\n\nData Entry\n\n\n\n\n\n\n\n\n\n\n\n\nKafka Manager\n\n\n1\n\n\nKafka Explorer\n\n\n\n\n\n\n\n\n\n\n\n\nElassandra\n\n\n1 - N\n\n\nData Back\n\n\n\n\n\n\n\n\n\n\n\n\nExchanges Connector\n\n\n1 - N\n\n\nConnect to CEXs/DEXs for raw data\n\n\n\n\n8080:/actuator/metrics\n\n\n\n\n\n\n\n\nTickers\n\n\n1 - N\n\n\nCalculate Tickers From Raw Data\n\n\n\n\n\n\n\n\n\n\n\n\nMarkets REST Api\n\n\n1 - N\n\n\nRest Api To Markets Entities\n\n\n\n\n\n\ny\n\n\n\n\n\n\nMarkets Stream\n\n\n1 - N\n\n\nWeb Socket Api To Markets Entities\n\n\n\n\n\n\ny\n\n\n\n\n\n\nMarkets Api Docs\n\n\n1 - N\n\n\nMarkets Api Docs Based On Swagger\n\n\n\n\n\n\ny\n\n\n\n\n\n\n\n\n\n\nKafka\n\n\nKafka\n is message queue used as main data entry. All raw data firstly goes into kafka, than \n various services consume it to provide new functionality.\n\n\nElassandra (Elastic + Cassandra)\n\n\nElassandra\n is used as main backend storage with linear growth fulltext-search\n index on source cassandra data.\n\n\nExchanges Connector\n\n\nCollect raw data from centralized and decentalized exchanges such as trades, orderbooks and put it to kafka.\n\n\nTickers\n\n\nCalculate tickers, prices, etc and aggregate raw data which collecting exchanges connectors module", 
-            "title": "Markets"
-        }, 
-        {
-            "location": "/cybernode/components/markets/#markets-components", 
-            "text": "Component  Scale  Description  Cluster Address  Metrics  External      Kafka  1  Data Entry       Kafka Manager  1  Kafka Explorer       Elassandra  1 - N  Data Back       Exchanges Connector  1 - N  Connect to CEXs/DEXs for raw data   8080:/actuator/metrics     Tickers  1 - N  Calculate Tickers From Raw Data       Markets REST Api  1 - N  Rest Api To Markets Entities    y    Markets Stream  1 - N  Web Socket Api To Markets Entities    y    Markets Api Docs  1 - N  Markets Api Docs Based On Swagger    y", 
-            "title": "Markets Components"
-        }, 
-        {
-            "location": "/cybernode/components/markets/#kafka", 
-            "text": "Kafka  is message queue used as main data entry. All raw data firstly goes into kafka, than \n various services consume it to provide new functionality.", 
-            "title": "Kafka"
-        }, 
-        {
-            "location": "/cybernode/components/markets/#elassandra-elastic-cassandra", 
-            "text": "Elassandra  is used as main backend storage with linear growth fulltext-search\n index on source cassandra data.", 
-            "title": "Elassandra (Elastic + Cassandra)"
-        }, 
-        {
-            "location": "/cybernode/components/markets/#exchanges-connector", 
-            "text": "Collect raw data from centralized and decentalized exchanges such as trades, orderbooks and put it to kafka.", 
-            "title": "Exchanges Connector"
-        }, 
-        {
-            "location": "/cybernode/components/markets/#tickers", 
-            "text": "Calculate tickers, prices, etc and aggregate raw data which collecting exchanges connectors module", 
-            "title": "Tickers"
-        }, 
-        {
             "location": "/cybernode/components/chain-nodes/", 
             "text": "Chain Nodes Components\n\n\n\n\n\n\n\n\nComponent\n\n\nCluster Address\n\n\n\n\n\n\n\n\n\n\nParity 1.9.6 eth\n\n\nparity-eth.chains.svc:8545", 
-            "title": "Chains Nodes"
+            "title": "Chains nodes"
         }, 
         {
             "location": "/cybernode/components/chain-nodes/#chain-nodes-components", 
@@ -173,7 +103,7 @@
         {
             "location": "/cybernode/staging/setup/", 
             "text": "Mars is our \nstaging\n server. You may reuse its config for your own.\n\n\nCurrent Mars storage setup\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nSize\n\n\nLABEL\n\n\nMapping\n\n\n\n\n\n\n\n\n\n\nnvme0n1p1\n\n\nssd\n\n\n1 tb\n\n\nSDD1\n\n\n/cyberdata/ssd1tb\n\n\n\n\n\n\nnvme2n1p1\n\n\nssd\n\n\n500 gb\n\n\nSDD2\n\n\n/cyberdata/ssd05tb\n\n\n\n\n\n\nsdc1\n\n\nhdd\n\n\n3.5 tb\n\n\nHDD3\n\n\n/cyberdata/elassandra-markets\n\n\n\n\n\n\nsdb1\n\n\nhdd\n\n\n3.5 tb\n\n\nHDD2\n\n\n/cyberdata/elassandra-search\n\n\n\n\n\n\nsda1\n\n\nhdd\n\n\n3.5 tb\n\n\nHDD1\n\n\n/backupsData\n\n\n\n\n\n\nsdd1\n\n\nhdd\n\n\n3.5 tb\n\n\ncyberdata\n\n\n/cyberdata\n\n\n\n\n\n\n\n\n/cyberdata\n contents\n\n\n\n\n/cyberdata/portainer/\n - portainer data directory\n\n\n/cyberdata/cybernode/\n - clone of repo https://github.com/cyberFund/cybernode\n\n\n\n\nUseful commands\n\n\nFormat partition:\n\n\nsudo mkfs -t ext4 -L SSD1 /dev/nvme0n1p1\nsudo mkfs -t ext4 -L SSD2 /dev/nvme2n1p1\n\n\n\n\n\n/etc/fstab addition lines:\n\n\nLABEL=cyberdata /cyberdata ext4 defaults 0 0\nLABEL=SSD2 /cyberdata/ssd05tb ext4 nofail 0 0\nLABEL=SSD1 /cyberdata/ssd1tb ext4 nofail 0 0\nLABEL=HDD1 /backupsData ext4 defaults 0 0\nLABEL=HDD2 /cyberdata/elassandra-search ext4 defaults 0 0 \nLABEL=HDD3 /cyberdata/elassandra-markets ext4 defaults 0 0 \n\n\n\n\n\nCopy data:\n\n\nsudo cp -R --verbose /backupsData/chain/eth/eth /cyberdata/ssd05tb/eth/\nsudo cp -R --verbose /cyberdata/bitcoind /cyberdata/ssd05tb/bitcoind/", 
-            "title": "Mars Setup"
+            "title": "Mars setup"
         }, 
         {
             "location": "/cybernode/staging/setup/#current-mars-storage-setup", 
@@ -193,7 +123,7 @@
         {
             "location": "/cybernode/staging/continuous-delivery/", 
             "text": "Circle Ci job example\n\n\nTo enable auto staging-redeploy for your application you should:\n\n\n\n\n\n\nEnable \nstaging\n docker images build. For example, you can use dockerhub tag \"STAGING\". \n\n\n\n\n\n\nAdd to \nthe repo\n you image running script.\n\n\n\n\n\n\nAdd a CircleCi job, depended on docker build\npush job. It's all.\n\n\n\n\n\n\nExample: build and deploy for all commits in master\n\n\naliases:\n - \nstaging_filter\n    filters:\n      tags:\n        only: /.*/\n      branches:\n        only: master\n\n\njobs:        \n  build_and_push_image_staging_image:\n    working_directory: ~/build\n    docker:\n      - image: docker:17.05.0-ce-git\n    steps:\n      - checkout\n      - setup_remote_docker:\n          version: 17.05.0-ce\n      - run:\n          name: Build and upload staging images\n          command: |\n            docker build -t build/cs-search-api -f ./devops/search-api/search-api ./\n            docker login -u $DOCKER_USER -p $DOCKER_PASS\n            docker tag build/cs-search-api cybernode/cs-search-api:staging\n            docker push cybernode/cs-search-api:staging\n\n    deploy_stagin_image:\n      working_directory: ~/build\n      docker:\n        - image: docker:17.05.0-ce-git\n      steps:\n        - run:\n            name: Rerun image on staging\n            command: \n-\n              ssh mars@staging.cyber.fund -p 33322 -o \nStrictHostKeyChecking no\n\n              \ncd /cyberdata/cybernode \n git pull \n sh /cyberdata/cybernode/up.search.sh\n\n\n\nworkflows:\n  version: 2\n  staging_cd:\n    jobs:\n      - build_and_push_image_staging_image:\n          \n: *staging_filter\n      - deploy_stagin_image:\n          \n: *staging_filter\n          requires:\n            - build_and_push_image_staging_image", 
-            "title": "Continuous Delivery"
+            "title": "Continuous delivery"
         }, 
         {
             "location": "/cybernode/staging/continuous-delivery/#circle-ci-job-example", 
@@ -208,7 +138,7 @@
         {
             "location": "/cybernode/staging/run/", 
             "text": "Port mapping\n\n\nPorts that are not accessible from internet. Use ssh forwarding.\n\n\n\n\n8332 - chain btc\n\n\n18332 - chain bth\n\n\n8545 - chain eth\n\n\n\n\n18545 - chain etc\n\n\n\n\n\n\n2181 - zookeper\n\n\n\n\n9092 - kafka\n\n\n9042 - elassandra search\n\n\n9043 - elassandra markets\n\n\n9200 - elastic rest search\n\n\n9201 - elastic rest markets\n\n\n9300 - elastic transport search\n\n\n9301 - elastic transport markets\n\n\n\n\nPorts open for internet.\n\n\n\n\n32001 - portainer\n\n\n32002 - grafana (monitoring)\n\n\n32500 - browser-ui\n\n\n32600 - chaingear 1.0 api\n\n\n32800 - markets rest api\n\n\n32801 - markets stream api\n\n\n32901 - search api\n\n\n\n\nDocker data\n\n\nRun chains\n\n\nChains should be run manually once and ideally should not require addition work. To run chains, execute:\n\n\nsudo bash /cyberdata/cybernode/chains/up.sh\n\n\n\n\n\nRun portainer.io\n\n\nRun once\n\n\ndocker run -d -p 32001:9000 --name portainer --restart always \\\n-v /var/run/docker.sock:/var/run/docker.sock \\\n-v /cyberdata/portainer:/data portainer/portainer\n\n\n\n\n\nRun components\n\n\nsudo bash /cyberdata/cybernode/up.browser.sh\nsudo bash /cyberdata/cybernode/up.chaingear.sh\nsudo bash /cyberdata/cybernode/up.ethereum.index.sh\nsudo bash /cyberdata/cybernode/up.search.api.sh\n\n\n\n\n\nThen go into each \nkafka\n, \nelassandra\n and run\n\n\ndocker-compose up -d\n\n\n\n\n\nTo access \nmonitoring\n dashboard, run \ndocker-compose up -d\n\nin \nmonitoring\n as well.", 
-            "title": "Running Application"
+            "title": "Running application"
         }, 
         {
             "location": "/cybernode/staging/run/#port-mapping", 
@@ -238,7 +168,7 @@
         {
             "location": "/cybernode/staging/chains/", 
             "text": "Current chains nodes tables\n\n\n\n\n\n\n\n\nApp\n\n\ndata path\n\n\nport\n\n\ncreds\n\n\ncurrent size\n\n\n\n\n\n\n\n\n\n\nbitcoind - btc\n\n\n/cyberdata/ssd05tb/bitcoind\n\n\n8332\n\n\ncyber:cyber\n\n\n184 gb\n\n\n\n\n\n\nabc    -   bth\n\n\n/cyberdata/abc\n\n\n18332\n\n\nbitcoin:password\n\n\n156 gb\n\n\n\n\n\n\nparity -   eth\n\n\n/cyberdata/ssd05tb/eth\n\n\n8545\n\n\n\n\n56  gb\n\n\n\n\n\n\nparity -   eth_c\n\n\n/cyberdata/ssd05tb/eth_c\n\n\n18545\n\n\n\n\n5.3 gb\n\n\n\n\n\n\n\n\nLocal forwarding port for chains\n\n\nssh -L 18332:localhost:18332 -L 8332:localhost:8332 \\\n-L 18545:localhost:18545 -L 8545:localhost:8545 \\\nmars@staging.cyber.fund  -p 33322\n\n\n\n\n\nCommands used to run chain and live probe\n\n\nBitcoind\n\n\nRun:\n\n\nsudo  docker run -d -p 8332:8332 --name bitcoind  --restart always \\\n-v /cyberdata/ssd05tb/bitcoind:/home/bitcoin/.bitcoin ruimarinho/bitcoin-core:0.15.1 \\\n-server -rest -txindex -rpcpassword=cyber -rpcuser=cyber -rpcallowip=0.0.0.0/0\n\n\n\n\n\nProbe:\n\n\ncurl -X POST -H \nContent-Type: application/json\n \\\n--data \n{\njsonrpc\n:\n2.0\n,\nmethod\n:\ngetblockhash\n,\nparams\n:[1],\nid\n:1}\n \\\nhttp://127.0.0.1:8332 -u cyber:cyber\n\n\n\n\n\nBitcoinABC\n\n\nRun:\n\n\nsudo  docker run -d -p 18332:8332 --name abc  --restart always \n-v /cyberdata/abc:/data zquestz/bitcoin-abc:0.16.1 bitcoind -server -rest\n\n\n\n\n\nProbe:\n\n\ncurl -X POST -H \nContent-Type: application/json\n \\\n--data \n{\njsonrpc\n:\n2.0\n,\nmethod\n:\ngetblockhash\n,\nparams\n:[1],\nid\n:1}\n \\\nhttp://127.0.0.1:18332 -u cyber:cyber\n\n\n\n\n\nParity\n\n\nRun:\n\n\nsudo  docker run -d -p 8545:8545 --name parity_eth  --restart always \\\n-v /cyberdata/ssd05tb/eth:/cyberdata parity/parity:stable \\\n--db-path /cyberdata --jsonrpc-hosts all --jsonrpc-interface all --jsonrpc-threads 10\n\n\n\n\n\nProbe:\n\n\ncurl -X POST -H \nContent-Type: application/json\n \\\n--data \n{\njsonrpc\n:\n2.0\n,\nmethod\n:\neth_getBlockByNumber\n,\nparams\n:[\n0x1\n, true],\nid\n:1}\n\\\n http://127.0.0.1:8545\n\n\n\n\n\nParity --chain classic\n\n\nRun:\n\n\nsudo  docker run -d -p 18545:8545 --name parity_etc  --restart always \\\n-v /cyberdata/ssd05tb/eth_c:/cyberdata parity/parity:stable --db-path /cyberdata \\\n--jsonrpc-hosts all --jsonrpc-interface all --chain classic --jsonrpc-threads 10\n\n\n\n\n\nProbe:\n\n\ncurl -X POST -H \nContent-Type: application/json\n \\\n--data \n{\njsonrpc\n:\n2.0\n,\nmethod\n:\neth_getBlockByNumber\n,\nparams\n:[\n0x1\n, true],\nid\n:1}\n \\\nhttp://127.0.0.1:18545", 
-            "title": "Local Sync Chains"
+            "title": "Local sync chains"
         }, 
         {
             "location": "/cybernode/staging/chains/#current-chains-nodes-tables", 
@@ -296,19 +226,429 @@
             "title": "Run single container in a cluster"
         }, 
         {
-            "location": "/cybernode/chains/bitcoin/", 
+            "location": "/cyberSearch/about-search/", 
+            "text": "About Search", 
+            "title": "About search"
+        }, 
+        {
+            "location": "/cyberSearch/about-search/#about-search", 
             "text": "", 
+            "title": "About Search"
+        }, 
+        {
+            "location": "/cyberSearch/components/overview/", 
+            "text": "Search Common Components\n\n\n\n\n\n\n\n\nComponent\n\n\nScale\n\n\nDescription\n\n\nCluster Address\n\n\nMetrics\n\n\nExternal\n\n\n\n\n\n\n\n\n\n\nKafka\n\n\n1\n\n\nData Entry\n\n\n\n\n\n\n\n\n\n\n\n\nKafka Manager\n\n\n1\n\n\nKafka Explorer\n\n\n\n\n\n\n\n\n\n\n\n\nElassandra\n\n\n1 - N\n\n\nData Back And Search\n\n\nelassandra.search.svc:9042\n\n\n\n\n\n\n\n\n\n\nSearch Api\n\n\n1 - N\n\n\nApi To Search Chain Entities\n\n\nsearch-api.search.svc:80\n\n\n8080:/actuator/metrics\n\n\ny\n\n\n\n\n\n\nSearch Api Docs\n\n\n1 - N\n\n\nSearch Api Docs Based On Swagger\n\n\nsearch-api-docs.search.svc:80\n\n\n\n\ny\n\n\n\n\n\n\n\n\n\n\nChains Components\n\n\n\n\nEthereum\n\n\nBitcoin\n\n\n\n\nKafka\n\n\nKafka\n is message queue used as main data entry. All raw data firstly goes into kafka, than \n various services consume it to provide new functionality.\n\n\nElassandra (Elastic + Cassandra)\n\n\nElassandra\n is used as main backend storage with linear growth fulltext-search\n index on source cassandra data.\n\n\nSearch Api\n\n\nMain search access endpoint. See \napi calls documentations\n.", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/cyberSearch/components/overview/#search-common-components", 
+            "text": "Component  Scale  Description  Cluster Address  Metrics  External      Kafka  1  Data Entry       Kafka Manager  1  Kafka Explorer       Elassandra  1 - N  Data Back And Search  elassandra.search.svc:9042      Search Api  1 - N  Api To Search Chain Entities  search-api.search.svc:80  8080:/actuator/metrics  y    Search Api Docs  1 - N  Search Api Docs Based On Swagger  search-api-docs.search.svc:80   y", 
+            "title": "Search Common Components"
+        }, 
+        {
+            "location": "/cyberSearch/components/overview/#chains-components", 
+            "text": "Ethereum  Bitcoin", 
+            "title": "Chains Components"
+        }, 
+        {
+            "location": "/cyberSearch/components/overview/#kafka", 
+            "text": "Kafka  is message queue used as main data entry. All raw data firstly goes into kafka, than \n various services consume it to provide new functionality.", 
+            "title": "Kafka"
+        }, 
+        {
+            "location": "/cyberSearch/components/overview/#elassandra-elastic-cassandra", 
+            "text": "Elassandra  is used as main backend storage with linear growth fulltext-search\n index on source cassandra data.", 
+            "title": "Elassandra (Elastic + Cassandra)"
+        }, 
+        {
+            "location": "/cyberSearch/components/overview/#search-api", 
+            "text": "Main search access endpoint. See  api calls documentations .", 
+            "title": "Search Api"
+        }, 
+        {
+            "location": "/cyberSearch/components/bitcoin/", 
+            "text": "Ethereum Components\n\n\n\n\n\n\n\n\nComponent\n\n\nScale\n\n\nDescription\n\n\nCluster Address\n\n\nMetrics\n\n\nExternal\n\n\n\n\n\n\n\n\n\n\nBitcoin Pump\n\n\n1\n\n\nBitcoin Chain Data Kafka Pump\n\n\n\n\n8080:/actuator/metrics\n\n\n\n\n\n\n\n\nBitcoin Cassandra Dump\n\n\n1\n\n\nDump Kafka Topics Into Cassandra\n\n\n\n\n8080:/actuator/metrics\n\n\n\n\n\n\n\n\nBitcoin Contract Summary\n\n\n1 - N\n\n\nCalculates Contract Summaries (balances and etc)\n\n\n\n\n8080:/actuator/metrics\n\n\n\n\n\n\n\n\n\n\nBitcoin Pump\n\n\nPumps Bitcoin raw data(block,tx,uncles) into Kafka.\n\n\nBitcoin Cassandra Dump\n\n\nConsumes Bitcoin raw data from Kafka topics, translate it into cassandra entities and store them into Elassandra.\n\n\nBitcoin Contract Summary\n\n\nCollects summary for each contract stored in Bitcoin chain. Consumes Kafka topics and update data in Elassandra.", 
             "title": "Bitcoin"
         }, 
         {
-            "location": "/cybernode/chains/ethereum/", 
-            "text": "Known issues\n\n\n\n\nFor \n2806264 block\n there is a transaction with size more than 1mb, general rule, size of item can be \n1mb.", 
+            "location": "/cyberSearch/components/bitcoin/#ethereum-components", 
+            "text": "Component  Scale  Description  Cluster Address  Metrics  External      Bitcoin Pump  1  Bitcoin Chain Data Kafka Pump   8080:/actuator/metrics     Bitcoin Cassandra Dump  1  Dump Kafka Topics Into Cassandra   8080:/actuator/metrics     Bitcoin Contract Summary  1 - N  Calculates Contract Summaries (balances and etc)   8080:/actuator/metrics", 
+            "title": "Ethereum Components"
+        }, 
+        {
+            "location": "/cyberSearch/components/bitcoin/#bitcoin-pump", 
+            "text": "Pumps Bitcoin raw data(block,tx,uncles) into Kafka.", 
+            "title": "Bitcoin Pump"
+        }, 
+        {
+            "location": "/cyberSearch/components/bitcoin/#bitcoin-cassandra-dump", 
+            "text": "Consumes Bitcoin raw data from Kafka topics, translate it into cassandra entities and store them into Elassandra.", 
+            "title": "Bitcoin Cassandra Dump"
+        }, 
+        {
+            "location": "/cyberSearch/components/bitcoin/#bitcoin-contract-summary", 
+            "text": "Collects summary for each contract stored in Bitcoin chain. Consumes Kafka topics and update data in Elassandra.", 
+            "title": "Bitcoin Contract Summary"
+        }, 
+        {
+            "location": "/cyberSearch/components/ethereum/", 
+            "text": "Ethereum Components\n\n\n\n\n\n\n\n\nComponent\n\n\nScale\n\n\nDescription\n\n\nCluster Address\n\n\nMetrics\n\n\nExternal\n\n\n\n\n\n\n\n\n\n\nEthereum Pump\n\n\n1\n\n\nEthereum Chain Data Kafka Pump\n\n\n\n\n8080:/actuator/metrics\n\n\n\n\n\n\n\n\nEthereum Cassandra Dump\n\n\n1\n\n\nDump Kafka Topics Into Cassandra\n\n\n\n\n8080:/actuator/metrics\n\n\n\n\n\n\n\n\nEthereum Contract Summary\n\n\n1 - N\n\n\nCalculates Contract Summaries (balances and etc)\n\n\n\n\n8080:/actuator/metrics\n\n\n\n\n\n\n\n\n\n\nEthereum Pump\n\n\nPumps Ethereum raw data(block,tx,uncles) into Kafka.\n\n\nEthereum Cassandra Dump\n\n\nConsumes Ethereum raw data from Kafka topics, translate it into cassandra entities and store them into Elassandra.\n\n\nEthereum Contract Summary\n\n\nCollects summary for each contract stored in Ethereum chain. Consumes Kafka topics and update data in Elassandra.", 
             "title": "Ethereum"
         }, 
         {
-            "location": "/cybernode/chains/ethereum/#known-issues", 
-            "text": "For  2806264 block  there is a transaction with size more than 1mb, general rule, size of item can be  1mb.", 
-            "title": "Known issues"
+            "location": "/cyberSearch/components/ethereum/#ethereum-components", 
+            "text": "Component  Scale  Description  Cluster Address  Metrics  External      Ethereum Pump  1  Ethereum Chain Data Kafka Pump   8080:/actuator/metrics     Ethereum Cassandra Dump  1  Dump Kafka Topics Into Cassandra   8080:/actuator/metrics     Ethereum Contract Summary  1 - N  Calculates Contract Summaries (balances and etc)   8080:/actuator/metrics", 
+            "title": "Ethereum Components"
+        }, 
+        {
+            "location": "/cyberSearch/components/ethereum/#ethereum-pump", 
+            "text": "Pumps Ethereum raw data(block,tx,uncles) into Kafka.", 
+            "title": "Ethereum Pump"
+        }, 
+        {
+            "location": "/cyberSearch/components/ethereum/#ethereum-cassandra-dump", 
+            "text": "Consumes Ethereum raw data from Kafka topics, translate it into cassandra entities and store them into Elassandra.", 
+            "title": "Ethereum Cassandra Dump"
+        }, 
+        {
+            "location": "/cyberSearch/components/ethereum/#ethereum-contract-summary", 
+            "text": "Collects summary for each contract stored in Ethereum chain. Consumes Kafka topics and update data in Elassandra.", 
+            "title": "Ethereum Contract Summary"
+        }, 
+        {
+            "location": "/cyberSearch/contributing/contributing/", 
+            "text": "Contributing to Cyber Search \n\n\nThank you for considering a contribution to Cyber Search! This guide explains how to:\n\n Get started\n\n Development workflow\n* Get help if you encounter trouble\n\n\nGet in touch\n\n\nBefore starting to work on a feature or a fix, please open an issue to discuss the use case or bug with us. This can \nsave both you and us a lot of time. For any non-trivial change, we'll ask you to create a short design document explaining:\n\n\n\n\nWhy is this change done? What's the use case?\n\n\nWhat will the API look like? (For new features)\n\n\nWhat test cases should it have? What could go wrong?\n\n\nHow will it roughly be implemented? (We'll happily provide code pointers to save you time)\n\n\n\n\nDevelopment Workflow\n\n\nDevelopment Setup\n\n\nPlease, use \ndevelopment environment setup guide\n.\n\n\nMake Changes\n\n\nUse this \nArchitecture Overview\n as a start point for making changes.\n\n\nLocal Check\n\n\nSeveral checks should passed to succeed build.\n\n \nDetekt\n code analyze tool should not report any issues\n\n \nJUnit\n tests should pass\n\n\nBefore committing you changes, please, run local project check by:\n\n\n./gradlew build    //linux, mac\ngradlew.bat build  //windows\n\n\n\n\n\nCreating Commits And Writing Commit Messages\n\n\nThe commit messages that accompany your code changes are an important piece of documentation, please follow these guidelines when writing commit messages:\n solidity/CONTRIBUTING.md\n\n\n\n\nKeep commits discrete: avoid including multiple unrelated changes in a single commit\n\n\nKeep commits self-contained: avoid spreading a single change across multiple commits. A single commit should make sense in isolation\n\n\nAdd GitHub issue to \nCHANGELOG.md\n\n\nInclude GitHub issue in the commit message on a first line at the beginning. Example:\n\n\n\n\n#123 Refactor CONTRIBUTING.md\n\n--Add Creating Commits And Writing Commit Messages Section\n\n\n\n\n\nSubmitting Your Change\n\n\nAfter you submit your pull request, a core developer will review it. It is normal that this takes several \niterations, so don't get discouraged by change requests. They ensure the high quality that we all enjoy.\n\n\nGetting Help\n\n\nIf you run into any trouble, please reach out to us on the issue you are working on.\n\n\nOur Thanks\n\n\nWe deeply appreciate your effort toward improving Search. For any contribution, large or small, you will be immortalized\n in the release notes for the version you've contributed to.", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/cyberSearch/contributing/contributing/#contributing-to-cyber-search", 
+            "text": "Thank you for considering a contribution to Cyber Search! This guide explains how to:  Get started  Development workflow\n* Get help if you encounter trouble", 
+            "title": "Contributing to Cyber Search"
+        }, 
+        {
+            "location": "/cyberSearch/contributing/contributing/#get-in-touch", 
+            "text": "Before starting to work on a feature or a fix, please open an issue to discuss the use case or bug with us. This can \nsave both you and us a lot of time. For any non-trivial change, we'll ask you to create a short design document explaining:   Why is this change done? What's the use case?  What will the API look like? (For new features)  What test cases should it have? What could go wrong?  How will it roughly be implemented? (We'll happily provide code pointers to save you time)", 
+            "title": "Get in touch"
+        }, 
+        {
+            "location": "/cyberSearch/contributing/contributing/#development-workflow", 
+            "text": "", 
+            "title": "Development Workflow"
+        }, 
+        {
+            "location": "/cyberSearch/contributing/contributing/#development-setup", 
+            "text": "Please, use  development environment setup guide .", 
+            "title": "Development Setup"
+        }, 
+        {
+            "location": "/cyberSearch/contributing/contributing/#make-changes", 
+            "text": "Use this  Architecture Overview  as a start point for making changes.", 
+            "title": "Make Changes"
+        }, 
+        {
+            "location": "/cyberSearch/contributing/contributing/#local-check", 
+            "text": "Several checks should passed to succeed build.   Detekt  code analyze tool should not report any issues   JUnit  tests should pass  Before committing you changes, please, run local project check by:  ./gradlew build    //linux, mac\ngradlew.bat build  //windows", 
+            "title": "Local Check"
+        }, 
+        {
+            "location": "/cyberSearch/contributing/contributing/#creating-commits-and-writing-commit-messages", 
+            "text": "The commit messages that accompany your code changes are an important piece of documentation, please follow these guidelines when writing commit messages:\n solidity/CONTRIBUTING.md   Keep commits discrete: avoid including multiple unrelated changes in a single commit  Keep commits self-contained: avoid spreading a single change across multiple commits. A single commit should make sense in isolation  Add GitHub issue to  CHANGELOG.md  Include GitHub issue in the commit message on a first line at the beginning. Example:   #123 Refactor CONTRIBUTING.md\n\n--Add Creating Commits And Writing Commit Messages Section", 
+            "title": "Creating Commits And Writing Commit Messages"
+        }, 
+        {
+            "location": "/cyberSearch/contributing/contributing/#submitting-your-change", 
+            "text": "After you submit your pull request, a core developer will review it. It is normal that this takes several \niterations, so don't get discouraged by change requests. They ensure the high quality that we all enjoy.", 
+            "title": "Submitting Your Change"
+        }, 
+        {
+            "location": "/cyberSearch/contributing/contributing/#getting-help", 
+            "text": "If you run into any trouble, please reach out to us on the issue you are working on.", 
+            "title": "Getting Help"
+        }, 
+        {
+            "location": "/cyberSearch/contributing/contributing/#our-thanks", 
+            "text": "We deeply appreciate your effort toward improving Search. For any contribution, large or small, you will be immortalized\n in the release notes for the version you've contributed to.", 
+            "title": "Our Thanks"
+        }, 
+        {
+            "location": "/cyberSearch/contributing/dev-environment/", 
+            "text": "Development environment\n\n\nUseful Links\n\n\n\n\ncheat sheet\n\n\n\n\nPrestart\n\n\n\n\nInstall Java 10 JDK\n\n\nInstall Docker and Docker Compose\n\n\nInstall Intellij Idea\n\n\n\n\nRun Kafka, Elassandra, Prometheus and Grafana\n\n\nStart containers(required)\n\n\nFor mac:\n\n\ncd\n dev-environment\ndocker-compose -f dev-environment/env-mac.yml up -d\n\n\n\n\n\nFor linux family:\n\n\ncd\n dev-environment\ndocker-compose -f dev-environment/env.yml up -d\n\n\n\n\n\nImport project to Intellij Idea\n\n\nOpen Project in idea by selecting: Import Project -\n selecting \nbuild.gradle\n file from the repository root\n\n\n\n\nWait for dependency downloading and indexation\n\n\nRun Ethereum Pump from intellij Idea\n\n\nGo to EthereumPumpApplication.kt and press green triangle on left to the code (on example line 23):\n\n\n\nPump will fail due to lack of \nCHAIN\n and \nCHAIN_NODE_URL\n environment properties, let's define it: Select \"Edit Configuration\"\n\n\n\n\nAdd properties:\n\n\n\n\nNow, run pump one more time, it should start.", 
+            "title": "Dev-environment"
+        }, 
+        {
+            "location": "/cyberSearch/contributing/dev-environment/#development-environment", 
+            "text": "", 
+            "title": "Development environment"
+        }, 
+        {
+            "location": "/cyberSearch/contributing/dev-environment/#useful-links", 
+            "text": "cheat sheet", 
+            "title": "Useful Links"
+        }, 
+        {
+            "location": "/cyberSearch/contributing/dev-environment/#prestart", 
+            "text": "Install Java 10 JDK  Install Docker and Docker Compose  Install Intellij Idea", 
+            "title": "Prestart"
+        }, 
+        {
+            "location": "/cyberSearch/contributing/dev-environment/#run-kafka-elassandra-prometheus-and-grafana", 
+            "text": "", 
+            "title": "Run Kafka, Elassandra, Prometheus and Grafana"
+        }, 
+        {
+            "location": "/cyberSearch/contributing/dev-environment/#start-containersrequired", 
+            "text": "For mac:  cd  dev-environment\ndocker-compose -f dev-environment/env-mac.yml up -d  For linux family:  cd  dev-environment\ndocker-compose -f dev-environment/env.yml up -d", 
+            "title": "Start containers(required)"
+        }, 
+        {
+            "location": "/cyberSearch/contributing/dev-environment/#import-project-to-intellij-idea", 
+            "text": "Open Project in idea by selecting: Import Project -  selecting  build.gradle  file from the repository root  \nWait for dependency downloading and indexation", 
+            "title": "Import project to Intellij Idea"
+        }, 
+        {
+            "location": "/cyberSearch/contributing/dev-environment/#run-ethereum-pump-from-intellij-idea", 
+            "text": "Go to EthereumPumpApplication.kt and press green triangle on left to the code (on example line 23):  Pump will fail due to lack of  CHAIN  and  CHAIN_NODE_URL  environment properties, let's define it: Select \"Edit Configuration\"   Add properties:   Now, run pump one more time, it should start.", 
+            "title": "Run Ethereum Pump from intellij Idea"
+        }, 
+        {
+            "location": "/cyberSearch/contributing/cheat-sheet/", 
+            "text": "Kafka\n\n\nStop kafka and delete kafka data(cheat sheet)\n\n\ndocker stop fast-data-dev-search\ndocker rm fast-data-dev-search\n\n\n\n\n\nElassandra\n\n\nStop elassandra and delete elassandra data(cheat sheet)\n\n\ndocker stop elassandra-search\ndocker rm elassandra-search\n\n\n\n\n\nGet indices info\n\n\ncurl -XGET \nlocalhost:9200/_cat/indices?v\npretty\n\n\n\n\n\n\nChains\n\n\nRun parity node(cheat sheet)\n\n\nsudo  docker run -d -p \n8545\n:8545 --name parity_eth \n\\\n\n-v \n${\nREPLACE_IT_BY_HOST_FOLDER\n}\n:/cyberdata parity/parity:stable \n\\\n\n--db-path /cyberdata --jsonrpc-hosts all --jsonrpc-interface all --jsonrpc-threads \n4", 
+            "title": "Cheat sheet"
+        }, 
+        {
+            "location": "/cyberSearch/contributing/cheat-sheet/#kafka", 
+            "text": "", 
+            "title": "Kafka"
+        }, 
+        {
+            "location": "/cyberSearch/contributing/cheat-sheet/#stop-kafka-and-delete-kafka-datacheat-sheet", 
+            "text": "docker stop fast-data-dev-search\ndocker rm fast-data-dev-search", 
+            "title": "Stop kafka and delete kafka data(cheat sheet)"
+        }, 
+        {
+            "location": "/cyberSearch/contributing/cheat-sheet/#elassandra", 
+            "text": "", 
+            "title": "Elassandra"
+        }, 
+        {
+            "location": "/cyberSearch/contributing/cheat-sheet/#stop-elassandra-and-delete-elassandra-datacheat-sheet", 
+            "text": "docker stop elassandra-search\ndocker rm elassandra-search", 
+            "title": "Stop elassandra and delete elassandra data(cheat sheet)"
+        }, 
+        {
+            "location": "/cyberSearch/contributing/cheat-sheet/#get-indices-info", 
+            "text": "curl -XGET  localhost:9200/_cat/indices?v pretty", 
+            "title": "Get indices info"
+        }, 
+        {
+            "location": "/cyberSearch/contributing/cheat-sheet/#chains", 
+            "text": "", 
+            "title": "Chains"
+        }, 
+        {
+            "location": "/cyberSearch/contributing/cheat-sheet/#run-parity-nodecheat-sheet", 
+            "text": "sudo  docker run -d -p  8545 :8545 --name parity_eth  \\ \n-v  ${ REPLACE_IT_BY_HOST_FOLDER } :/cyberdata parity/parity:stable  \\ \n--db-path /cyberdata --jsonrpc-hosts all --jsonrpc-interface all --jsonrpc-threads  4", 
+            "title": "Run parity node(cheat sheet)"
+        }, 
+        {
+            "location": "/cyberMarkets/about-markets/", 
+            "text": "About Markets", 
+            "title": "About markets"
+        }, 
+        {
+            "location": "/cyberMarkets/about-markets/#about-markets", 
+            "text": "", 
+            "title": "About Markets"
+        }, 
+        {
+            "location": "/cyberMarkets/components/overview/", 
+            "text": "Markets Components\n\n\n\n\n\n\n\n\nComponent\n\n\nScale\n\n\nDescription\n\n\nCluster Address\n\n\nMetrics\n\n\nExternal\n\n\n\n\n\n\n\n\n\n\nKafka\n\n\n1\n\n\nData Entry\n\n\n\n\n\n\n\n\n\n\n\n\nKafka Manager\n\n\n1\n\n\nKafka Explorer\n\n\n\n\n\n\n\n\n\n\n\n\nElassandra\n\n\n1 - N\n\n\nData Back\n\n\n\n\n\n\n\n\n\n\n\n\nExchanges Connector\n\n\n1 - N\n\n\nConnect to CEXs/DEXs for raw data\n\n\n\n\n8080:/actuator/metrics\n\n\n\n\n\n\n\n\nTickers\n\n\n1 - N\n\n\nCalculate Tickers From Raw Data\n\n\n\n\n\n\n\n\n\n\n\n\nMarkets REST Api\n\n\n1 - N\n\n\nRest Api To Markets Entities\n\n\n\n\n\n\ny\n\n\n\n\n\n\nMarkets Stream\n\n\n1 - N\n\n\nWeb Socket Api To Markets Entities\n\n\n\n\n\n\ny\n\n\n\n\n\n\nMarkets Api Docs\n\n\n1 - N\n\n\nMarkets Api Docs Based On Swagger\n\n\n\n\n\n\ny\n\n\n\n\n\n\n\n\n\n\nKafka\n\n\nKafka\n is message queue used as main data entry. All raw data firstly goes into kafka, than \n various services consume it to provide new functionality.\n\n\nElassandra (Elastic + Cassandra)\n\n\nElassandra\n is used as main backend storage with linear growth fulltext-search\n index on source cassandra data.\n\n\nExchanges Connector\n\n\nCollect raw data from centralized and decentalized exchanges such as trades, orderbooks and put it to kafka.\n\n\nTickers\n\n\nCalculate tickers, prices, etc and aggregate raw data which collecting exchanges connectors module", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/cyberMarkets/components/overview/#markets-components", 
+            "text": "Component  Scale  Description  Cluster Address  Metrics  External      Kafka  1  Data Entry       Kafka Manager  1  Kafka Explorer       Elassandra  1 - N  Data Back       Exchanges Connector  1 - N  Connect to CEXs/DEXs for raw data   8080:/actuator/metrics     Tickers  1 - N  Calculate Tickers From Raw Data       Markets REST Api  1 - N  Rest Api To Markets Entities    y    Markets Stream  1 - N  Web Socket Api To Markets Entities    y    Markets Api Docs  1 - N  Markets Api Docs Based On Swagger    y", 
+            "title": "Markets Components"
+        }, 
+        {
+            "location": "/cyberMarkets/components/overview/#kafka", 
+            "text": "Kafka  is message queue used as main data entry. All raw data firstly goes into kafka, than \n various services consume it to provide new functionality.", 
+            "title": "Kafka"
+        }, 
+        {
+            "location": "/cyberMarkets/components/overview/#elassandra-elastic-cassandra", 
+            "text": "Elassandra  is used as main backend storage with linear growth fulltext-search\n index on source cassandra data.", 
+            "title": "Elassandra (Elastic + Cassandra)"
+        }, 
+        {
+            "location": "/cyberMarkets/components/overview/#exchanges-connector", 
+            "text": "Collect raw data from centralized and decentalized exchanges such as trades, orderbooks and put it to kafka.", 
+            "title": "Exchanges Connector"
+        }, 
+        {
+            "location": "/cyberMarkets/components/overview/#tickers", 
+            "text": "Calculate tickers, prices, etc and aggregate raw data which collecting exchanges connectors module", 
+            "title": "Tickers"
+        }, 
+        {
+            "location": "/cyberMarkets/contributing/dev-environment/", 
+            "text": "Development environment\n\n\nUseful Links\n\n\n\n\ncheat sheet\n\n\n\n\nPrestart\n\n\n\n\nInstal Java 8 JDK\n\n\nInstall Docker and Docker Compose\n\n\nInstall Intellij Idea\n\n\n\n\nRun Kafka, Elassandra, Prometheus and Grafana\n\n\nStart containers(required)\n\n\nFor mac:\n\n\ndocker-compose -f dev-environment/env-mac.yml up -d\n\n\n\n\n\nFor linux family:\n\n\ndocker-compose -f dev-environment/env.yml up -d\n\n\n\n\n\nBootstrap Elassandra with keyspaces(required)\n\n\ndocker cp dev-environment/elassandra-bootstrap.cql  elassandra-markets:/elassandra-bootstrap.cql\ndocker \nexec\n -it elassandra-markets bash\ncqlsh -f elassandra-bootstrap.cql\n\n\n\n\n\nImport project to Intellij Idea\n\n\nOpen Project in idea by selecting: Import Project -\n selecting build.gradle file from the repository root\n\n\n\n\n\n\nWait for dependency downloading and indexation\n\n\nRun Exchanges Connector, Tickers, or API from intellij Idea\n\n\nGo to ExchangesConnectorApplication.kt and press green triangle on left to the code (on example line 16):\n\n\n\nIf, you use parity endpoint different rather that localhost:8545, than Etherdelta connector will fail due to lack of environment property PARITY_URL.\nLet's define it: Select \"Edit Configurations\"\n\n\n\n\nAdd next properties:\n\n\n\n\nNow, run exchanges connector one more time then etherdelta connector should start.\nYou can add environment variables in the same way for Tickers, APIs and etc.", 
+            "title": "Dev-enviroment"
+        }, 
+        {
+            "location": "/cyberMarkets/contributing/dev-environment/#development-environment", 
+            "text": "", 
+            "title": "Development environment"
+        }, 
+        {
+            "location": "/cyberMarkets/contributing/dev-environment/#useful-links", 
+            "text": "cheat sheet", 
+            "title": "Useful Links"
+        }, 
+        {
+            "location": "/cyberMarkets/contributing/dev-environment/#prestart", 
+            "text": "Instal Java 8 JDK  Install Docker and Docker Compose  Install Intellij Idea", 
+            "title": "Prestart"
+        }, 
+        {
+            "location": "/cyberMarkets/contributing/dev-environment/#run-kafka-elassandra-prometheus-and-grafana", 
+            "text": "", 
+            "title": "Run Kafka, Elassandra, Prometheus and Grafana"
+        }, 
+        {
+            "location": "/cyberMarkets/contributing/dev-environment/#start-containersrequired", 
+            "text": "For mac:  docker-compose -f dev-environment/env-mac.yml up -d  For linux family:  docker-compose -f dev-environment/env.yml up -d", 
+            "title": "Start containers(required)"
+        }, 
+        {
+            "location": "/cyberMarkets/contributing/dev-environment/#bootstrap-elassandra-with-keyspacesrequired", 
+            "text": "docker cp dev-environment/elassandra-bootstrap.cql  elassandra-markets:/elassandra-bootstrap.cql\ndocker  exec  -it elassandra-markets bash\ncqlsh -f elassandra-bootstrap.cql", 
+            "title": "Bootstrap Elassandra with keyspaces(required)"
+        }, 
+        {
+            "location": "/cyberMarkets/contributing/dev-environment/#import-project-to-intellij-idea", 
+            "text": "Open Project in idea by selecting: Import Project -  selecting build.gradle file from the repository root   \nWait for dependency downloading and indexation", 
+            "title": "Import project to Intellij Idea"
+        }, 
+        {
+            "location": "/cyberMarkets/contributing/dev-environment/#run-exchanges-connector-tickers-or-api-from-intellij-idea", 
+            "text": "Go to ExchangesConnectorApplication.kt and press green triangle on left to the code (on example line 16):  If, you use parity endpoint different rather that localhost:8545, than Etherdelta connector will fail due to lack of environment property PARITY_URL.\nLet's define it: Select \"Edit Configurations\"   Add next properties:   Now, run exchanges connector one more time then etherdelta connector should start.\nYou can add environment variables in the same way for Tickers, APIs and etc.", 
+            "title": "Run Exchanges Connector, Tickers, or API from intellij Idea"
+        }, 
+        {
+            "location": "/cyberMarkets/contributing/cheat-sheet/", 
+            "text": "Kafka\n\n\nStop kafka and delete kafka data(cheat sheet)\n\n\ndocker stop fast-data-dev-markets\ndocker rm fast-data-dev-markets\n\n\n\n\n\nElassandra\n\n\nStop elassandra and delete elassandra data(cheat sheet)\n\n\ndocker stop elassandra-markets\ndocker rm elassandra-markets \n\n\n\n\n\nChains\n\n\nRun parity node(cheat sheet)\n\n\nsudo  docker run -d -p \n8545\n:8545 --name parity_eth \n\\\n\n-v \n${\nREPLACE_IT_BY_HOST_FOLDER\n}\n:/cyberdata parity/parity:stable \n\\\n\n--db-path /cyberdata --jsonrpc-hosts all --jsonrpc-interface all --jsonrpc-threads \n4", 
+            "title": "Cheat sheet"
+        }, 
+        {
+            "location": "/cyberMarkets/contributing/cheat-sheet/#kafka", 
+            "text": "", 
+            "title": "Kafka"
+        }, 
+        {
+            "location": "/cyberMarkets/contributing/cheat-sheet/#stop-kafka-and-delete-kafka-datacheat-sheet", 
+            "text": "docker stop fast-data-dev-markets\ndocker rm fast-data-dev-markets", 
+            "title": "Stop kafka and delete kafka data(cheat sheet)"
+        }, 
+        {
+            "location": "/cyberMarkets/contributing/cheat-sheet/#elassandra", 
+            "text": "", 
+            "title": "Elassandra"
+        }, 
+        {
+            "location": "/cyberMarkets/contributing/cheat-sheet/#stop-elassandra-and-delete-elassandra-datacheat-sheet", 
+            "text": "docker stop elassandra-markets\ndocker rm elassandra-markets", 
+            "title": "Stop elassandra and delete elassandra data(cheat sheet)"
+        }, 
+        {
+            "location": "/cyberMarkets/contributing/cheat-sheet/#chains", 
+            "text": "", 
+            "title": "Chains"
+        }, 
+        {
+            "location": "/cyberMarkets/contributing/cheat-sheet/#run-parity-nodecheat-sheet", 
+            "text": "sudo  docker run -d -p  8545 :8545 --name parity_eth  \\ \n-v  ${ REPLACE_IT_BY_HOST_FOLDER } :/cyberdata parity/parity:stable  \\ \n--db-path /cyberdata --jsonrpc-hosts all --jsonrpc-interface all --jsonrpc-threads  4", 
+            "title": "Run parity node(cheat sheet)"
+        }, 
+        {
+            "location": "/cyberMarkets/contributing/contributing/", 
+            "text": "Contributing to Cyber Markets \n\n\nThank you for considering a contribution to Cyber Markets! This guide explains how to:\n\n Get started\n\n Development workflow\n* Get help if you encounter trouble\n\n\nGet in touch\n\n\nBefore starting to work on a feature or a fix, please open an issue to discuss the use case or bug with us. This can \nsave both you and us a lot of time. For any non-trivial change, we'll ask you to create a short design document explaining:\n\n\n\n\nWhy is this change done? What's the use case?\n\n\nWhat will the API look like? (For new features)\n\n\nWhat test cases should it have? What could go wrong?\n\n\nHow will it roughly be implemented? (We'll happily provide code pointers to save you time)\n\n\n\n\nDevelopment Workflow\n\n\nDevelopment Setup\n\n\nPlease, use \ndevelopment environment setup guide\n.\n\n\nMake Changes\n\n\nUse this \nArchitecture Overview\n as a start point for making changes.\n\n\nLocal Check\n\n\nSeveral checks should passed to succeed build.\n\n Detekt code analyze tool should not report any issues\n\n \nJUnit\n tests should pass\n\n\nBefore committing you changes, please, run local project check by:\n\n\n./gradlew build    //linux, mac\ngradlew.bat build  //windows\n\n\n\n\n\nCreating Commits And Writing Commit Messages\n\n\nThe commit messages that accompany your code changes are an important piece of documentation, please follow these guidelines when writing commit messages:\n\n\n\n\nKeep commits discrete: avoid including multiple unrelated changes in a single commit\n\n\nKeep commits self-contained: avoid spreading a single change across multiple commits. A single commit should make sense in isolation\n\n\nAdd GitHub issue to \nCHANGELOG.md\n\n\nInclude GitHub issue in the commit message on a first line at the beginning. Example:\n\n\n\n\n#123 Refactor CONTRIBUTING.md\n\n--Add Creating Commits And Writing Commit Messages Section\n\n\n\n\n\nSubmitting Your Change\n\n\nAfter you submit your pull request, a core developer will review it. It is normal that this takes several \niterations, so don't get discouraged by change requests. They ensure the high quality that we all enjoy.\n\n\nGetting Help\n\n\nIf you run into any trouble, please reach out to us on the issue you are working on.\n\n\nOur Thanks\n\n\nWe deeply appreciate your effort toward improving Search. For any contribution, large or small, you will be immortalized\n in the release notes for the version you've contributed to.", 
+            "title": "Contributing"
+        }, 
+        {
+            "location": "/cyberMarkets/contributing/contributing/#contributing-to-cyber-markets", 
+            "text": "Thank you for considering a contribution to Cyber Markets! This guide explains how to:  Get started  Development workflow\n* Get help if you encounter trouble", 
+            "title": "Contributing to Cyber Markets"
+        }, 
+        {
+            "location": "/cyberMarkets/contributing/contributing/#get-in-touch", 
+            "text": "Before starting to work on a feature or a fix, please open an issue to discuss the use case or bug with us. This can \nsave both you and us a lot of time. For any non-trivial change, we'll ask you to create a short design document explaining:   Why is this change done? What's the use case?  What will the API look like? (For new features)  What test cases should it have? What could go wrong?  How will it roughly be implemented? (We'll happily provide code pointers to save you time)", 
+            "title": "Get in touch"
+        }, 
+        {
+            "location": "/cyberMarkets/contributing/contributing/#development-workflow", 
+            "text": "", 
+            "title": "Development Workflow"
+        }, 
+        {
+            "location": "/cyberMarkets/contributing/contributing/#development-setup", 
+            "text": "Please, use  development environment setup guide .", 
+            "title": "Development Setup"
+        }, 
+        {
+            "location": "/cyberMarkets/contributing/contributing/#make-changes", 
+            "text": "Use this  Architecture Overview  as a start point for making changes.", 
+            "title": "Make Changes"
+        }, 
+        {
+            "location": "/cyberMarkets/contributing/contributing/#local-check", 
+            "text": "Several checks should passed to succeed build.  Detekt code analyze tool should not report any issues   JUnit  tests should pass  Before committing you changes, please, run local project check by:  ./gradlew build    //linux, mac\ngradlew.bat build  //windows", 
+            "title": "Local Check"
+        }, 
+        {
+            "location": "/cyberMarkets/contributing/contributing/#creating-commits-and-writing-commit-messages", 
+            "text": "The commit messages that accompany your code changes are an important piece of documentation, please follow these guidelines when writing commit messages:   Keep commits discrete: avoid including multiple unrelated changes in a single commit  Keep commits self-contained: avoid spreading a single change across multiple commits. A single commit should make sense in isolation  Add GitHub issue to  CHANGELOG.md  Include GitHub issue in the commit message on a first line at the beginning. Example:   #123 Refactor CONTRIBUTING.md\n\n--Add Creating Commits And Writing Commit Messages Section", 
+            "title": "Creating Commits And Writing Commit Messages"
+        }, 
+        {
+            "location": "/cyberMarkets/contributing/contributing/#submitting-your-change", 
+            "text": "After you submit your pull request, a core developer will review it. It is normal that this takes several \niterations, so don't get discouraged by change requests. They ensure the high quality that we all enjoy.", 
+            "title": "Submitting Your Change"
+        }, 
+        {
+            "location": "/cyberMarkets/contributing/contributing/#getting-help", 
+            "text": "If you run into any trouble, please reach out to us on the issue you are working on.", 
+            "title": "Getting Help"
+        }, 
+        {
+            "location": "/cyberMarkets/contributing/contributing/#our-thanks", 
+            "text": "We deeply appreciate your effort toward improving Search. For any contribution, large or small, you will be immortalized\n in the release notes for the version you've contributed to.", 
+            "title": "Our Thanks"
+        }, 
+        {
+            "location": "/cyberJS/overview/", 
+            "text": "cyber.js is sample wrapper around cyber infrastructure - search, markets and changing also it provide method for work with ipfs and ethereum smart contracts.", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/cyberJS/build/", 
+            "text": "How to write a NPM module using TypeScript\n\n\nimport {DefaultSearchApi, SearchApi} from \ncyber-search-js\n;\n\nconst searchApi: SearchApi = new DefaultSearchApi(\nhttp://api.search.cyber.fund\n);\n\n\n\n\n\nHow to run\n\n\nnpm run build\n\n\n\n\n\npublish\n\n\nnpm publish", 
+            "title": "Development"
+        }, 
+        {
+            "location": "/cyberJS/build/#how-to-write-a-npm-module-using-typescript", 
+            "text": "import {DefaultSearchApi, SearchApi} from  cyber-search-js ;\n\nconst searchApi: SearchApi = new DefaultSearchApi( http://api.search.cyber.fund );", 
+            "title": "How to write a NPM module using TypeScript"
+        }, 
+        {
+            "location": "/cyberJS/build/#how-to-run", 
+            "text": "npm run build", 
+            "title": "How to run"
+        }, 
+        {
+            "location": "/cyberJS/build/#publish", 
+            "text": "npm publish", 
+            "title": "publish"
         }, 
         {
             "location": "/cyberBrowser/Vision_and_Scope/", 
@@ -581,231 +921,6 @@
             "title": "Create new registry"
         }, 
         {
-            "location": "/cyberSearch/about-search/", 
-            "text": "About Search", 
-            "title": "About Search"
-        }, 
-        {
-            "location": "/cyberSearch/about-search/#about-search", 
-            "text": "", 
-            "title": "About Search"
-        }, 
-        {
-            "location": "/cyberSearch/components/overview/", 
-            "text": "Search Common Components\n\n\n\n\n\n\n\n\nComponent\n\n\nScale\n\n\nDescription\n\n\nCluster Address\n\n\nMetrics\n\n\nExternal\n\n\n\n\n\n\n\n\n\n\nKafka\n\n\n1\n\n\nData Entry\n\n\n\n\n\n\n\n\n\n\n\n\nKafka Manager\n\n\n1\n\n\nKafka Explorer\n\n\n\n\n\n\n\n\n\n\n\n\nElassandra\n\n\n1 - N\n\n\nData Back And Search\n\n\nelassandra.search.svc:9042\n\n\n\n\n\n\n\n\n\n\nSearch Api\n\n\n1 - N\n\n\nApi To Search Chain Entities\n\n\nsearch-api.search.svc:80\n\n\n8080:/actuator/metrics\n\n\ny\n\n\n\n\n\n\nSearch Api Docs\n\n\n1 - N\n\n\nSearch Api Docs Based On Swagger\n\n\nsearch-api-docs.search.svc:80\n\n\n\n\ny\n\n\n\n\n\n\n\n\n\n\nChains Components\n\n\n\n\nEthereum\n\n\nBitcoin\n\n\n\n\nKafka\n\n\nKafka\n is message queue used as main data entry. All raw data firstly goes into kafka, than \n various services consume it to provide new functionality.\n\n\nElassandra (Elastic + Cassandra)\n\n\nElassandra\n is used as main backend storage with linear growth fulltext-search\n index on source cassandra data.\n\n\nSearch Api\n\n\nMain search access endpoint. See \napi calls documentations\n.", 
-            "title": "Overview"
-        }, 
-        {
-            "location": "/cyberSearch/components/overview/#search-common-components", 
-            "text": "Component  Scale  Description  Cluster Address  Metrics  External      Kafka  1  Data Entry       Kafka Manager  1  Kafka Explorer       Elassandra  1 - N  Data Back And Search  elassandra.search.svc:9042      Search Api  1 - N  Api To Search Chain Entities  search-api.search.svc:80  8080:/actuator/metrics  y    Search Api Docs  1 - N  Search Api Docs Based On Swagger  search-api-docs.search.svc:80   y", 
-            "title": "Search Common Components"
-        }, 
-        {
-            "location": "/cyberSearch/components/overview/#chains-components", 
-            "text": "Ethereum  Bitcoin", 
-            "title": "Chains Components"
-        }, 
-        {
-            "location": "/cyberSearch/components/overview/#kafka", 
-            "text": "Kafka  is message queue used as main data entry. All raw data firstly goes into kafka, than \n various services consume it to provide new functionality.", 
-            "title": "Kafka"
-        }, 
-        {
-            "location": "/cyberSearch/components/overview/#elassandra-elastic-cassandra", 
-            "text": "Elassandra  is used as main backend storage with linear growth fulltext-search\n index on source cassandra data.", 
-            "title": "Elassandra (Elastic + Cassandra)"
-        }, 
-        {
-            "location": "/cyberSearch/components/overview/#search-api", 
-            "text": "Main search access endpoint. See  api calls documentations .", 
-            "title": "Search Api"
-        }, 
-        {
-            "location": "/cyberSearch/components/bitcoin/", 
-            "text": "Ethereum Components\n\n\n\n\n\n\n\n\nComponent\n\n\nScale\n\n\nDescription\n\n\nCluster Address\n\n\nMetrics\n\n\nExternal\n\n\n\n\n\n\n\n\n\n\nBitcoin Pump\n\n\n1\n\n\nBitcoin Chain Data Kafka Pump\n\n\n\n\n8080:/actuator/metrics\n\n\n\n\n\n\n\n\nBitcoin Cassandra Dump\n\n\n1\n\n\nDump Kafka Topics Into Cassandra\n\n\n\n\n8080:/actuator/metrics\n\n\n\n\n\n\n\n\nBitcoin Contract Summary\n\n\n1 - N\n\n\nCalculates Contract Summaries (balances and etc)\n\n\n\n\n8080:/actuator/metrics\n\n\n\n\n\n\n\n\n\n\nBitcoin Pump\n\n\nPumps Bitcoin raw data(block,tx,uncles) into Kafka.\n\n\nBitcoin Cassandra Dump\n\n\nConsumes Bitcoin raw data from Kafka topics, translate it into cassandra entities and store them into Elassandra.\n\n\nBitcoin Contract Summary\n\n\nCollects summary for each contract stored in Bitcoin chain. Consumes Kafka topics and update data in Elassandra.", 
-            "title": "Bitcoin"
-        }, 
-        {
-            "location": "/cyberSearch/components/bitcoin/#ethereum-components", 
-            "text": "Component  Scale  Description  Cluster Address  Metrics  External      Bitcoin Pump  1  Bitcoin Chain Data Kafka Pump   8080:/actuator/metrics     Bitcoin Cassandra Dump  1  Dump Kafka Topics Into Cassandra   8080:/actuator/metrics     Bitcoin Contract Summary  1 - N  Calculates Contract Summaries (balances and etc)   8080:/actuator/metrics", 
-            "title": "Ethereum Components"
-        }, 
-        {
-            "location": "/cyberSearch/components/bitcoin/#bitcoin-pump", 
-            "text": "Pumps Bitcoin raw data(block,tx,uncles) into Kafka.", 
-            "title": "Bitcoin Pump"
-        }, 
-        {
-            "location": "/cyberSearch/components/bitcoin/#bitcoin-cassandra-dump", 
-            "text": "Consumes Bitcoin raw data from Kafka topics, translate it into cassandra entities and store them into Elassandra.", 
-            "title": "Bitcoin Cassandra Dump"
-        }, 
-        {
-            "location": "/cyberSearch/components/bitcoin/#bitcoin-contract-summary", 
-            "text": "Collects summary for each contract stored in Bitcoin chain. Consumes Kafka topics and update data in Elassandra.", 
-            "title": "Bitcoin Contract Summary"
-        }, 
-        {
-            "location": "/cyberSearch/components/ethereum/", 
-            "text": "Ethereum Components\n\n\n\n\n\n\n\n\nComponent\n\n\nScale\n\n\nDescription\n\n\nCluster Address\n\n\nMetrics\n\n\nExternal\n\n\n\n\n\n\n\n\n\n\nEthereum Pump\n\n\n1\n\n\nEthereum Chain Data Kafka Pump\n\n\n\n\n8080:/actuator/metrics\n\n\n\n\n\n\n\n\nEthereum Cassandra Dump\n\n\n1\n\n\nDump Kafka Topics Into Cassandra\n\n\n\n\n8080:/actuator/metrics\n\n\n\n\n\n\n\n\nEthereum Contract Summary\n\n\n1 - N\n\n\nCalculates Contract Summaries (balances and etc)\n\n\n\n\n8080:/actuator/metrics\n\n\n\n\n\n\n\n\n\n\nEthereum Pump\n\n\nPumps Ethereum raw data(block,tx,uncles) into Kafka.\n\n\nEthereum Cassandra Dump\n\n\nConsumes Ethereum raw data from Kafka topics, translate it into cassandra entities and store them into Elassandra.\n\n\nEthereum Contract Summary\n\n\nCollects summary for each contract stored in Ethereum chain. Consumes Kafka topics and update data in Elassandra.", 
-            "title": "Ethereum"
-        }, 
-        {
-            "location": "/cyberSearch/components/ethereum/#ethereum-components", 
-            "text": "Component  Scale  Description  Cluster Address  Metrics  External      Ethereum Pump  1  Ethereum Chain Data Kafka Pump   8080:/actuator/metrics     Ethereum Cassandra Dump  1  Dump Kafka Topics Into Cassandra   8080:/actuator/metrics     Ethereum Contract Summary  1 - N  Calculates Contract Summaries (balances and etc)   8080:/actuator/metrics", 
-            "title": "Ethereum Components"
-        }, 
-        {
-            "location": "/cyberSearch/components/ethereum/#ethereum-pump", 
-            "text": "Pumps Ethereum raw data(block,tx,uncles) into Kafka.", 
-            "title": "Ethereum Pump"
-        }, 
-        {
-            "location": "/cyberSearch/components/ethereum/#ethereum-cassandra-dump", 
-            "text": "Consumes Ethereum raw data from Kafka topics, translate it into cassandra entities and store them into Elassandra.", 
-            "title": "Ethereum Cassandra Dump"
-        }, 
-        {
-            "location": "/cyberSearch/components/ethereum/#ethereum-contract-summary", 
-            "text": "Collects summary for each contract stored in Ethereum chain. Consumes Kafka topics and update data in Elassandra.", 
-            "title": "Ethereum Contract Summary"
-        }, 
-        {
-            "location": "/cyberSearch/contributing/contributing/", 
-            "text": "Contributing to Cyber Search \n\n\nThank you for considering a contribution to Cyber Search! This guide explains how to:\n\n Get started\n\n Development workflow\n* Get help if you encounter trouble\n\n\nGet in touch\n\n\nBefore starting to work on a feature or a fix, please open an issue to discuss the use case or bug with us. This can \nsave both you and us a lot of time. For any non-trivial change, we'll ask you to create a short design document explaining:\n\n\n\n\nWhy is this change done? What's the use case?\n\n\nWhat will the API look like? (For new features)\n\n\nWhat test cases should it have? What could go wrong?\n\n\nHow will it roughly be implemented? (We'll happily provide code pointers to save you time)\n\n\n\n\nDevelopment Workflow\n\n\nDevelopment Setup\n\n\nPlease, use \ndevelopment environment setup guide\n.\n\n\nMake Changes\n\n\nUse this \nArchitecture Overview\n as a start point for making changes.\n\n\nLocal Check\n\n\nSeveral checks should passed to succeed build.\n\n \nDetekt\n code analyze tool should not report any issues\n\n \nJUnit\n tests should pass\n\n\nBefore committing you changes, please, run local project check by:\n\n\n./gradlew build    //linux, mac\ngradlew.bat build  //windows\n\n\n\n\n\nCreating Commits And Writing Commit Messages\n\n\nThe commit messages that accompany your code changes are an important piece of documentation, please follow these guidelines when writing commit messages:\n solidity/CONTRIBUTING.md\n\n\n\n\nKeep commits discrete: avoid including multiple unrelated changes in a single commit\n\n\nKeep commits self-contained: avoid spreading a single change across multiple commits. A single commit should make sense in isolation\n\n\nAdd GitHub issue to \nCHANGELOG.md\n\n\nInclude GitHub issue in the commit message on a first line at the beginning. Example:\n\n\n\n\n#123 Refactor CONTRIBUTING.md\n\n--Add Creating Commits And Writing Commit Messages Section\n\n\n\n\n\nSubmitting Your Change\n\n\nAfter you submit your pull request, a core developer will review it. It is normal that this takes several \niterations, so don't get discouraged by change requests. They ensure the high quality that we all enjoy.\n\n\nGetting Help\n\n\nIf you run into any trouble, please reach out to us on the issue you are working on.\n\n\nOur Thanks\n\n\nWe deeply appreciate your effort toward improving Search. For any contribution, large or small, you will be immortalized\n in the release notes for the version you've contributed to.", 
-            "title": "Overview"
-        }, 
-        {
-            "location": "/cyberSearch/contributing/contributing/#contributing-to-cyber-search", 
-            "text": "Thank you for considering a contribution to Cyber Search! This guide explains how to:  Get started  Development workflow\n* Get help if you encounter trouble", 
-            "title": "Contributing to Cyber Search"
-        }, 
-        {
-            "location": "/cyberSearch/contributing/contributing/#get-in-touch", 
-            "text": "Before starting to work on a feature or a fix, please open an issue to discuss the use case or bug with us. This can \nsave both you and us a lot of time. For any non-trivial change, we'll ask you to create a short design document explaining:   Why is this change done? What's the use case?  What will the API look like? (For new features)  What test cases should it have? What could go wrong?  How will it roughly be implemented? (We'll happily provide code pointers to save you time)", 
-            "title": "Get in touch"
-        }, 
-        {
-            "location": "/cyberSearch/contributing/contributing/#development-workflow", 
-            "text": "", 
-            "title": "Development Workflow"
-        }, 
-        {
-            "location": "/cyberSearch/contributing/contributing/#development-setup", 
-            "text": "Please, use  development environment setup guide .", 
-            "title": "Development Setup"
-        }, 
-        {
-            "location": "/cyberSearch/contributing/contributing/#make-changes", 
-            "text": "Use this  Architecture Overview  as a start point for making changes.", 
-            "title": "Make Changes"
-        }, 
-        {
-            "location": "/cyberSearch/contributing/contributing/#local-check", 
-            "text": "Several checks should passed to succeed build.   Detekt  code analyze tool should not report any issues   JUnit  tests should pass  Before committing you changes, please, run local project check by:  ./gradlew build    //linux, mac\ngradlew.bat build  //windows", 
-            "title": "Local Check"
-        }, 
-        {
-            "location": "/cyberSearch/contributing/contributing/#creating-commits-and-writing-commit-messages", 
-            "text": "The commit messages that accompany your code changes are an important piece of documentation, please follow these guidelines when writing commit messages:\n solidity/CONTRIBUTING.md   Keep commits discrete: avoid including multiple unrelated changes in a single commit  Keep commits self-contained: avoid spreading a single change across multiple commits. A single commit should make sense in isolation  Add GitHub issue to  CHANGELOG.md  Include GitHub issue in the commit message on a first line at the beginning. Example:   #123 Refactor CONTRIBUTING.md\n\n--Add Creating Commits And Writing Commit Messages Section", 
-            "title": "Creating Commits And Writing Commit Messages"
-        }, 
-        {
-            "location": "/cyberSearch/contributing/contributing/#submitting-your-change", 
-            "text": "After you submit your pull request, a core developer will review it. It is normal that this takes several \niterations, so don't get discouraged by change requests. They ensure the high quality that we all enjoy.", 
-            "title": "Submitting Your Change"
-        }, 
-        {
-            "location": "/cyberSearch/contributing/contributing/#getting-help", 
-            "text": "If you run into any trouble, please reach out to us on the issue you are working on.", 
-            "title": "Getting Help"
-        }, 
-        {
-            "location": "/cyberSearch/contributing/contributing/#our-thanks", 
-            "text": "We deeply appreciate your effort toward improving Search. For any contribution, large or small, you will be immortalized\n in the release notes for the version you've contributed to.", 
-            "title": "Our Thanks"
-        }, 
-        {
-            "location": "/cyberSearch/contributing/dev-environment/", 
-            "text": "Development environment\n\n\nUseful Links\n\n\n\n\ncheat sheet\n\n\n\n\nPrestart\n\n\n\n\nInstall Java 10 JDK\n\n\nInstall Docker and Docker Compose\n\n\nInstall Intellij Idea\n\n\n\n\nRun Kafka, Elassandra, Prometheus and Grafana\n\n\nStart containers(required)\n\n\nFor mac:\n\n\ncd\n dev-environment\ndocker-compose -f dev-environment/env-mac.yml up -d\n\n\n\n\n\nFor linux family:\n\n\ncd\n dev-environment\ndocker-compose -f dev-environment/env.yml up -d\n\n\n\n\n\nImport project to Intellij Idea\n\n\nOpen Project in idea by selecting: Import Project -\n selecting \nbuild.gradle\n file from the repository root\n\n\n\n\nWait for dependency downloading and indexation\n\n\nRun Ethereum Pump from intellij Idea\n\n\nGo to EthereumPumpApplication.kt and press green triangle on left to the code (on example line 23):\n\n\n\nPump will fail due to lack of \nCHAIN\n and \nCHAIN_NODE_URL\n environment properties, let's define it: Select \"Edit Configuration\"\n\n\n\n\nAdd properties:\n\n\n\n\nNow, run pump one more time, it should start.", 
-            "title": "Dev-environment"
-        }, 
-        {
-            "location": "/cyberSearch/contributing/dev-environment/#development-environment", 
-            "text": "", 
-            "title": "Development environment"
-        }, 
-        {
-            "location": "/cyberSearch/contributing/dev-environment/#useful-links", 
-            "text": "cheat sheet", 
-            "title": "Useful Links"
-        }, 
-        {
-            "location": "/cyberSearch/contributing/dev-environment/#prestart", 
-            "text": "Install Java 10 JDK  Install Docker and Docker Compose  Install Intellij Idea", 
-            "title": "Prestart"
-        }, 
-        {
-            "location": "/cyberSearch/contributing/dev-environment/#run-kafka-elassandra-prometheus-and-grafana", 
-            "text": "", 
-            "title": "Run Kafka, Elassandra, Prometheus and Grafana"
-        }, 
-        {
-            "location": "/cyberSearch/contributing/dev-environment/#start-containersrequired", 
-            "text": "For mac:  cd  dev-environment\ndocker-compose -f dev-environment/env-mac.yml up -d  For linux family:  cd  dev-environment\ndocker-compose -f dev-environment/env.yml up -d", 
-            "title": "Start containers(required)"
-        }, 
-        {
-            "location": "/cyberSearch/contributing/dev-environment/#import-project-to-intellij-idea", 
-            "text": "Open Project in idea by selecting: Import Project -  selecting  build.gradle  file from the repository root  \nWait for dependency downloading and indexation", 
-            "title": "Import project to Intellij Idea"
-        }, 
-        {
-            "location": "/cyberSearch/contributing/dev-environment/#run-ethereum-pump-from-intellij-idea", 
-            "text": "Go to EthereumPumpApplication.kt and press green triangle on left to the code (on example line 23):  Pump will fail due to lack of  CHAIN  and  CHAIN_NODE_URL  environment properties, let's define it: Select \"Edit Configuration\"   Add properties:   Now, run pump one more time, it should start.", 
-            "title": "Run Ethereum Pump from intellij Idea"
-        }, 
-        {
-            "location": "/cyberSearch/contributing/cheat-sheet/", 
-            "text": "Kafka\n\n\nStop kafka and delete kafka data(cheat sheet)\n\n\ndocker stop fast-data-dev-search\ndocker rm fast-data-dev-search\n\n\n\n\n\nElassandra\n\n\nStop elassandra and delete elassandra data(cheat sheet)\n\n\ndocker stop elassandra-search\ndocker rm elassandra-search\n\n\n\n\n\nGet indices info\n\n\ncurl -XGET \nlocalhost:9200/_cat/indices?v\npretty\n\n\n\n\n\n\nChains\n\n\nRun parity node(cheat sheet)\n\n\nsudo  docker run -d -p \n8545\n:8545 --name parity_eth \n\\\n\n-v \n${\nREPLACE_IT_BY_HOST_FOLDER\n}\n:/cyberdata parity/parity:stable \n\\\n\n--db-path /cyberdata --jsonrpc-hosts all --jsonrpc-interface all --jsonrpc-threads \n4", 
-            "title": "Cheat-sheet"
-        }, 
-        {
-            "location": "/cyberSearch/contributing/cheat-sheet/#kafka", 
-            "text": "", 
-            "title": "Kafka"
-        }, 
-        {
-            "location": "/cyberSearch/contributing/cheat-sheet/#stop-kafka-and-delete-kafka-datacheat-sheet", 
-            "text": "docker stop fast-data-dev-search\ndocker rm fast-data-dev-search", 
-            "title": "Stop kafka and delete kafka data(cheat sheet)"
-        }, 
-        {
-            "location": "/cyberSearch/contributing/cheat-sheet/#elassandra", 
-            "text": "", 
-            "title": "Elassandra"
-        }, 
-        {
-            "location": "/cyberSearch/contributing/cheat-sheet/#stop-elassandra-and-delete-elassandra-datacheat-sheet", 
-            "text": "docker stop elassandra-search\ndocker rm elassandra-search", 
-            "title": "Stop elassandra and delete elassandra data(cheat sheet)"
-        }, 
-        {
-            "location": "/cyberSearch/contributing/cheat-sheet/#get-indices-info", 
-            "text": "curl -XGET  localhost:9200/_cat/indices?v pretty", 
-            "title": "Get indices info"
-        }, 
-        {
-            "location": "/cyberSearch/contributing/cheat-sheet/#chains", 
-            "text": "", 
-            "title": "Chains"
-        }, 
-        {
-            "location": "/cyberSearch/contributing/cheat-sheet/#run-parity-nodecheat-sheet", 
-            "text": "sudo  docker run -d -p  8545 :8545 --name parity_eth  \\ \n-v  ${ REPLACE_IT_BY_HOST_FOLDER } :/cyberdata parity/parity:stable  \\ \n--db-path /cyberdata --jsonrpc-hosts all --jsonrpc-interface all --jsonrpc-threads  4", 
-            "title": "Run parity node(cheat sheet)"
-        }, 
-        {
             "location": "/cyberd/cyberd/", 
             "text": "Motivated Search and Evaluation Engine for Permanent Web\n\n\nDima Starodubcev\n\n\nDraft v 0.1\n\n\nJanuary-February 2017, Bali\n\n\nNote: Not updated according to cyberminds mindmap\n\n\nSimplified\n\n\nAbstract\n\n\nExisting general purpose search engines are restrictive centralized databases everybody forced to trust. These search engines were designed primarily for client-server architecture based on DNS, HTTP, and IP protocols. The emergence of content-addressable storage and distributed ledger technology creates an opportunity for the Internet to acquire new features such as more efficient computing, storing and broadband consumption, more resilient, secure and private access, no middleman for digital property. This can shift existing web's ubiquitously used client-server architecture to truly peer-to-peer interactions based on stateless IPFS and variety of stateful consensus computers such as Ethereum. This creates a challenge and opportunity for a search engine based on emerging technologies and specifically designed for them. Surprisingly the blockchain architecture itself allows organizing general purpose search engine in a way inaccessible for previous architectures. In this paper, we discuss opportunities behind blockchain based search engine, challenges of crawling, indexing and evaluation for the next generation web and propose a blockchain based experimental set of smart contracts to address discussed issues.\n\n\nIntroduction\n\n\nLet us start a discussion from disadvantages of conventional general purpose search engines:\n\n\n\n\nNo Transparency. Nobody outside of Google understands how the ranking really works. This creates a market for black and white SEO. The truth is that if e.g. Google discloses complete details of the ranking algorithm it would be easy for adversaries to game organic search results that kill the quality of results and ad revenue streams. Pagerank [PR] has no inherent trust mechanism resistant to Sybil attacks. This problem can be addressed adding transparent and accountable blockchain based ledger with properly designed economic incentives built into the system.\n\n\nNo Access. Currently, all search engines are centralized. Nobody is able to add to index as well as participate in improving the quality of search results. However, Google itself internally uses a workforce of \nsearch evaluators\n. It is our belief that user-generated search engine could have a higher quality of results as in a story with almost every website in existence.\n\n\nBroken Incentives. The vast majority of contribution to a search quality is made by users. Then any user searches something she extends semantic core. Then any user clicks on search results she trains a model. This creates an opportunity to continuously improve ranking model at the expense of users. Then search engines sell users to advertisers at the expense of harming user experience and acquire revenue streams which are not returned back to users at all. This simple loop created Alphabet's $550 billion capitalizations (~$80 per Earth capita) in 18 years. We want to change that.\n\n\nCentral Control. Google become too powerful. It is scary to imagine a future where \neverything\n about \neverybody\n is known and controlled by \nclosed\n AI corporation. Imagine the world where (1) the only country exist, (2) nobody can control its government and (3) everybody should obey the decision of government without any explanation. There should be open, transparent and accessible \nalternative\n with \ndecentralized control\n built on principles of modern distributed interplanetary content-addressable cyberspace [IPFS] and DAO like governance [RALF].\n\n\nAnnoying Ads. Separation for organic and ad search results is unnecessary. In fact, all organic ranking decisions are being made by search authority. But for paid search Google use free market solution to determine a fair ad price for every word in its gigantic semantic core. Historically free market solutions are proven to be more efficient in virtually any area of decision making. Why do not use the same principle for the ranking itself disintermediating annoying ads? Let us imagine that every link can be (1) curated or audited by everybody, (2) based on this trusted metric cyber\u2022rank (page rank based on economically incentivized curation and auditing) is calculated and then (3) everybody can promote this link further by burning some money automatically bringing value for everybody in existence. For every action, everybody earns a share proportionally to contributions. This non-zero-sum game is significantly more Sybil-resistant and that is there we are heading.\n\n\nOne-Way Trust. Everybody use to trust Google, Baidu, and Yandex. But Google, Baidu, and Yandex don't trust users. E.g. you cannot report some kind of proof that given link is a lie and should not be indexed so high. It can count your attention during ranking but can reject to count it. You cannot know what happens inside because Google, Baidu, and Yandex don't trust us. We want to establish a system there trust is bidirectional between the search engine and users because search engine ownership is distributed across all its users based on which all ranking decisions are made.\n\n\nZero Privacy. All search engines will answer you only if they explicitly know how to map your device with your real identity or pseudo-identity which is tracked by RTB [RTB]. Otherwise, you should prove that you are not a robot every time you search. That harm our privacy. Moreover, robot abuse is another hot topic that is about to happen. Nonetheless, nothing should harm our privacy.\n\n\nCensorship. Though it's well known that Google working hard to prevent censorship we all know about China \nGCHINA\n case and \nTransparency Report\n. A good search should be resistant to censorship without exceptions and build for interplanetary scale in mind.\n\n\nOnline only. Worth to note that you cannot search offline even if necessary information is stored next door. If we are cut from the wire or backbone we powerless. Global offline search is not a feature which can be easily deployed even by a multibillion corporation. This goal is nearly impossible to achieve based on centralized architecture. Only accessible distributed systems can solve this fundamental problem for the next generation Internet. This future is not about gateway keepers in form of ISPs but about mesh networking and peer-to-peer communications.\n\n\nWeak Security. What happens if tomorrow my Google account will be blocked? Do we have something to prevent this? Do we have the necessary level of assurance that \nguarantee\n us our security based on math and not on the complicated legal tender? All technical solutions are here but to solve this important issue we need to do a lot of work because security is a foundation for life, liberty, and property.\n\n\n\n\nA pretty huge amount of problems to fix. It would be naive to bootstrap a search engine from a scope where Google, Baidu, and Yandex exist. We need to find a special area where general purpose search engines sucks. A variety of distributed ledgers such as blockchains and tangles can be primary content-addressable data suppliers and this is a scope where current search engines are not the best at work. Moreover, blockchain technology evolves very rapidly and has a lot of promises so it is a sure bet.\n\n\nThe idea is to initially deploy a blockchain based search engine for the purpose of searching against other blockchains so that can be useful from the first day. At the same time, we design the cyber\u2022Fund \napplication\n [CFUND] based on cyber\u2022Chain to solve a problem of trustless realtime blockchain asset valuation which adds some useful capabilities to the search. But we need to design cyber\u2022Chain in a way to be scalable for a more broad definition of a general purpose \nsearch and valuation engine\n, so more applications can emerge. Currently, about 15 trusted (and thousands of not so trusted) and globally available distributed ledgers exist, totaling about 1 billion transactions accumulated. Last year (2016) amount of accumulated blockchain transactions increased tenfold. Not all of them were financial transactions in some sense. E.g. Steem [STM] blockchain and it's Russian sister Golos [GLS] primarily store user generated text such as posts and votes (? votes are text? confusing...). As transactions are the only way of changing states in databases currently used by any web application we foresee distributed ledgers to become the primary source of public information in the 21st century due to tremendous benefits of the technology [ENIGMA, ....].\n\n\nThus we are to declare the \nprinciples\n of a general purpose decentralized and distributed search engine for the upcoming age:\n\n\n\n\nPrivacy and Security. Just it.\n\n\nUbiquitous Ownership and Access. Everybody should have a right to possess a piece of it.\n\n\nMesh networks future proof. It should work in every connected surrounding.\n\n\nInterplanetary scale. It should work on Earth and Mars.\n\n\nTolerant. In the era of machine learning, it should work for any kind of thinking beasts.\n\n\nOpen and Accessible. Everybody should be able to bring a bit to a quality of search results.\n\n\nBlockchain Agnostic. Foundations behind its design should not rely on any protocol or stack rather be explicitly derived from the nature of the information itself.\n\n\nBeautiful. The business model should not harm the user experience.\n\n\nTransparency and Trustfulness. Every piece of its reasoning and behavior must be auditable by everybody.\n\n\nNo Single Point of Failure. Nobody should have a single key to modify or change it.\n\n\nSybil Attacks Resistant. This resistance should be derived from the properties of a free market but not from some single authority.\n\n\nIntelligent. It should answer \nnatural\n questions with \neasy to read\n and \nprovable\n answers no matter text, media or natural numbers should be involved in the answer.\n\n\n\n\nAlongside these principles, there are \nrequirements\n such as performance, usability, and scalability. Keep reading. We discuss everything step by step.\n\n\nDesign Rationale\n\n\nThe idea of a permanent web behind IPFS is beautiful in its simplicity. Every unique \npiece of data\n has the unique address:\n\n\n\n\nUsing this address this piece of data can be found in a global data structure called MerkleDAG [DAG] (logical representation of data storage) across peer-to-peer IPFS network using bulletproof DHT. Nodes are weakly incentivized for fair data exchange using BitSwap protocol. This link can point to \nany\n piece of data such as GIT object, BitTorent link, Bitcoin block, JSON document, picture, video, plain binary data or even a small piece of text:\n\n\n\n\nLet me explain the power of this solution for a search engine:\n\n\nData is unique and self-authenticated\n. If you know this hash is a piece of data you trust, you should not care where it comes from. This property free search engine from the storage of documents.\n\n\nDirect Content Distribution\n. Weak incentivization of the BitSwap protocol has a very interesting side effect: the more popular the file =\n the more people store pieces of it =\n the faster you can get it. This is in contrast with a conventional client-server architecture where the more people want the file =\n the more resources a server needs (and more expensive distribution become) =\n the slower you can get it. This property significantly reduces resource usage to \ndeliver\n results right to a user through distributed network.\n\n\nFlexible Data Discovery\n. Big pieces of data are permanently linkable, thanks to MerkleDAG, so you can trivially reach a small chunk of data. That enable a lot of powerful applications impossible for a peer-to-peer network before. E.g. SQL-like data queries to a database distributed across the network or REST-like queries.\n\n\nThus documents which are located at \n/ipfs\n are \nimmutable\n. But what if we want \nmutability\n? IPFS offer the self-signed naming system which doesn't rely on conventional centralized and slow DNS (URLs we use to use). Everybody can publish a link in a namespace \n/ipns\n with a mutable pointer to any \n/ipfs\n piece of data and sign it with its node's private key:\n\n\n\n\nAfter an owner is able to mutate this link pointer to another /ipfs piece of data. This gives us another important property for advanced search engine:\n\n\nFast Discovery\n. This property free search engine from rescanning work significantly reducing resources necessary for keeping index fresh. Workflow of conventional search index is straightforward: web crawler fetches a page, then follow up links, fetch the following pages and so on. After some loops, web crawler is able to get virtually all links in existence. The information contained in web pages is mutable. Thus search engine should decide then and how to fetch indexed links for new versions of documents. As web pages are loosely structured than it should somehow filter all the noise. In our case publishing is visible in DHT and can be nearly instantly visible for all participants across distributed network without the necessity to continuously send, receive and process HTTP requests. An average request is about 800 bytes long, so do every response [HTTP]. This overhead goes through the wire every time search engine want to know the freshness of the web page and then if the page is new it should crawl all new page even if 1 bit has been changed. Interestingly, though HTTP/2 bring new awesome features it still relies on the plain old location-based addressing and ancient DNS, thus this cannot be faster by design. In our case, we need sniff changes in DHT to know all news from a network. Currently, this is about 100kb/minute in a quite small IPFS network. There is estimation [QGTC] that about 10% of Internet traffic consumption has been made by Google crawlers. It easy to imagine how much overhead can be eliminated across the entire planet. This overhead currently is being paid by businesses around the globe.\n\n\nFlexibility\n. Search results can be not ugly static snippets from 20 century but small dynamic programs \nowned\n by creators. It is hard to overestimate this idea. We will cover this topic further.\n\n\nNo Middleman\n. A search engine should not rely on a DNS middleman and can communicate directly with resource creators.\n\n\nOk. Now we understand that we have a usable way to store, reach and mutate the data across the globe in a more lean way. But what about an ability to \ncomprehend\n what data is behind this meaningless hashes? Interplanetary File System uses a novel multihash, multicodec, multiformat, multibase [\nhttps://github.com/ipld/cid#cidv1\n] formats for Interplanetary Linked Data (it is not a joke either). IPLD is a project aims to define CID that being used across IFPS network. Content IDentifier or CID is a self-describing content-addressed identifier. That creates enormous opportunity for optimization. Imagine a 32-byte link can contain everything to \nindependently\n understand how to reach a piece of data and how to programmatically interpret it. Finally, CID is the thing which makes simplistic design of our proposed search engine possible inside consensus computer.\n\n\nA nice property is that CID are based on well-known cryptography so we don't need to rely on IPFS if something better came. The same addresses can be used to exchange a piece of data in a different peer-to-peer network. Though this doesn't solve a problem of extensibility. CID itself contain version bits, thus if something better came we can switch to it.\n\n\nBut now IPFS and IPLD is a perfect design choice with huge momentum across academia, open source engineering community and (the most important) blockchain engineering teams. It is our belief that it should lay as foundation for the next generation search engine. Everything is perfectly likable (MerkleDAG), fast (DHT), accessible (BitSwap) and comprehendible (IPLD) without a single point of failure. IPFS is a protocol and it can be more useful with a good search engine specifically designed to it. It's possible to compute a PageRank for the whole MerkleDAG. But there are two problems with it:\n\n\n\n\nAn amount of links in MerkleDAG grows \nO(n^2)\n. That is not either conventional web pages with 20-100 links per page. For 1 Mb file can be thousands of links. Once the network starts to take off, complexity inevitably increases.\n\n\nEven if we address some algorithm to extract relevances from these links we should address even more algorithms to extract a meaning.\n\n\n\n\nWhat we need is to find a way to incentivize extraction from this data fog a meaning that is \nrelevant to users queries\n.\n\n\nSearch Workflow\n\n\nOur proposed design of a search engine is based on advanced blockchain technology and enables everybody to participate and be rewarded. Everybody with an account can search. To execute queries user should sign a \nsearch\n transaction with CIDv1 as payload and broadcast it.\n\n\n\n\ncyberd search {CIDv1} hipster true\n[where s the privacy declared before? with every search query signed with account name on a public blockchain? (tomarcafe)]\n\n\n\n\nA document should be a valid CIDv1. Post headers are purposefully unique. The rationale is the following:\n\n\n\n\nstrongly encourage to bring valuable documents first and get a reward\n\n\nsimplify search execution and ranking calculation\n\n\nmake possible a high-performant flat data structure\n\n\n\n\nWorth to note that search request \"buy tesla x\" is also can be represented as CIDv1. Thus search index store queries itself as documents. Hence search queries and target documents both will acquire cyber\u2022rank.\n\n\nThen cyber\u2022chain verifies validity of CIDv1, the correctness of signature, broadband allowance and if all conditions are met either of two things happens:\n\n\n\n\nif CIDv1 is not in search index =\n Write to search index\n\n\nelse broadcast a vote for existing CIDv1 and return sorted links of relevant CIDv1\n\n\n\n\nBased on this data client-side application can deliver documents by 3 ways:\n\n\n\n\nusing full javascript implementation of IPFS [JSIPFS] (fast, but requires initialization)\n\n\nusing REST API provided by IPFS HTTP gateway (depends on, can be fast or not)\n\n\nusing local IPFS node (the fastest)\n\n\n\n\nThis approach is simple and powerful. A developer has enough choices to balance between usability and performance.\n\n\nCIDv1 can mean any piece of data. Different data types that can be returned to a user depending on the query:\n\n\n\n\nPlain text for autocomplete, e.g. ['apple', 'asos', 'amazon']\n\n\nA piece of media content which a user can play without necessity to go somewhere\n\n\nStatic formatted snippet with a link to the conventional web.\n\n\nStatic formatted snippet with a text answer.\n\n\nIPNS link pointing to javascript that can return dynamic snippet.\n\n\n\n\nIt depends on developers (mainly submitting answers) and users (mainly ranking answers) what kind of things they want to answer questions. Possibilities are limited with imagination. Thus we propose a free market for answers on search queries everybody is encouraged to participate. How does it work?\n\n\nInformation about indexed CIDv1 as well as about its rankings is available for everybody. Thus those interested in rewards can monitor the blockchain for semantic core updates and submit links nearly instantly. Everybody can sign \nanswer\n transaction with a link from\n\n\n to \n as payload and broadcast it:\n\n\n\n\nanswer {search CIDv1} {answer CIDv1} hipster true\n\n\n\n\nA document should be a valid CIDv1 and unique outbound link from an answer. So for any given question, the only unique answer is possible. Then cyber\u2022Chain verify the correctness of signature and either of two things happens:\n\n\n\n\nif CIDv1 is not in search index =\n Write to search index\n\n\nif answer CIDv1 has no link to question CIDv1 =\n Write to answer index\n\n\nelse broadcast a vote for existing answer CIDv1\n\n\n\n\n\n\nWe follow black box rule. In order to answer a question right, you need a full comprehension neither the question nor the answer. You just need to match a query with the most relevant links.\n\n\n\n\nIn order to increase the rank, everybody can promote either link or query.\n\n\n\n\npromote_search {CIDv1} hipster 20 true\npromote_answer {search CIDv1} {answer CIDv1} hipster 20 true\n\n\n\n\nEvery sent token for promoting is destroyed thus creating value for every token holder.\n\n\nThat is a core API for the entire blockchain. Other methods accomplish support role for the thing. Such compact design opens huge opportunity for performance optimizations. Also, a clean and comprehensible experience is very important for those who want to be involved. That is. The entire graph of the semantic core with weights is open for everybody and available for data mining or any kind of weird AI stuff. But to make it work we need to find a way to calculate relevance.\n\n\nWe can represent our data structure as directed acyclic graph where vertices are indexed documents and edges are directed links between them.\n\n\n\n\nWe equate terms \ndocument\n / \nquery\n and \nlink\n / \nanswer\n as for our use case these are practically the same. We will stick to \nquery\n and \nanswer\n terms in order to avoid confusion.\n\n\nHence if a user searches a document \nCID 3\n (query) search engine will return links (answers) to \nCID 1\n, \nCID 4\n, \nCID 5\n documents (queries) sorted by cyber\u2022rank. Let us discuss it in details.\n\n\ncyber\u2022rank\n\n\nThe idea is to combine two simple yet powerful algorithms: Google's PageRank and Steem's reward mechanism: \n\n\nWhere \nt_rank\n = \nn_rank\n + \ns_rank\n\n\nn_rank\n, or natural rank is a rank based on Steem reward system. \ns_rank\n, or synthetic is a plain old PageRank used by Google and others.\n\n\nNatural rank is acquired in a process of auditing and curation. Based on this rank payout to those who involved (queries and answers submitting, auditing and curation) a made. Each piece of submitted data gets paid in 7 days. Each piece of data can be voted by cyber\u2022power token holders. We use \nauditing\n term primary for verification of submitted data by automated scripts and \ncuration\n term to denote manual curation. From a technical standpoint, those are primary the same as both utilize the same method for interactions. Implementation of natural rank is almost identical to Steem. Thus details of implementation can be found in our Github [] or Steem whitepaper.\n\n\nSynthetic rank is taken as initial natural rank expressed in \nrshares\n. This makes possible to start calculating PageRank before payouts have started. Conventional search engine work with nearly zero trust data. More than 200 factors used to calculate initial PageRank for a new document in the graph and find relevance to the search terms. Our novel approach allows assigning initial value based on Sybil-resistant voting. It is our belief that proposed approach can significantly simplify ranking and be more precise for information that nature is subjective. Though PageRank calculation is a trivial task we should estimate the feasibility of doing so in a consensus computer such as Steem where scalability is limited with a less performant node and parallel processing [Steem Roadmap] or sharding is yet to be discovered [Ethereum Mauve].\n\n\nA recent study [http://www.vldb.org/pvldb/vol8/p1804-ching.pdf] shows that Facebook scale PageRank computation is doable (using Java based Giraph) for 1 trillion edges and 1.4B vertices in 600 minutes per iteration. Hence consensus computer made of commodity hardware will be able to process 1 iteration per 2 days for a 10B unique document (SWAG for all blockchains + Git + BitTorrent (https://arxiv.org/pdf/1009.3681.pdf) + IPFS). Our implementation is based on C++ thus can be more performant though is not guaranteed. Also, we have an opportunity to use the most performant GPUs available operated by witnesses and not that is being used by cloud providers [http://www.hipc.org/hipc2011/studsym-papers/1569513051.pdf]. Anyway, our estimation proves that it is practically enough to use CPU for proof-of-concept stage. GPU implementation can multiply computation capacity up to 1000x. But further research in the field of parallel consensus computing is necessary to achieve Google scale (10000x more documents) realtime decentralized computation of cyber\u2022rank.\n\n\nOur model is recursive and requires the enormous amount of calculations which are limited within blockchain design. Model recalculation does not happen on a periodic basis rather it continuous. We consider introducing consensus variable, in addition to a block size, in order to target processing capacity of the network. Let's call it a \ncomputing target of documents per block\n or CTD. Any witness will be able to set a number of documents the network should recompute every block. The blockchain takes as input computing target of legitimate witnesses and computes CTD as daily moving average. Based on CTD blockchain can schedule the range of CIDs that should be recomputed by every witness per round.\n\n\nThe semantic core is open. Click-through information is stored on-chain. Every time a user follow a link positive voting transaction is broadcasted e.g. with grade 1. Voting on a protocol level is a number in a range from -100 to 100. Thus application developers have a tool to implement different grades for different kind of interactions. Such design is crucial to train the model and acquire a data about search popularity of semantic core and its volume. Currently, search engines are very careful in revealing this information because this information is the most important part of the ranking. We want to change that. Every time a user click on a snippet developer earn a fair portion of emission and on chain model is trained. Application acquires the more rank the more rank acquired by its links. The more cyber\u2022rank acquired - the more revenue streams for an application developer.\n\n\nBoth algorithms have strong proof in form of Google's $550 B capitalizations in 18 years and Steem $40 M capitalization in 9 months. Combining both it is possible to empower the world with a new kind of search quality that has been (1) designed to index relevant document fast and (2) has inherent Sybil protection.\n\n\nSelf Indexing Dilemma\n\n\nProposed approach has very unexpected limitation. What if we want to index cyber\u2022chain using cyber\u2022chain itself? Let us say that we have an awesome transaction that happens inside the chain and everybody are talking about it. It is popular thus we should display it in our search results. Adding it to an index spawn another transaction which (surprise) also should be indexed. This entanglement creates an infinite loop that bloat cyber\u2022chain. This can not be a problem either. Consensus computer capacity and power are limited by the market forces. So we have two possible decisions:\n\n\n\n\nLet it be. The market is a king. A bit of bloat can be a good piece of a knowledge about itself.\n\n\nStrictly forbid indexing of the blockchain itself. Fortunately, it is not so hard to implement on a consensus level. All we need is to check that CID has not been included in a cyber\u2022chain before. That mean that cyber\u2022chain transaction itself remain unindexed because in order to achieve this we (1) either should mutate data for hashed and timestamped transactions, (2) nor create a possibility for a self-bloat. None of the options is valid. Again, fortunately, direct search without ranking among internal cyber\u2022chain transactions can be available inside search results with the help of CID magic.\n\n\n\n\nIt is our belief it is better to stick to restrictive policy without further research.\n\n\nChallenges and Advantages of Indexing Distributed Ledgers\n\n\nConventional general purpose search engines were built on the \nlast mile assumption\n of stateless HTTP(S) protocol. Indeed the last mile approach worked well on the Internet where information emerges inside stateful private databases and only after become publicly available using HTTP. The emergence of content-addressable systems such as Git and BitTorrent didn't change much as those can not be compared with stateful private databases in any sense even though these protocols are represented origin of a content. But with an emergence of distributed ledger technology become possible to get know about public content in the moment than it actually has been born. In this sense, blockchains and tangles can be viewed as a real alternative to conventional private databases. That breakthrough create enormous opportunity for better and faster indexing but at the same time has inherent problems solving of which create advantages:\n\n\nChain Validation\n. Protocol diversity is the hardest part of solving an issue of chain validation using another chain because solving this requires full implementation of one consensus computer inside another consensus computer. There are two efforts exist that try to solve issues of validating one chain using another. Among them are \nPolkadot\n and \nCosmos\n. Both projects aim to solve a problem of trestles inter blockchain communications. Polkadot aims to design a system which doesn't require a trust to parachains (or interconnected chains). The design of Polkadot is very complex and has inherent scalability limitation. The design of Cosmos is much more simple, but require a trust to zones (interconnected chains). Our design doesn't try to solve a problem of inter blockchain communications rather try to implement probabilistic search across blockchains. Thus it is significantly more simple. Instead of recording information that has been verified from point of view of exogenous protocol we let this information come to index letting market forces and relevance algorithm determine which chains are correct and which are not.\n\n\nMeaning Extraction\n. Practically there are no common fields that are used by all blockchains and tangles. The only common pattern is \ntx_id\n. There is no way to extract any meaningful information from \ntx_id\n. That is practically mean that there is no easy solution exist. For every protocol can be a large number of different approaches to extract useful information. Using advanced machine learning is infeasible for consensus computers at the moment. We offer set of smart contracts that create a free market for extraction of the meaning.\n\n\nThe huge advantage of blockchains that they are implicitly told what happens. Blockchains are highly optimized databases. Every transaction cost money so they are neutrally protected from spam and contain only data that really matter. That reduce noise filtering to nearly zero level. Structured raw data about blocks and transaction is available for everybody. This fact also reduces consumption of resources and make extraction of better meaning possible.\n\n\n\n\nBlockchains provide real-time high-quality structured data which don't require \ncrawling\n in a traditional sense. One node of any given blockchain is enough to provide verified data about transactions within one ledger without the necessity to continuously revisit resources significantly reducing costs.\n\n\nAll these factors create a free market opportunity for emergence the diverse set of highly specialized (on a very limited set of a semantic core) but highly efficient \nbroadcasters\n.\n\n\nProbabilistic Settlement\n. Blockchain designs, especially Proof-of-Work based, implies that finality of a transaction is probabilistic. A moment than a given fact can be considered as truth is blurred. \nPrevious researches\n show that it is expensive to achieve real-time blockchain indexing due to reorganization issues. The intention of discussed in the article design is to answer the question deterministically. Our architecture based on the principle that indexing a system with probabilistic settlement require probabilistic answering. Instead of deciding whether or not this particular block has been included in the canonical chain we can index all of them calculating the probability of finalization using cyber\u2022Rank.\n\n\nSo solve of discussed issued of probabilistic indexing we propose a flexible approach we call lazy oracles.\n\n\nLazy Oracles\n\n\nOne specific ability is crucial for the next generation search engine. Application developers should have a motivation to provide structured arbitrary data feeds. Thus search engine can answer natural questions aggregating data from \nhighly structured and defined\n feeds. This makes possible a user get high-quality \ncalculated\n answers in real-time about the state of reality expressed not only in links (which intelligent agent don't know how to parse) but in actionable numbers based on which it's possible to make independent economic decisions. It is hard to find a tool to agree on publicly available and continuously evolving facts. We propose an approach to solving this.\n\n\nToday different blockchain have the functionality necessary to implement this. For eg. Ethereum enable construction of smart contracts that can validate and incentivize data feeds. But Ethereum has the strong limitation: a price. Due to a network design, every operation should be validated across the network of 5k nodes. For every put operation developer of such contract should pay in hope that somebody in the future will use this feed in the future returning costs. The current cost of a permanent storage inside Ethereum contracts is around $200/megabyte. Worth to note that Ethereum has consensus variable gas limit. Currently, a network load is around 10% of established limit. Once the demand for computation reaches a limit we will have a situation very similar to Bitcoin block size debate and price for storage can reach $2000k/megabyte easily without validation costs. Pretty expensive for unlimited possibilities. There is the alternative - Factom [FACT]. Its consensus design relies on a small amount of paid servers. Thus the cost is around $1/megabyte. Such low price comes with high limitations. You can only put data to Factom and read it. There is no validation and incentivization built-in. There are permissioned blockchain designs such as BigChainDB [BCDB] and Hyperledger [HYPL] which solves validation problem perfectly but require strong efforts for developers to program and establish a network and then somehow monetize it. Lazy Oracles are going to fill this gap providing robust, cheap and reliable way \nfor monetizing\n structured public data. Any cyber\u2022chain account has a share in a broadband depending on its cyber\u2022Power thus granting lifetime assurance of network usage. A network programmed with decaying inflation a part of which goes to all who participate in indexing depending on the valuation of subjective contributions.\n\n\nThe process consist of 5 steps:\n\n\nStep 1: Everybody can declare a soft protocol for data feed by posting a CID with the inbound link to \noracle-defenition\n CID pointing to the document with the following structure:\n\n\n// Basic Validation\ndoc_type: market_update // should be fixed\n  exchange: string // domain name of the exchange\n  base: string // link to a definition of a referenced namespace e.g. ISO or chaingear\n  quote: string // link to a definition of a referenced namespace e.g. ISO or chaingear\n  price: number\n  volume: number\n// Audit Rules\nDocument format and data types should match a protocol\nFor every unique exchange and pair `market_update` report can be submitted no more frequently than once per minute.\nIf either a price or volume for unique exchange and pair has not been changed more than 0.1% a report should not be submitted.\n// Inbound Links\n\noracle\n \nmarket-update\n \nexchange\n \nbase\n \nquote\n\n// Reference Crawler Implementation\nCID\n// Reference Auditing Implementation\nCID\n\n\n\n\n\nProtocol declaration should be agnostic from language implementation and unambiguous.\n\n\nStep 2: Now every reporter can submit data according to a soft protocol. If data begin to be submitted without protocol definition a value of this data can be significantly lower. Thus auditors are encouraged to flag such documents. If false or malicious data come auditors have strong incentive to flag such data. All lazy oracles should be feed with self-descriptive links so other participants will able to faster process auditing.\n\n\nStep 3: Auditors validate any given document by scripts.\n\n\nAs result reporters, auditors (where objective script-based validation is possible) and curators (where subjective human-made evaluation is more appropriate) have strong incentive to (1) bring important data, (2) curate and audit data conscientiously. Proposed approach doesn't have strong guaranty of the truthfulness of data such as Augur does. Rather it is correct to say that we can have strong assurance that data is correct. But it is cheaper, faster and significantly more flexible. The process is robust in its unstructured simplicity.\n\n\nStep 4: Payouts for auditors are made. Payouts information is input information for cyber\u2022rank. Using cyber\u2022rank it is trivial to filter feeds using plugins to give significantly more precise data with a higher level of assurance.\n\n\nStep 5: High-quality data feeds (or lazy oracles) are available for a consensus engine of a search engine (thus cyber\u2022rank can be continuously improved) and everybody on the planet.\n\n\nWe call this type of oracles lazy because they don't require strict rules of validation at the expense of reducing the level of accuracy (but still enough to reason with a high level of assurance). Also, they are lazy because the don't require to think about monetization for participants rather consensus engine print rewards based on a valuation of subjective contributions. This approach is superior to Ledgys [] than reporters should sell encrypted data pieces using costly Ethereum storage.\n\n\nThe most obvious use cases for Lazy Oracles\n\n\n\n\nBlock indexing\n\n\nTransaction indexing\n\n\nBalance calculation\n\n\nIdentity crawling\n\n\nToken valuation\n\n\nToken rating\n\n\nToken description\n\n\nICOs tracking\n\n\nWeather measuring\n\n\nTraffic measuring\n\n\nBusiness performance reporting\n\n\n\n\nWorth to note that use cases are not limited to mentioned above. Data structure and validation rules are arbitrary. So we can think of it as general purpose tool for \npopular structured public data\n auditing and curation. Now we can bootstrap and index with amounts of useful information. But what about meaningful search results?\n\n\nDynamic Snippets\n\n\nThis can be thought as serverless micro javascript(is javascript futureproof? ;)) applications that can dynamically take input data from the following sources:\n\n\n\n\na search query itself\n\n\nasynchronously from background search query\n\n\nfrom a browser APIs\n\n\nfrom device sensory information\n\n\nfrom information about a user stored on cyber\u2022Chain\n\n\nfrom other blockchains\n\n\nfrom IPFS and IPNS\n\n\nfrom conventional HTTPS or WebSocket APIs.\n\n\n\n\nEvery application is CID written to search index and answer index. Before developing an application developer should target it for a specific semantic core before defining it. Semantic core and its statistic are publicity available in a blockchain. Developer shall need to develop an application and submit links to an application using either immutable IPFS documents or mutable IPNS pointers for a targeted semantic core. Thus it is up to a developer to define what search queries are a better fit for a particular application. Keep in mind that dynamic snippets are naturally competing for a higher position in search results. Dynamic snippets can be sorted by cyber\u2022rank, and as result become trustful. Worth to note that developers can significantly reduce spendings on app infrastructure as dynamic snippets can be delivered through content-addressable distributed network. Mutable IPNS pointers allow developing snippets for a targeted semantic core and not for every unique query. An implication of this approach is hard to overestimate. E.g. dynamic snippets combined with blockchain wallet make possible to shop right from search results.\n\n\nThe only potential problem with proposed approach is the safety of third party javascript code. Sandboxed third party code is able to mitigate this risks. Web technologies such as \nweb workers\n and \nweb components\n are being actively developed. E.g. javascript library \njailed\n [https://github.com/asvd/jailed] is able to do exactly what we need. Further adoption of web components is also one of a possible solution to do that safely.\n\n\nDealing with Long Tail\n\n\nIt is well-known fact that every day Google receive up to 20% of new search queries never seen before. Thus we need to find a way to deal with it. Here are 3 popular use cases with simple solutions (surely non-exhaustive):\n- \nMisspellings\n. These queries contribute fair half to ever-growing unique query set. But it is not a rocket science to stem such queries client side without any indexed knowledge. After a user clicks on client side suggestion correct link can be submitted to cyber\u2022chain thus improving the global model.\n- \nPhrases\n. E.g. \nforest gump imdb\n. These queries can be a combination of well-known terms and contribute another half to ever-growing unique query set. Even if we get relevant links from indexed \nforest\n, \ngump\n and \nimdb\n separately we would not able to combine answer to return meaningful movie rating to a user. But we can find \nthe closest documents\n between \nimdb\n, \nforest\n and \ngump\n and sort them by relevance. Those likely be the most relevant answers. This simple method can significantly increase efficiency for long tail queries without rocket science. As API is open for everybody there is no limits on using advanced technics.\n- \nUnique queries\n. These are about 10% of never-seen-before queries. We expect that the market of linking will create a segment for on-demand answers. We remember that any query can be seen in memory pool by every network participant. Thus opportunity to earn can create a healthy and competitive market for an on-demand answer in an environment without technical limitations.\n\n\nSpam Protection\n\n\nIn the center of spam protection system is an assumption that write operations can be executed only by those who have vested interest in the success of the search engine. Every 1% of stake in search engine gives the ability to use 1% of possible network broadband. As nobody uses all possessed broadband we use fractional reserves while limiting broadband like ISPs do. Details of an approach can be found in a Steem white paper.\n\n\nAuditing and curation are based on Steem reward mechanism. It is Sybil-resistant approach as votes are quadratic based on principle 1 token in system = 1 vote. In order to vote one should vest in shares for at least for 20 weeks. That solve a problem entirely because those who have a right to vote are strongly incentivized in a growth of his wealth. In order to prevent abuse of auditing and curation voting power decay implemented exactly as in Steem.\n\n\nApplications\n\n\nIt is hard to imagine what kind of applications can be built on top of proposed foundation. I'd like to mention some outstanding opportunities which can be build using cyber\u2022Chain and IPFS:\n\n\n\n\nRelevance everywhere\n\n\nBlockchain browser\n_ Multi-protocol wallets\n\n\nOffline search\n\n\nSmart command tools\n\n\nAutonomous robots\n\n\nLanguage convergence\n\n\n\n\nRelevance Everywhere\n. Proposed approach enable social, geo, money or anything aware search inside any application. It is trivial to implement a search relevant to a particular identity using proposed algorithm. The more a user train a model the more behavioral data can be associated with her. This personalized information can be stored locally for (1) faster retrieval and (2) offline access.\n\n\nBlockchain browser\n. It easy to imagine the emergence of a full-blown blockchain browser. Currently, there are several efforts for developing browsers around blockchains and distributed tech. Among them are Beaker, Mist and Brave .. All of them suffer from very limited functionality. Our developments can be useful for teams who are developing such tools.\n\n\nMulti-protocol wallets\n. Currently, there are several efforts for developing easy to use the universal wallet for blockchain assets. Jaxx and Exodus are among them. Developers of such applications suffer from a diversity of protocols around blockchain tech. There is no fully functional multi-asset wallet yet. Our developments can help teams who are developing such tools.\n\n\nActions in search\n. Proposed design enable native support for blockchain asset related activity. It is possible to design applications which are (1) owned by creators, (2) appear right in search results and (3) allow a transact-able call to actions with (4) provable attribution of a conversion to search query. e-Commerce has never been so easy for everybody.\n\n\nOffline search\n. IPFS make possible easy retrieval of documents from surroundings without the internet connection. cyber\u2022Chain itself can be distributed using IPFS. That create a possibility for ubiquitous offline search.\n\n\nSmart Command Tools\n. Command line tools can rely on relevant and structured answers from a search engine. That practically means that the following CLI tool is possible to implement\n\n\n  mylovelybot earn using hdd -100GB\n\nsearching for opportunities:\ncyberd search \nearn using hdd\n\n\nThe following answers received:\n- apt install siad /// 0.0001 btc per month per GB\n- apt install storjd /// 0.00008 btc per month per GB\n- apt install filecoind /// 0.00006 btc per month\n...\n\nMade a decision try `apt install siad`\nGit clone ...\nBuilding siad\nStarting siad\nCreating wallet using your standard seed\nYou address is ....\nPlacing bids ...\nWaiting for incoming storage requests ...\n\n\n\n\n\nSearch from CLI tools will inevitably create a highly competitive market of a dedicated semantic core for bots.\n\n\nAutonomous robots\n.\nBlockchain technology enables creation of devices which are able to earn, store, spend and invest digital assets by themselves.\n\n\n\n\nIf a robot can earn, store, spend and invest she can do everything you can do\n\n\n\n\nWhat is needed is simple yet powerful API about the state of reality evaluated in transact-able assets. Our solution offers minimalistic but continuously self-improving API that provides necessary tools for programming economically rational robots.\n\n\nLanguage convergence\n. A programmer should not care about what language do the user use. We don't need to have knowledge of what language user is searching in. Entire UTF-8 spectrum is at work. A semantic core is open so competition for answering can become distributed across different domain-specific areas, including semantic cores of different languages. The unified approach creates an opportunity for cyber\u2022Bahasa. Since the Internet, we observe a process of rapid language convergence. We use more truly global words across the entire planet independently of our nationality, language and race, Name the Internet. The dream of truly global language is hard to deploy because it is hard to agree on what mean what. But we have tools to make that dream come true. It is not hard to predict that the shorter a word the more it's cyber\u2022rank will be. Global publicly available list of symbols, words and phrases sorted by cyber\u2022rank with corresponding links provided by cyber\u2022chain can be the foundation for the emergence of truly global language everybody can accept. Recent scientific advances in machine translation [GNMT] are breathtaking but meaningless for those who wish to apply them without Google scale trained model. Proposed cyber\u2022rank semantic core offers exactly this.\n\n\nThis is sure not the exhaustive list of possible applications but very exciting, though.\n\n\nIncentive Structure and Distribution Mechanism\n\n\nTo make cyber\u2022rank economically resistant to Sybil attack and to incentivize all participant for rational behavior a system uses 3 types of tokens: CYBER (or cybers), CP (or cyber\u2022power) and CD (cyber\u2022dollar)\n\n\nCYBER is a transferable equity token which is analog of STEEM. The intrinsic value of CYBER came from the ability to convert it to CP.\n\n\nCP is a non-transferrable equity token which is analog of SP in Steem. CP can be converted to CYBER in 20 weeks using proportional weekly payments. The intrinsic value of CP came from the right to (1) write to an index according to a bandwidth limit, (2) rank objects, (3) promote objects (4) make consensus decisions. CP can be converted to CYBER in one year.\n\n\nCD is a debt token with a relatively stable value which came from an ability to convert it into CYBER within 3 days by the price submitted by witnesses and calculated according to cyber\u2022rating methodology [] (don't confuse). 1 CD tracks 1/10^12 of \nprovable\n blockchain economy.\n\n\nReward Pool is defined as 100% of emission and split among the following groups:\n\n\nInfrastructure Reward Pool\n\n\n\n\nWitnesses - 5%\n\n\nInvestors - 10%\n\n\n\n\nIndexing Reward Pool - 30%\n\n\n\n\nReporters - 10%\n\n\nAuditors - 20%\n\n\n\n\nLinking Reward Pool - 65%\n\n\n\n\nResponders ~ 20%\n\n\nTrainers ~ 40%\n\n\n\n\nOur implementation also offers an incentive for CD holders. They receive APR on holding according to rate defined by witnesses.\n\n\nAs our primary focus is developers of decentralized and distributed applications we offer a convenient way of revenue generation in addition to possible revenue on dynamic snippets development. Every search and answer transaction can define a smart contract with up to 6 beneficiaries with a distribution of potential reward from this particular action. This creates a solid foundation for bootstrapping application ecosystem across a conventional web, mobile app stores and upcoming VR platforms.\n\n\nA conventional advertiser is also has a tool to participate. Any link can be promoted thus increasing cyber\u2022rank. Revenue from the promotion is burning thus decreasing the supply of CYBER and bringing value to all shareholders of a system. We do believe that this approach is fair and don't harm user experience but open opportunity to compete with conventional search ad a bit.\n\n\nVirtual loop of the business models for our decentralized autonomous organization is pretty simple: \nMore indexing =\n More people search =\n More developers build =\n More people earn, rank and promote =\n Better infrastructure =\n More indexing\n.\n\n\nSince inception, a network prints 3 CYBER every block. Every 1 million blocks it reduces print rate on 1%. Thus starting from ~35% print rate per year inflation begin to reduce gradually until it reaches 1%.\n\n\nThere is one problem with proposed incentive structure. We call it \nlanguage incentivization bias\n. In the core of cyber\u2022chain is quadratic voting. The system needs it to effectively incentivize participants for quality ranking. But that natively leads to weak incentives across different language groups. E.g blockchain Golos was deployed as Russian alternative to Steem because Russian posts acquired only 0.2% of rewards though providing 10% of the content. The idea of deploying cyber\u2022Chain is great if it can be truly global from the start. The only way to overcome this bias is a global deployment from day 0, because otherwise we need significantly increase the complexity of the reward system. We offer good incentives for translation of this white paper to 50 languages worldwide as well as call for action to all blockchain communities across the globe.\n\n\nExtensibility and Governance\n\n\nCurrently, our implementation has the following functionality available for application developers.\n\n\n\n\nCustom Operations. Better alternative for OP-RETURN\n\n\nPlugins. Allow implementing API based on custom operations.\n\n\nEscrow. The core smart-contract enables 3d party arbitrage for arbitrary transactions.\n\n\nPrivate Messaging. Enable private communications between accounts.\n\n\nDynamic Account Permissions. You can think about it as better multi-sig.\n\n\n\n\nThe following possibilities can be available in a distant future:\n\n\n\n\nSidechains\n\n\nState channels\n\n\nPermissionless smart contracts\n\n\n\n\nConsensus can be changed in case of 17 of 21 elected delegates accept a hard fork.\n\n\nSearch and Evaluation Appliance\n\n\nFor bootstrapping a network we are going to offer software configuration (Cybernode - Github) on top of well tested open source specs for hardware configuration of commodity computer (Enterprise - Github) which cost around $10k-$30k depending on RAM and SSD capacity and is able to participate and earn by itself executing different network tasks:\n- operate as witness node\n- operate as indexer and auditor\n- operate as answering node\n- operate as fast and cheap backend for decentralized and distributed application\n\n\nWe need a network of high performant computers in order to achieve our goals. Necessity comes from  the following assumptions:\n- all blockchain nodes and IPFS should live inside one machine to remove slow network communications from all middleware. Vast information for processing can be in memory.\nCommunications inside one bus enable to execute required tasks significantly faster [[https://gist.github.com/jboner/2841832]]. Thus we can achieve nearly live indexing of reality from the very beginning.\n- extension with GPU. Currently, data centers cannot compete with commodity GPU. E.g. Amazon offers very expensing professional Nvidia Tesla cards. For our purposes, commodity cards such as GTX 1080 are much more cost effective.\n\n\nEnterprise\n. Currently, it is not hard to assemble a 2 CPU computer with 1 TB of RAM and 40 TB of SSD using commodity hardware. Such appliance can cost about $30k so we can think of it as affordable for those who are seriously want to be involved in a project. Also, we have an option to extend the capability of proposed search appliance based on 2 CPU motherboards built on Intel C612 chipset. Usually, it has 7 PCI-E slots for GPU which can be dedicated for cyber\u2022rank calculation. Thus a price for an ultimate (2 CPU * Xeon E5 * 22 cores + 7 GPU * GTX 1080 * 2560 Cuda cores) search and evaluation appliance can be around $50k. Currently, such computer will be able to process, index, audit and linking all blockchains.\n\n\nCybernode\n. We implementing the following software configuration that is based on docker containers.\n\n\n\n\nCybernode allows everybody fast deployment of decentralized and distributed application powered with cyber\u2022chain search capabilities.\n\n\nPerformance and Scalability\n\n\nProposed blockchain design is based on DPOS consensus algorithm and has fast and predictable 3 seconds block confirmation time and 1 minute finality time. Average confirmation timeframe is 1,5 seconds thus conformations can be asynchronous and nearly invisible for users. A good thing is that users don't need confirmations at all before getting search response as there is no risk associated with that.\n\n\nCurrent node implementation theoretically [https://bitshares.org/blog/2015/06/08/measuring-performance/] can process about 100k transactions per second. This theoretical bound is primarily limited with the possibility to replay a blockchain [https://steemit.com/blockchain/@dantheman/how-to-process-100m-transfers-second-on-a-single-blockchain]. As of now, all blockchains are about 1B immutable documents which size is about 200 GB with average tx 200 kb. We need to store all hashes which are on average 64 bytes long. We estimated that storing in the index all blockchain documents as CIDs and votes are roughly the same as storing all raw blockchain data. Linking 1B documents create significant overhead as blockchain index size can be up to 100 times more. Given this, we can assume that indexing all existing blockchains require about 4TB of SSD space. This is affordable for commodity hardware with 10x scaling capability without a necessity for sharding across several machines. We assume this is enough scalability margin for proof-of-concept.\n\n\nInitial indexing of 1B documents and 100B links will require a continuous load of the network at the upper bound of its capacity in the first year of its existence. If we assume that network will be able to process 10k transactions per second with 2MB block size we will be able to index all blockchains in 4 months. Further operations will require significantly less capacity as currently, not more than 1000 transactions per second happen among all blockchains.\n\n\nBased on the proposed search appliance we estimate that participants will require investing around $1M for dedicated hardware (21 witnesses) and the same amount for backup nodes. Thus overall costs of hardware network infrastructure can be around $2M. after full deployment.\n\n\nWorth to note that the network doesn't require ultimate configuration at the start and is able to optimize initial investments by the costs of time to index all blockchains. Thus costs at launch can be around $200k. Given that mining industry has been rapidly developed last years this can not be a showstopper for a project. We expect huge interest from miners as slots are limited with 21 fully paid nodes and ~20 of partially paid nodes (depend on the market).\n\n\nPossible scalability improvements include:\n- Hardware. This year Intel Optane [http://www.intel.com/content/www/us/en/architecture-and-technology/intel-optane-technology.html] That creates an opportunity to converge RAM and SSD. Our design has 3-year hardware margin for moving to cheaper and more dense next generation memory.\n- Software. The future of consensus computer optimization is in parallel processing. We are going to seriously invest in research of this field. Solving this issue will enable the network to scale nearly infinitely.\n\n\nDeployment\n\n\nWe split a process of network deployment into the following milestones which are not bounded to any timeframe at the moment:\n\n\n\n\nExploration Phase\n\n\na white paper published\n\n\nCID verification on consensus level\n\n\ncyber\u2022rank implementation\n\n\ncyber\u2022node release\n\n\n\n\nThe purpose of seed stage is to implement the blockchain and prepare it for technical launch.\n\n\n\n\nValidation Phase\n\n\nBlockchain launched\n\n\ncyber\u2022Fund basic application release\n\n\nToken distribution\n\n\n\n\nThe purpose of validation phase is to verify the feasibility of an idea and prospects of technological design across blockchain community. Successful deployment of MVP in the form of basic technical infrastructure in a decentralized fashion and quality of support from the blockchain community and investors around idea will be enough to understand what kind of future the blockchain has. Objective metric is an amount of bitcoins raised during crowd sale for already working blockchain design.\n\n\n\n\nBuild Phase\n\n\nIndexing 10 blockchains\n\n\nIndexing 1000 market pairs\n\n\nEvaluating 1000 tokens\n\n\nGPU cyber\u2022rank calculation implemented\n\n\nHistorical records of balance valuations is available for indexed blockchain\n\n\nDevelopers run 10 experiments\n\n\nFirst payouts to indexers and auditors\n\n\n\n\nThe purpose of build phase is to reach a very \nbasic\n product/market fit around \none specific use case\n or this use case will emerge from experiments. A number of payouts which will be calculated based on current capitalization is objective metric. 6 month is expected the duration of phase. If build phase will be successful there are infinite opportunities ahead.\n\n\n\n\nScaling Phase\n\n\nIndexing all blockchains\n\n\nIndexing Git, BitTorent, IPFS and DAT\n\n\nIndexing 10 blockchains\n\n\nAutocomplete is fully functional\n\n\nTop 1 mln. search queries return useful answers\n\n\n\n\nThis is an infinite phase in which the network start continuously grow indexing more and more relevant and meaningful data and the most important answering questions better and for the better. A key scope of work during this stage is to continuously improve developers experience:\n\n\n\n\nMore indexing =\n More people search =\n *More developers build* =\n More people earn, rank and promote =\n Better infrastructure =\n More indexing\n.\n\n\n\n\nThe power of cyber\u2022Chain\n\n\nThe key purpose of our proposed design is not just replicate abilities of existing search engines which return only links but enable answering new class of question:\n\n\n\n\nHow much value of X do I possess now?\n\n\nWhat probability of event Y?\n\n\nWhat packages do I need to install in order to improve ROI on available resources?\n\n\n\n\nOur proposed design has all necessary components to bootstrap a market for a new generation of answer applications.\n\n\nProposed economics model disintermediate conventional ad model there users are sold to an advertiser and enable any business or people or robot benefit from pure peer-to-peer interactions which bring value for every involved participant.\n\n\nFree Market of Indexing and Auditing\n. Everybody can connect any blockchain or content-addressable protocol. A decentralized approach to indexing and auditing create an opportunity for those who want to earn on the contributions to cyber\u2022Chain. Proposed solution is not more than a way to \noutsource\n these complicated and unstructured efforts for the entire community.\n\n\nFree Market of Answering. After all, we have recent advances in machine learning enable to reason about a piece of data quite well. All these algorithms require enormous highly distributed computation which as nearly impossible to achieve in a trestles consensus computer. With the current state of blockchain technology implementing these algorithms using decentralized computational network seems unfeasible. We find a way to _outsource\n this computation for the entire community.\n\n\nSelf Hosted Search API\n. Everybody can deploy self-hosted API. In comparison with what Google offer ($5 per 1000 answers). Our solution can be much more cost effective for high performant applications. One node can process at least 10k queries per second in a read-only mode. That is about 1B requests per month. That is about 100 times cheaper ($0,05 per 1000 answers) even if payback period of search and evaluation appliance ($50k) will be one month. In reality, the affordable payback period is about 10 months. Thus self-hosted search, in theory, can be 1000x more cost effective than Google offering.\n\n\nConclusion\n\n\nWe describe and implement a motivated blockchain based search engine for the permanent web. A search engine is based on the content-addressable peer-to-peer paradigm and uses IPFS as a foundation. IPFS provide significant benefits in terms of resources consumption. CIDs as a primary object is robust in its simplicity. For every CID cyber\u2022rank is computed by a consensus computer with no single point of failure. cyber\u2022rank is a combination of Google's PageRank and Steem's rewards system. cyber\u2022Rank is resistant to Sybil attacks and is computed based on interactions with a graph of CIDs and it's internal relations. Embedded smart contracts offer fair compensations for those who participate in indexing, linking, auditing and curation process. The primary goal is indexing of peer-to-peer systems with self-authenticated data either stateless, such as IFSS, DAT, GIT, BitTorent, or stateful such as Bitcoin, Ethereum and other blockchains and tangles. Proposed market of linking offers necessary incentives for outsourcing computing part responsible for finding meaningful relations between objects. The proposed market of curation and auditing creates essential incentives for ranking high-quality links and objects. Dynamic snippets in search results make possible functionality necessary for the next generation search. Lazy oracles enable indexing of structured publicly verifiable data feeds in a highly competitive environment. A source code of a search engine is open source. Every bit of data accumulated by a blockchain is available for everybody for free. The performance of proposed software-hardware implementation is sufficient for seamless user interactions. Scalability of proposed implementation is enough to index all self-authenticated data that exist today. The blockchain is managed by a decentralized autonomous organization which functions under DPOS consensus algorithm. Thought a system provide necessary utility to offer an alternative for conventional search engines it is not limited to this use case either. The system is extendable for numerous applications and makes possible to design economically rational self-owned robots to spawn a market for AI outsourcing.\n\n\nReferences - not ready yet\n\n\n[QGTC] \nhttps://www.quora.com/How-many-pages-is-Google-crawling-every-day\n PR [] RALF \nhttp://merkle.com/papers/DAOdemocracyDraft.pdf\n\n\nENIGMA \nhttps://www2.deloitte.com/content/dam/Deloitte/uk/Documents/Innovation/deloitte-uk-blockchain-full-report.pdf\n\n\nRTB \nhttps://en.wikipedia.org/wiki/Real-time_bidding\n\n\nTODO\n\n\nAuditing and Curation\n. Probably need more details\n\n\nAnonymity\n. Explain an economic difference between read search queries and write search queries.", 
             "title": "Overview"
@@ -919,216 +1034,6 @@
             "location": "/cyberd/cyberd/#todo", 
             "text": "Auditing and Curation . Probably need more details  Anonymity . Explain an economic difference between read search queries and write search queries.", 
             "title": "TODO"
-        }, 
-        {
-            "location": "/cyberJS/overview/", 
-            "text": "cyber.js is sample wrapper around cyber infrastructure - search, markets and changing also it provide method for work with ipfs and ethereum smart contracts.", 
-            "title": "Overview"
-        }, 
-        {
-            "location": "/cyberJS/build/", 
-            "text": "How to write a NPM module using TypeScript\n\n\nimport {DefaultSearchApi, SearchApi} from \ncyber-search-js\n;\n\nconst searchApi: SearchApi = new DefaultSearchApi(\nhttp://api.search.cyber.fund\n);\n\n\n\n\n\nHow to run\n\n\nnpm run build\n\n\n\n\n\npublish\n\n\nnpm publish", 
-            "title": "Development"
-        }, 
-        {
-            "location": "/cyberJS/build/#how-to-write-a-npm-module-using-typescript", 
-            "text": "import {DefaultSearchApi, SearchApi} from  cyber-search-js ;\n\nconst searchApi: SearchApi = new DefaultSearchApi( http://api.search.cyber.fund );", 
-            "title": "How to write a NPM module using TypeScript"
-        }, 
-        {
-            "location": "/cyberJS/build/#how-to-run", 
-            "text": "npm run build", 
-            "title": "How to run"
-        }, 
-        {
-            "location": "/cyberJS/build/#publish", 
-            "text": "npm publish", 
-            "title": "publish"
-        }, 
-        {
-            "location": "/cyberMarkets/about-markets/", 
-            "text": "About Markets", 
-            "title": "About markets"
-        }, 
-        {
-            "location": "/cyberMarkets/about-markets/#about-markets", 
-            "text": "", 
-            "title": "About Markets"
-        }, 
-        {
-            "location": "/cyberMarkets/README/", 
-            "text": "Build and Run locally\n\n\ndocker build -t build/raw-api -f ./docs/Dockerfile ./ \n docker run -p \n8080\n:8080 build/raw-api", 
-            "title": "Build"
-        }, 
-        {
-            "location": "/cyberMarkets/README/#build-and-run-locally", 
-            "text": "docker build -t build/raw-api -f ./docs/Dockerfile ./   docker run -p  8080 :8080 build/raw-api", 
-            "title": "Build and Run locally"
-        }, 
-        {
-            "location": "/cyberMarkets/components/overview/", 
-            "text": "Markets Components\n\n\n\n\n\n\n\n\nComponent\n\n\nScale\n\n\nDescription\n\n\nCluster Address\n\n\nMetrics\n\n\nExternal\n\n\n\n\n\n\n\n\n\n\nKafka\n\n\n1\n\n\nData Entry\n\n\n\n\n\n\n\n\n\n\n\n\nKafka Manager\n\n\n1\n\n\nKafka Explorer\n\n\n\n\n\n\n\n\n\n\n\n\nElassandra\n\n\n1 - N\n\n\nData Back\n\n\n\n\n\n\n\n\n\n\n\n\nExchanges Connector\n\n\n1 - N\n\n\nConnect to CEXs/DEXs for raw data\n\n\n\n\n8080:/actuator/metrics\n\n\n\n\n\n\n\n\nTickers\n\n\n1 - N\n\n\nCalculate Tickers From Raw Data\n\n\n\n\n\n\n\n\n\n\n\n\nMarkets REST Api\n\n\n1 - N\n\n\nRest Api To Markets Entities\n\n\n\n\n\n\ny\n\n\n\n\n\n\nMarkets Stream\n\n\n1 - N\n\n\nWeb Socket Api To Markets Entities\n\n\n\n\n\n\ny\n\n\n\n\n\n\nMarkets Api Docs\n\n\n1 - N\n\n\nMarkets Api Docs Based On Swagger\n\n\n\n\n\n\ny\n\n\n\n\n\n\n\n\n\n\nKafka\n\n\nKafka\n is message queue used as main data entry. All raw data firstly goes into kafka, than \n various services consume it to provide new functionality.\n\n\nElassandra (Elastic + Cassandra)\n\n\nElassandra\n is used as main backend storage with linear growth fulltext-search\n index on source cassandra data.\n\n\nExchanges Connector\n\n\nCollect raw data from centralized and decentalized exchanges such as trades, orderbooks and put it to kafka.\n\n\nTickers\n\n\nCalculate tickers, prices, etc and aggregate raw data which collecting exchanges connectors module", 
-            "title": "Overview"
-        }, 
-        {
-            "location": "/cyberMarkets/components/overview/#markets-components", 
-            "text": "Component  Scale  Description  Cluster Address  Metrics  External      Kafka  1  Data Entry       Kafka Manager  1  Kafka Explorer       Elassandra  1 - N  Data Back       Exchanges Connector  1 - N  Connect to CEXs/DEXs for raw data   8080:/actuator/metrics     Tickers  1 - N  Calculate Tickers From Raw Data       Markets REST Api  1 - N  Rest Api To Markets Entities    y    Markets Stream  1 - N  Web Socket Api To Markets Entities    y    Markets Api Docs  1 - N  Markets Api Docs Based On Swagger    y", 
-            "title": "Markets Components"
-        }, 
-        {
-            "location": "/cyberMarkets/components/overview/#kafka", 
-            "text": "Kafka  is message queue used as main data entry. All raw data firstly goes into kafka, than \n various services consume it to provide new functionality.", 
-            "title": "Kafka"
-        }, 
-        {
-            "location": "/cyberMarkets/components/overview/#elassandra-elastic-cassandra", 
-            "text": "Elassandra  is used as main backend storage with linear growth fulltext-search\n index on source cassandra data.", 
-            "title": "Elassandra (Elastic + Cassandra)"
-        }, 
-        {
-            "location": "/cyberMarkets/components/overview/#exchanges-connector", 
-            "text": "Collect raw data from centralized and decentalized exchanges such as trades, orderbooks and put it to kafka.", 
-            "title": "Exchanges Connector"
-        }, 
-        {
-            "location": "/cyberMarkets/components/overview/#tickers", 
-            "text": "Calculate tickers, prices, etc and aggregate raw data which collecting exchanges connectors module", 
-            "title": "Tickers"
-        }, 
-        {
-            "location": "/cyberMarkets/contributing/dev-environment/", 
-            "text": "Development environment\n\n\nUseful Links\n\n\n\n\ncheat sheet\n\n\n\n\nPrestart\n\n\n\n\nInstal Java 8 JDK\n\n\nInstall Docker and Docker Compose\n\n\nInstall Intellij Idea\n\n\n\n\nRun Kafka, Elassandra, Prometheus and Grafana\n\n\nStart containers(required)\n\n\nFor mac:\n\n\ndocker-compose -f dev-environment/env-mac.yml up -d\n\n\n\n\n\nFor linux family:\n\n\ndocker-compose -f dev-environment/env.yml up -d\n\n\n\n\n\nBootstrap Elassandra with keyspaces(required)\n\n\ndocker cp dev-environment/elassandra-bootstrap.cql  elassandra-markets:/elassandra-bootstrap.cql\ndocker \nexec\n -it elassandra-markets bash\ncqlsh -f elassandra-bootstrap.cql\n\n\n\n\n\nImport project to Intellij Idea\n\n\nOpen Project in idea by selecting: Import Project -\n selecting build.gradle file from the repository root\n\n\n\n\n\n\nWait for dependency downloading and indexation\n\n\nRun Exchanges Connector, Tickers, or API from intellij Idea\n\n\nGo to ExchangesConnectorApplication.kt and press green triangle on left to the code (on example line 16):\n\n\n\nIf, you use parity endpoint different rather that localhost:8545, than Etherdelta connector will fail due to lack of environment property PARITY_URL.\nLet's define it: Select \"Edit Configurations\"\n\n\n\n\nAdd next properties:\n\n\n\n\nNow, run exchanges connector one more time then etherdelta connector should start.\nYou can add environment variables in the same way for Tickers, APIs and etc.", 
-            "title": "Dev-enviroment"
-        }, 
-        {
-            "location": "/cyberMarkets/contributing/dev-environment/#development-environment", 
-            "text": "", 
-            "title": "Development environment"
-        }, 
-        {
-            "location": "/cyberMarkets/contributing/dev-environment/#useful-links", 
-            "text": "cheat sheet", 
-            "title": "Useful Links"
-        }, 
-        {
-            "location": "/cyberMarkets/contributing/dev-environment/#prestart", 
-            "text": "Instal Java 8 JDK  Install Docker and Docker Compose  Install Intellij Idea", 
-            "title": "Prestart"
-        }, 
-        {
-            "location": "/cyberMarkets/contributing/dev-environment/#run-kafka-elassandra-prometheus-and-grafana", 
-            "text": "", 
-            "title": "Run Kafka, Elassandra, Prometheus and Grafana"
-        }, 
-        {
-            "location": "/cyberMarkets/contributing/dev-environment/#start-containersrequired", 
-            "text": "For mac:  docker-compose -f dev-environment/env-mac.yml up -d  For linux family:  docker-compose -f dev-environment/env.yml up -d", 
-            "title": "Start containers(required)"
-        }, 
-        {
-            "location": "/cyberMarkets/contributing/dev-environment/#bootstrap-elassandra-with-keyspacesrequired", 
-            "text": "docker cp dev-environment/elassandra-bootstrap.cql  elassandra-markets:/elassandra-bootstrap.cql\ndocker  exec  -it elassandra-markets bash\ncqlsh -f elassandra-bootstrap.cql", 
-            "title": "Bootstrap Elassandra with keyspaces(required)"
-        }, 
-        {
-            "location": "/cyberMarkets/contributing/dev-environment/#import-project-to-intellij-idea", 
-            "text": "Open Project in idea by selecting: Import Project -  selecting build.gradle file from the repository root   \nWait for dependency downloading and indexation", 
-            "title": "Import project to Intellij Idea"
-        }, 
-        {
-            "location": "/cyberMarkets/contributing/dev-environment/#run-exchanges-connector-tickers-or-api-from-intellij-idea", 
-            "text": "Go to ExchangesConnectorApplication.kt and press green triangle on left to the code (on example line 16):  If, you use parity endpoint different rather that localhost:8545, than Etherdelta connector will fail due to lack of environment property PARITY_URL.\nLet's define it: Select \"Edit Configurations\"   Add next properties:   Now, run exchanges connector one more time then etherdelta connector should start.\nYou can add environment variables in the same way for Tickers, APIs and etc.", 
-            "title": "Run Exchanges Connector, Tickers, or API from intellij Idea"
-        }, 
-        {
-            "location": "/cyberMarkets/contributing/cheat-sheet/", 
-            "text": "Kafka\n\n\nStop kafka and delete kafka data(cheat sheet)\n\n\ndocker stop fast-data-dev-markets\ndocker rm fast-data-dev-markets\n\n\n\n\n\nElassandra\n\n\nStop elassandra and delete elassandra data(cheat sheet)\n\n\ndocker stop elassandra-markets\ndocker rm elassandra-markets \n\n\n\n\n\nChains\n\n\nRun parity node(cheat sheet)\n\n\nsudo  docker run -d -p \n8545\n:8545 --name parity_eth \n\\\n\n-v \n${\nREPLACE_IT_BY_HOST_FOLDER\n}\n:/cyberdata parity/parity:stable \n\\\n\n--db-path /cyberdata --jsonrpc-hosts all --jsonrpc-interface all --jsonrpc-threads \n4", 
-            "title": "Cheat-sheet"
-        }, 
-        {
-            "location": "/cyberMarkets/contributing/cheat-sheet/#kafka", 
-            "text": "", 
-            "title": "Kafka"
-        }, 
-        {
-            "location": "/cyberMarkets/contributing/cheat-sheet/#stop-kafka-and-delete-kafka-datacheat-sheet", 
-            "text": "docker stop fast-data-dev-markets\ndocker rm fast-data-dev-markets", 
-            "title": "Stop kafka and delete kafka data(cheat sheet)"
-        }, 
-        {
-            "location": "/cyberMarkets/contributing/cheat-sheet/#elassandra", 
-            "text": "", 
-            "title": "Elassandra"
-        }, 
-        {
-            "location": "/cyberMarkets/contributing/cheat-sheet/#stop-elassandra-and-delete-elassandra-datacheat-sheet", 
-            "text": "docker stop elassandra-markets\ndocker rm elassandra-markets", 
-            "title": "Stop elassandra and delete elassandra data(cheat sheet)"
-        }, 
-        {
-            "location": "/cyberMarkets/contributing/cheat-sheet/#chains", 
-            "text": "", 
-            "title": "Chains"
-        }, 
-        {
-            "location": "/cyberMarkets/contributing/cheat-sheet/#run-parity-nodecheat-sheet", 
-            "text": "sudo  docker run -d -p  8545 :8545 --name parity_eth  \\ \n-v  ${ REPLACE_IT_BY_HOST_FOLDER } :/cyberdata parity/parity:stable  \\ \n--db-path /cyberdata --jsonrpc-hosts all --jsonrpc-interface all --jsonrpc-threads  4", 
-            "title": "Run parity node(cheat sheet)"
-        }, 
-        {
-            "location": "/cyberMarkets/contributing/contributing/", 
-            "text": "Contributing to Cyber Markets \n\n\nThank you for considering a contribution to Cyber Markets! This guide explains how to:\n\n Get started\n\n Development workflow\n* Get help if you encounter trouble\n\n\nGet in touch\n\n\nBefore starting to work on a feature or a fix, please open an issue to discuss the use case or bug with us. This can \nsave both you and us a lot of time. For any non-trivial change, we'll ask you to create a short design document explaining:\n\n\n\n\nWhy is this change done? What's the use case?\n\n\nWhat will the API look like? (For new features)\n\n\nWhat test cases should it have? What could go wrong?\n\n\nHow will it roughly be implemented? (We'll happily provide code pointers to save you time)\n\n\n\n\nDevelopment Workflow\n\n\nDevelopment Setup\n\n\nPlease, use \ndevelopment environment setup guide\n.\n\n\nMake Changes\n\n\nUse this \nArchitecture Overview\n as a start point for making changes.\n\n\nLocal Check\n\n\nSeveral checks should passed to succeed build.\n\n Detekt code analyze tool should not report any issues\n\n \nJUnit\n tests should pass\n\n\nBefore committing you changes, please, run local project check by:\n\n\n./gradlew build    //linux, mac\ngradlew.bat build  //windows\n\n\n\n\n\nCreating Commits And Writing Commit Messages\n\n\nThe commit messages that accompany your code changes are an important piece of documentation, please follow these guidelines when writing commit messages:\n\n\n\n\nKeep commits discrete: avoid including multiple unrelated changes in a single commit\n\n\nKeep commits self-contained: avoid spreading a single change across multiple commits. A single commit should make sense in isolation\n\n\nAdd GitHub issue to \nCHANGELOG.md\n\n\nInclude GitHub issue in the commit message on a first line at the beginning. Example:\n\n\n\n\n#123 Refactor CONTRIBUTING.md\n\n--Add Creating Commits And Writing Commit Messages Section\n\n\n\n\n\nSubmitting Your Change\n\n\nAfter you submit your pull request, a core developer will review it. It is normal that this takes several \niterations, so don't get discouraged by change requests. They ensure the high quality that we all enjoy.\n\n\nGetting Help\n\n\nIf you run into any trouble, please reach out to us on the issue you are working on.\n\n\nOur Thanks\n\n\nWe deeply appreciate your effort toward improving Search. For any contribution, large or small, you will be immortalized\n in the release notes for the version you've contributed to.", 
-            "title": "Contributing"
-        }, 
-        {
-            "location": "/cyberMarkets/contributing/contributing/#contributing-to-cyber-markets", 
-            "text": "Thank you for considering a contribution to Cyber Markets! This guide explains how to:  Get started  Development workflow\n* Get help if you encounter trouble", 
-            "title": "Contributing to Cyber Markets"
-        }, 
-        {
-            "location": "/cyberMarkets/contributing/contributing/#get-in-touch", 
-            "text": "Before starting to work on a feature or a fix, please open an issue to discuss the use case or bug with us. This can \nsave both you and us a lot of time. For any non-trivial change, we'll ask you to create a short design document explaining:   Why is this change done? What's the use case?  What will the API look like? (For new features)  What test cases should it have? What could go wrong?  How will it roughly be implemented? (We'll happily provide code pointers to save you time)", 
-            "title": "Get in touch"
-        }, 
-        {
-            "location": "/cyberMarkets/contributing/contributing/#development-workflow", 
-            "text": "", 
-            "title": "Development Workflow"
-        }, 
-        {
-            "location": "/cyberMarkets/contributing/contributing/#development-setup", 
-            "text": "Please, use  development environment setup guide .", 
-            "title": "Development Setup"
-        }, 
-        {
-            "location": "/cyberMarkets/contributing/contributing/#make-changes", 
-            "text": "Use this  Architecture Overview  as a start point for making changes.", 
-            "title": "Make Changes"
-        }, 
-        {
-            "location": "/cyberMarkets/contributing/contributing/#local-check", 
-            "text": "Several checks should passed to succeed build.  Detekt code analyze tool should not report any issues   JUnit  tests should pass  Before committing you changes, please, run local project check by:  ./gradlew build    //linux, mac\ngradlew.bat build  //windows", 
-            "title": "Local Check"
-        }, 
-        {
-            "location": "/cyberMarkets/contributing/contributing/#creating-commits-and-writing-commit-messages", 
-            "text": "The commit messages that accompany your code changes are an important piece of documentation, please follow these guidelines when writing commit messages:   Keep commits discrete: avoid including multiple unrelated changes in a single commit  Keep commits self-contained: avoid spreading a single change across multiple commits. A single commit should make sense in isolation  Add GitHub issue to  CHANGELOG.md  Include GitHub issue in the commit message on a first line at the beginning. Example:   #123 Refactor CONTRIBUTING.md\n\n--Add Creating Commits And Writing Commit Messages Section", 
-            "title": "Creating Commits And Writing Commit Messages"
-        }, 
-        {
-            "location": "/cyberMarkets/contributing/contributing/#submitting-your-change", 
-            "text": "After you submit your pull request, a core developer will review it. It is normal that this takes several \niterations, so don't get discouraged by change requests. They ensure the high quality that we all enjoy.", 
-            "title": "Submitting Your Change"
-        }, 
-        {
-            "location": "/cyberMarkets/contributing/contributing/#getting-help", 
-            "text": "If you run into any trouble, please reach out to us on the issue you are working on.", 
-            "title": "Getting Help"
-        }, 
-        {
-            "location": "/cyberMarkets/contributing/contributing/#our-thanks", 
-            "text": "We deeply appreciate your effort toward improving Search. For any contribution, large or small, you will be immortalized\n in the release notes for the version you've contributed to.", 
-            "title": "Our Thanks"
         }
     ]
 }
