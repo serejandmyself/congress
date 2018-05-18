@@ -56,6 +56,11 @@
             "title": "Elassandra commands"
         }, 
         {
+            "location": "/cybernode/dev-setup/", 
+            "text": "", 
+            "title": "Dev-setup"
+        }, 
+        {
             "location": "/cybernode/components/monitoring/", 
             "text": "Monitoring Components\n\n\nDuring lifetime cybernode collects various metrics using following components:\n\n\n\n\n\n\n\n\nComponent\n\n\nDescription\n\n\nCluster Address\n\n\nExternal\n\n\n\n\n\n\n\n\n\n\nPrometheus Operator(PO)\n\n\nManages Prometheus Configuration\n\n\n\n\n\n\n\n\n\n\nPrometheus\n\n\nMetrics Storage\n\n\nprometheus.monitoring.svc:9090\n\n\n\n\n\n\n\n\nDefault Service Monitor\n\n\nDefault Service Monitor for PO\n\n\n\n\n\n\n\n\n\n\nGrafana\n\n\nMetrics Alerts and Web UI\n\n\ngrafana.monitoring.svc:3000\n\n\ny\n\n\n\n\n\n\n\n\nPrometheus\n\n\nPrometheus\n is used as a main metrics storage. Components collect metrics and expose them via \n HTTP endpoint, that Prometheus pulls at configured interval(our is 15s).\n\n\nPrometheus Operator\n\n\nTo deploy Prometheus atop Kubernetes, we use \nPrometheus Operator\n.\n It consists of Prometheus Operator itself, that introduced to cluster \n \nCRDs\n: Prometheus,\n Service Monitor. PO automatically(dynamically) generate monitoring target configurations based on familiar Kubernetes label queries; \n no need to learn a Prometheus specific configuration language.\n\n\nDefault Service Monitor\n\n\nTo enable dynamic mapping for new pods to prometheus, service monitor(SM) is used. Each SM defines set of kubernetes \n label filters.\n\n\nGrafana\n\n\nTo visualize metrics collected by Prometheus we use \nGrafana\n. In order to configure Grafana, three\n \nconfig maps\n are used:\n\n\n\n\ngrafana-datasources\n. Define Prometheus datasource. \n\n\ngrafana-dashboards\n. Gather predefined dashboards into single folder. \n\n\ngrafana-dashboards-providers\n. Configuration for importing dashboards. \n\n\n\n\nGrafana Alerts\n\n\nAlso Grafana supports checking metrics satisfied defined criteria. If criteria is violated, than notification is raised \n to setup alert channels(in our case Telegram Group). To view list of available alerts check \n \"{grafana_host}/alerting/list\" page.", 
             "title": "Monitoring"
@@ -92,13 +97,23 @@
         }, 
         {
             "location": "/cybernode/components/chain-nodes/", 
-            "text": "Chain Nodes Components\n\n\n\n\n\n\n\n\nComponent\n\n\nCluster Address\n\n\n\n\n\n\n\n\n\n\nParity 1.9.6 eth\n\n\nparity-eth.chains.svc:8545", 
+            "text": "Chain Nodes Components\n\n\n\n\n\n\n\n\nComponent\n\n\nCluster Address\n\n\n\n\n\n\n\n\n\n\nParity 1.9.6 eth\n\n\nparity-eth.chains.svc:8545\n\n\n\n\n\n\nParity 1.9.6 etc\n\n\nparity-et\u0441.chains.svc:8545\n\n\n\n\n\n\nBitcoind 0.16.0\n\n\nbitcoind-btc.chains.svc:8332", 
             "title": "Chains nodes"
         }, 
         {
             "location": "/cybernode/components/chain-nodes/#chain-nodes-components", 
-            "text": "Component  Cluster Address      Parity 1.9.6 eth  parity-eth.chains.svc:8545", 
+            "text": "Component  Cluster Address      Parity 1.9.6 eth  parity-eth.chains.svc:8545    Parity 1.9.6 etc  parity-et\u0441.chains.svc:8545    Bitcoind 0.16.0  bitcoind-btc.chains.svc:8332", 
             "title": "Chain Nodes Components"
+        }, 
+        {
+            "location": "/cybernode/components/requirments/", 
+            "text": "Components requirements\n\n\nResources requirements to run components in gcloud cluster\n\n\n\n\n\n\n\n\nComponent\n\n\nMin CPU\n\n\nMax CPU\n\n\nMin RAM\n\n\nMax RAM\n\n\n\n\n\n\n\n\n\n\nKafka Broker\n\n\n1.5\n\n\n2\n\n\n15GB\n\n\n20GB\n\n\n\n\n\n\nKafka Exporter\n\n\n0.1\n\n\n0.2\n\n\n1GB\n\n\n2GB\n\n\n\n\n\n\nKafka Manager\n\n\n0.1\n\n\n0.2\n\n\n1GB\n\n\n2GB\n\n\n\n\n\n\nZoo Keeper\n\n\n0.1\n\n\n0.2\n\n\n2GB\n\n\n4GB\n\n\n\n\n\n\nElassandra\n\n\n2\n\n\n2.5\n\n\n20GB\n\n\n25GB\n\n\n\n\n\n\nGrafana\n\n\n0.1\n\n\n0.2\n\n\n100MB\n\n\n200MB\n\n\n\n\n\n\nPrometheus\n\n\n0.25\n\n\n0.5\n\n\n500MB\n\n\n1000MB\n\n\n\n\n\n\nPrometheus Operator\n\n\n0.1\n\n\n0.2\n\n\n100MB\n\n\n200MB\n\n\n\n\n\n\nParity ETH\n\n\n1.5\n\n\n2\n\n\n15GB\n\n\n20GB\n\n\n\n\n\n\nParity ETC\n\n\n1\n\n\n1.5\n\n\n10GB\n\n\n15GB\n\n\n\n\n\n\nETH Pump\n\n\n1.5\n\n\n2\n\n\n2.5GB\n\n\n3GB\n\n\n\n\n\n\nETH Cassandra Dump\n\n\n1.5\n\n\n2\n\n\n2.5GB\n\n\n3GB\n\n\n\n\n\n\nETH Contract Summary\n\n\n1.5\n\n\n2\n\n\n2.5GB\n\n\n3GB\n\n\n\n\n\n\nETC Pump\n\n\n1.5\n\n\n2\n\n\n2.5GB\n\n\n3GB\n\n\n\n\n\n\nETC Cassandra Dump\n\n\n1.5\n\n\n2\n\n\n2.5GB\n\n\n3GB\n\n\n\n\n\n\nETC Contract Summary\n\n\n1.5\n\n\n2\n\n\n2.5GB\n\n\n3GB\n\n\n\n\n\n\nBitcoind\n\n\n2\n\n\n3\n\n\n20GB\n\n\n30GB\n\n\n\n\n\n\nBTC Pump*\n\n\n1.5\n\n\n2\n\n\n10GB\n\n\n12GB\n\n\n\n\n\n\nBTC Dump\n\n\n1.5\n\n\n2\n\n\n2.5GB\n\n\n3GB\n\n\n\n\n\n\nBTC Contract Summary\n\n\n1.5\n\n\n2\n\n\n2.5GB\n\n\n3GB\n\n\n\n\n\n\nSearch Api\n\n\n0.5\n\n\n1\n\n\n1.5GB\n\n\n2GB\n\n\n\n\n\n\nSearch Api Docs\n\n\n0.1\n\n\n0.2\n\n\n100MB\n\n\n200MB\n\n\n\n\n\n\n\n\n* - With cache size = 4GB", 
+            "title": "Requirments"
+        }, 
+        {
+            "location": "/cybernode/components/requirments/#components-requirements", 
+            "text": "Resources requirements to run components in gcloud cluster     Component  Min CPU  Max CPU  Min RAM  Max RAM      Kafka Broker  1.5  2  15GB  20GB    Kafka Exporter  0.1  0.2  1GB  2GB    Kafka Manager  0.1  0.2  1GB  2GB    Zoo Keeper  0.1  0.2  2GB  4GB    Elassandra  2  2.5  20GB  25GB    Grafana  0.1  0.2  100MB  200MB    Prometheus  0.25  0.5  500MB  1000MB    Prometheus Operator  0.1  0.2  100MB  200MB    Parity ETH  1.5  2  15GB  20GB    Parity ETC  1  1.5  10GB  15GB    ETH Pump  1.5  2  2.5GB  3GB    ETH Cassandra Dump  1.5  2  2.5GB  3GB    ETH Contract Summary  1.5  2  2.5GB  3GB    ETC Pump  1.5  2  2.5GB  3GB    ETC Cassandra Dump  1.5  2  2.5GB  3GB    ETC Contract Summary  1.5  2  2.5GB  3GB    Bitcoind  2  3  20GB  30GB    BTC Pump*  1.5  2  10GB  12GB    BTC Dump  1.5  2  2.5GB  3GB    BTC Contract Summary  1.5  2  2.5GB  3GB    Search Api  0.5  1  1.5GB  2GB    Search Api Docs  0.1  0.2  100MB  200MB     * - With cache size = 4GB", 
+            "title": "Components requirements"
         }, 
         {
             "location": "/cybernode/staging/setup/", 
@@ -224,6 +239,21 @@
             "location": "/cybernode/staging/kubernetes/#run-single-container-in-a-cluster", 
             "text": "$ kubectl run miniecho --image=k8s.gcr.io/echoserver:1.9 --port=8080  This adds  deployment  called  miniecho  to cluster, runs Docker  echoserver \nimage in it and tells docker to open port 8080. The port is not accessible\nuntil we create  service .  $ kubectl expose deployment miniecho --type=NodePort\nservice  miniecho  exposed  This makes  miniecho  service accessible from your machine on random port.  $ minikube service list\n|-------------|----------------------|---------------------------|\n|  NAMESPACE  |         NAME         |            URL            |\n|-------------|----------------------|---------------------------|\n| default     | kubernetes           | No node port              |\n| default     | miniecho             | http://192.168.39.6:30426 |\n| kube-system | kube-dns             | No node port              |\n| kube-system | kubernetes-dashboard | http://192.168.39.6:30000 |\n|-------------|----------------------|---------------------------|", 
             "title": "Run single container in a cluster"
+        }, 
+        {
+            "location": "/cybernode/chains/bitcoin/", 
+            "text": "", 
+            "title": "Bitcoin"
+        }, 
+        {
+            "location": "/cybernode/chains/ethereum/", 
+            "text": "Known issues\n\n\n\n\nFor \n2806264 block\n there is a transaction with size more than 1mb, general rule, size of item can be \n1mb.", 
+            "title": "Ethereum"
+        }, 
+        {
+            "location": "/cybernode/chains/ethereum/#known-issues", 
+            "text": "For  2806264 block  there is a transaction with size more than 1mb, general rule, size of item can be  1mb.", 
+            "title": "Known issues"
         }, 
         {
             "location": "/cyberSearch/about-search/", 
