@@ -63,6 +63,8 @@
     
       <link rel="stylesheet" href="../../stylesheets/extra.css">
     
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@7.1.0/dist/mermaid.css">
+    
     
   </head>
   
@@ -1059,7 +1061,7 @@
 </ul>
 <h2 id="3-common-functional-requirements">3. Common functional requirements<a class="headerlink" href="#3-common-functional-requirements" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Integration with Metamask </li>
+<li>Integration with Metamask</li>
 <li>IPFS integration</li>
 <li>Avoid pagination in all tables (use scrolling instead)</li>
 <li>Prefered type of data structure - tables</li>
@@ -1075,18 +1077,18 @@
 <li>less than 1 second for loading page</li>
 <li>less than 3 seconds for loading all data</li>
 <li>Web version of browser (React)</li>
-<li>Desktop version (Electron + React) </li>
+<li>Desktop version (Electron + React)</li>
 <li>Mobile web version</li>
 </ul>
 <h1 id="browser-pages">Browser Pages<a class="headerlink" href="#browser-pages" title="Permanent link">&para;</a></h1>
 <h2 id="1-main-page">1. Main Page<a class="headerlink" href="#1-main-page" title="Permanent link">&para;</a></h2>
-<p><strong>Purpose:</strong> accent the user's attention to search function. </p>
+<p><strong>Purpose:</strong> accent the user's attention to search function.</p>
 <p><strong>Design &amp; UI features:</strong> simple and attractive design, hints to start usage of cyber products.</p>
 <p>There is a status text below search panel which describes technical information about cyber.Search products:</p>
-<p><strong><em>Search in 134 M transactions in 2 blockchain systems with 135 parsed tokens. Database size : 369 GBs</em></strong> </p>
+<p><strong><em>Search in 134 M transactions in 2 blockchain systems with 135 parsed tokens. Database size : 369 GBs</em></strong></p>
 <p>where transactions are the number of all indexed transactions from all blockchains connected to Cybernode, blockchain systems - all blockchains processed by Cybernode, tokens - all unique tokens from all blockchains indexed, database size - size of Cassandra (index) database.</p>
 <p>There are 3 main widgets below the status string describing the cryptoeconomy, registers and portfolio:
-1. Total market cap [billions of USD] - is a summ of all token capitalizations, valuated in USD. </p>
+1. Total market cap [billions of USD] - is a summ of all token capitalizations, valuated in USD.</p>
 <div class="codehilite"><pre><span></span>_**Call to action:** transition to cybernomics page_.
 </pre></div>
 
@@ -1115,7 +1117,7 @@
 </ul>
 <h2 id="2-search-results-page">2. Search Results Page<a class="headerlink" href="#2-search-results-page" title="Permanent link">&para;</a></h2>
 <p><strong>Purpose:</strong> provide easy and quick functionality for working with blockchain search.</p>
-<p><strong>Design &amp; UI  features:</strong> strictly logical UI, adaptive preferenses of filtration and sorting. </p>
+<p><strong>Design &amp; UI  features:</strong> strictly logical UI, adaptive preferenses of filtration and sorting.</p>
 <h4 id="objects-of-search">Objects of search.<a class="headerlink" href="#objects-of-search" title="Permanent link">&para;</a></h4>
 <p>There are 2 types of search provided by browser:
 1. Global search (searching in whole ecosystem of indexed objects)
@@ -1156,7 +1158,7 @@
 <li>Time of finalization (or time of confirmation or "Mempool" status)</li>
 <li>"From" address hash (Only for Ethereum and Ethereum Classic)</li>
 <li>
-<p>"To" address hash (Only for Ethereum and Ethereum Classic) </p>
+<p>"To" address hash (Only for Ethereum and Ethereum Classic)</p>
 </li>
 <li>
 <p>Block</p>
@@ -1206,7 +1208,7 @@
 <li>Miner [string] - miner hash</li>
 <li>Difficulty [number] - mining difficulty</li>
 <li>Static block reward [number + currency] - static reward for block mining</li>
-<li>Fees [number + currency] - </li>
+<li>Fees [number + currency] -</li>
 </ul>
 <h2 id="3-blockchains-page">3. Blockchains Page<a class="headerlink" href="#3-blockchains-page" title="Permanent link">&para;</a></h2>
 <h3 id="31-blockchain-page">3.1 Blockchain Page<a class="headerlink" href="#31-blockchain-page" title="Permanent link">&para;</a></h3>
@@ -1215,7 +1217,7 @@
 <h2 id="5-exchanges-page">5. Exchanges Page<a class="headerlink" href="#5-exchanges-page" title="Permanent link">&para;</a></h2>
 <h3 id="51-exchange-page">5.1 Exchange page<a class="headerlink" href="#51-exchange-page" title="Permanent link">&para;</a></h3>
 <h2 id="6-chaingear-page">6. Chaingear Page<a class="headerlink" href="#6-chaingear-page" title="Permanent link">&para;</a></h2>
-<p><strong>Purpose:</strong> provide easy integration with Chaingear. 
+<p><strong>Purpose:</strong> provide easy integration with Chaingear.
 <strong>Design &amp; UI  features:</strong> simple UI, autoupdate register data, preview of changes.</p>
 <p>All functionality is available after Metamask authorization.</p>
 <p>Main functions of the page:</p>
@@ -1320,6 +1322,8 @@
       <script src="../../assets/javascripts/application.0cf9b500.js"></script>
       
       <script>app.initialize({version:"0.17.3",url:{base:"../.."}})</script>
+      
+        <script src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js"></script>
       
         <script src="../../search/require.js"></script>
       
