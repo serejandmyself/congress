@@ -1058,20 +1058,6 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#deploy-contract" title="Deploy contract:" class="md-nav__link">
-    Deploy contract:
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#linting" title="Linting:" class="md-nav__link">
-    Linting:
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#development-environment" title="Development environment" class="md-nav__link">
     Development environment
   </a>
@@ -1086,8 +1072,36 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#create-new-registry" title="Create new registry" class="md-nav__link">
-    Create new registry
+  <a href="#creating-new-registrycru-entries-truffle-console-wayno-remix-ide" title="Creating new registry/CRU entries (truffle console way/no Remix IDE)" class="md-nav__link">
+    Creating new registry/CRU entries (truffle console way/no Remix IDE)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linting" title="Linting:" class="md-nav__link">
+    Linting:
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing" title="Testing:" class="md-nav__link">
+    Testing:
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deploying-for-example-kovan" title="Deploying (for example kovan):" class="md-nav__link">
+    Deploying (for example kovan):
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optional-build-contract-in-file" title="(Optional) Build contract in file:" class="md-nav__link">
+    (Optional) Build contract in file:
   </a>
   
 </li>
@@ -1100,6 +1114,18 @@
   
 </nav>
     
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../pipelines/" title="Pipelines" class="md-nav__link">
+      Pipelines
+    </a>
   </li>
 
         
@@ -1162,20 +1188,6 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#deploy-contract" title="Deploy contract:" class="md-nav__link">
-    Deploy contract:
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#linting" title="Linting:" class="md-nav__link">
-    Linting:
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#development-environment" title="Development environment" class="md-nav__link">
     Development environment
   </a>
@@ -1190,8 +1202,36 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#create-new-registry" title="Create new registry" class="md-nav__link">
-    Create new registry
+  <a href="#creating-new-registrycru-entries-truffle-console-wayno-remix-ide" title="Creating new registry/CRU entries (truffle console way/no Remix IDE)" class="md-nav__link">
+    Creating new registry/CRU entries (truffle console way/no Remix IDE)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linting" title="Linting:" class="md-nav__link">
+    Linting:
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing" title="Testing:" class="md-nav__link">
+    Testing:
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deploying-for-example-kovan" title="Deploying (for example kovan):" class="md-nav__link">
+    Deploying (for example kovan):
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optional-build-contract-in-file" title="(Optional) Build contract in file:" class="md-nav__link">
+    (Optional) Build contract in file:
   </a>
   
 </li>
@@ -1216,16 +1256,48 @@
                 
                 
                 <h1 id="configuring-development-and-deploying">Configuring, development and deploying<a class="headerlink" href="#configuring-development-and-deploying" title="Permanent link">&para;</a></h1>
-<h5 id="deploy-contract">Deploy contract:<a class="headerlink" href="#deploy-contract" title="Permanent link">&para;</a></h5>
-<div class="codehilite"><pre><span></span>parity ui --chain=kovan
-
-truffle migrate --network=kovan
+<h5 id="development-environment">Development environment<a class="headerlink" href="#development-environment" title="Permanent link">&para;</a></h5>
+<p>Recommending to use <a href="../remix.ethereum.org">Remix Ethereum Online IDE</a>  or <a href="https://github.com/horizon-games/remix-app">desktop electron-based Remix IDE</a></p>
+<p>PS: to import to IDE open-zeppelin contacts change imports this way:</p>
+<div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="s2">&quot;github.com/openZeppelin/zeppelin-solidity/contracts/ownership/Ownable.sol&quot;</span><span class="p">;</span>
 </pre></div>
 
 
-<p>PS: approve transaction in parity ui (http://127.0.0.1:8180/)</p>
-<p>Build contract in file:</p>
-<div class="codehilite"><pre><span></span>truffle-flattener contracts/common/Chaingeareable.sol &gt;&gt; app/src/Chaingeareable.sol
+<h5 id="truffle-ganache-workflow">Truffle + Ganache workflow<a class="headerlink" href="#truffle-ganache-workflow" title="Permanent link">&para;</a></h5>
+<p>Install Ganache (with UI) from <a href="https://github.com/trufflesuite/ganache/releases">latest release</a> or npm package =&gt;</p>
+<div class="codehilite"><pre><span></span>npm install -g ganache-cli
+</pre></div>
+
+
+<p>Configure development config in truffle.js and launch Ganache (configure them too if needed) and:</p>
+<div class="codehilite"><pre><span></span>ganache-cli -p <span class="m">7545</span> <span class="o">(</span>in first tab/or run UI-client<span class="o">)</span>
+truffle migrate --network development --reset <span class="o">(</span>in second tab<span class="o">)</span>
+truffle console --network development <span class="o">(</span>in second tab<span class="o">)</span>
+</pre></div>
+
+
+<h5 id="creating-new-registrycru-entries-truffle-console-wayno-remix-ide">Creating new registry/CRU entries (truffle console way/no Remix IDE)<a class="headerlink" href="#creating-new-registrycru-entries-truffle-console-wayno-remix-ide" title="Permanent link">&para;</a></h5>
+<div class="codehilite"><pre><span></span>var <span class="nv">chaingear</span> <span class="o">=</span> Chaingear.at<span class="o">(</span>Chaingear.address<span class="o">)</span>
+
+var <span class="nv">beneficiaries</span> <span class="o">=</span> <span class="o">[]</span>
+var <span class="nv">shares</span> <span class="o">=</span> <span class="o">[]</span>
+var <span class="nv">buildingFee</span> <span class="o">=</span> <span class="m">100000</span>
+var <span class="nv">gas</span> <span class="o">=</span> <span class="m">10000000</span>
+
+chaingear.registerRegistry<span class="o">(</span><span class="s2">&quot;V1&quot;</span>, beneficiaries, shares, <span class="s2">&quot;BlockchainRegistry&quot;</span>, <span class="s2">&quot;BLR&quot;</span>, <span class="o">{</span>value: <span class="m">100000</span>, gas: <span class="m">10000000</span><span class="o">})</span>
+var <span class="nv">registryAddr1</span> <span class="o">=</span> chaingear.contractAddressOf.call<span class="o">(</span><span class="m">0</span><span class="o">)</span>
+var <span class="nv">registry</span> <span class="o">=</span> Registry.at<span class="o">(</span><span class="s1">&#39;insert_registry_address_here&#39;</span><span class="o">)</span>
+registry.initializeRegistry<span class="o">(</span><span class="s2">&quot;IPFS_HASH&quot;</span>, EntryCore.bytecode<span class="o">)</span>
+registry.createEntry<span class="o">()</span>
+var <span class="nv">registryBaseAddr</span> <span class="o">=</span> registry.entryBase<span class="o">()</span>
+var <span class="nv">entryCore</span> <span class="o">=</span> EntryCore.at<span class="o">(</span><span class="s1">&#39;insert_entry_core_address_here&#39;</span><span class="o">)</span>
+entryCore.updateEntry<span class="o">(</span><span class="m">0</span>, <span class="s1">&#39;any_address&#39;</span>, <span class="m">256</span>, -127,<span class="s2">&quot;helloworld&quot;</span><span class="o">)</span>
+entryCore.entryInfo<span class="o">(</span><span class="m">0</span><span class="o">)</span>
+// ---&gt;&gt;&gt;
+<span class="o">[</span> <span class="s1">&#39;0xa2f0dde51cb715f9cc7c12763fef90270bd50f70&#39;</span>,
+  BigNumber <span class="o">{</span> s: <span class="m">1</span>, e: <span class="m">2</span>, c: <span class="o">[</span> <span class="m">256</span> <span class="o">]</span> <span class="o">}</span>,
+  BigNumber <span class="o">{</span> s: -1, e: <span class="m">2</span>, c: <span class="o">[</span> <span class="m">127</span> <span class="o">]</span> <span class="o">}</span>,
+  <span class="s1">&#39;helloworld&#39;</span> <span class="o">]</span>
 </pre></div>
 
 
@@ -1236,35 +1308,22 @@ solium -d contracts
 </pre></div>
 
 
-<h5 id="development-environment">Development environment<a class="headerlink" href="#development-environment" title="Permanent link">&para;</a></h5>
-<p>Recommending to use <a href="../remix.ethereum.org">Remix Ethereum Online IDE</a>  or <a href="https://github.com/horizon-games/remix-app">desktop electron-based Remix IDE</a></p>
-<p>PS: to import to IDE open-zeppelin contacts follow this:</p>
-<div class="codehilite"><pre><span></span>import &quot;github.com/openZeppelin/zeppelin-solidity/contracts/ownership/Ownable.sol&quot;;
+<h5 id="testing">Testing:<a class="headerlink" href="#testing" title="Permanent link">&para;</a></h5>
+<div class="codehilite"><pre><span></span>./tests.sh
 </pre></div>
 
 
-<h5 id="truffle-ganache-workflow">Truffle + Ganache workflow<a class="headerlink" href="#truffle-ganache-workflow" title="Permanent link">&para;</a></h5>
-<p>Install Ganache from <a href="https://github.com/trufflesuite/ganache/releases">latest release</a>, then =&gt;</p>
-<div class="codehilite"><pre><span></span>npm install -g ganache-cli
+<p>PS: script will run separate tests flow for each file, also produce gas report. Temp solution, for while we don't fix problem with tests falls when running for all files at one time what in truffle by default.</p>
+<h5 id="deploying-for-example-kovan">Deploying (for example kovan):<a class="headerlink" href="#deploying-for-example-kovan" title="Permanent link">&para;</a></h5>
+<div class="codehilite"><pre><span></span>parity ui --chain<span class="o">=</span>kovan
+
+truffle migrate --network<span class="o">=</span>kovan
 </pre></div>
 
 
-<p>Configure development config in truffle.js and launch Ganache (configure them too if needed) and:</p>
-<div class="codehilite"><pre><span></span>ganache-cli -p 7545 (in first tab)
-truffle migrate --network development --reset (in second tab)
-truffle console --network development (in second tab)
-</pre></div>
-
-
-<h5 id="create-new-registry">Create new registry<a class="headerlink" href="#create-new-registry" title="Permanent link">&para;</a></h5>
-<div class="codehilite"><pre><span></span>var chaingear = Chaingear.at(Chaingear.address)
-
-var beneficiaries = []
-var shares = []
-var buildingFee = 1000000
-var gas = 10000000
-
-chaingear.registerRegistry(beneficiaries, shares, &quot;BlockchainRegistry&quot;, &quot;BLR&quot;, &quot;&quot;, EntryCore.bytecode, {value: buildingFee, gas: 10000000})
+<p>PS: approve transaction in parity ui (http://127.0.0.1:8180/)</p>
+<h5 id="optional-build-contract-in-file">(Optional) Build contract in file:<a class="headerlink" href="#optional-build-contract-in-file" title="Permanent link">&para;</a></h5>
+<div class="codehilite"><pre><span></span>truffle-flattener contracts/common/Chaingeareable.sol &gt;&gt; app/src/Chaingeareable.sol
 </pre></div>
                 
                   
@@ -1301,13 +1360,13 @@ chaingear.registerRegistry(beneficiaries, shares, &quot;BlockchainRegistry&quot;
           </a>
         
         
-          <a href="../../cyberd/cyberd/" title="Overview" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../pipelines/" title="Pipelines" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Overview
+                Pipelines
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

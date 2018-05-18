@@ -1046,23 +1046,77 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#design-rationale" title="Design rationale" class="md-nav__link">
+    Design rationale
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chaingear-inheritance" title="Chaingear inheritance" class="md-nav__link">
+    Chaingear inheritance
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#registry-inheritance" title="Registry inheritance" class="md-nav__link">
+    Registry inheritance
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ps-oz-stands-to-open-zeppelin-contracts" title="PS: OZ stands to Open Zeppelin contracts" class="md-nav__link">
+    PS: OZ stands to Open Zeppelin contracts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#chaingear" title="/chaingear" class="md-nav__link">
     /chaingear
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#common" title="/common" class="md-nav__link">
     /common
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#registry" title="/registry" class="md-nav__link">
     /registry
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#entrybasic-interface-should-be-implemented-in-user-entrycore-contract" title="EntryBasic interface (should be implemented in user EntryCore contract)" class="md-nav__link">
+    EntryBasic interface (should be implemented in user EntryCore contract)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-entrycore-with-example-custom-structure-and-required-functions" title="Example EntryCore (with example custom structure and required functions)" class="md-nav__link">
+    Example EntryCore (with example custom structure and required functions)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1085,6 +1139,18 @@
   <li class="md-nav__item">
     <a href="../development/" title="Development" class="md-nav__link">
       Development
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../pipelines/" title="Pipelines" class="md-nav__link">
+      Pipelines
     </a>
   </li>
 
@@ -1148,23 +1214,77 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#design-rationale" title="Design rationale" class="md-nav__link">
+    Design rationale
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chaingear-inheritance" title="Chaingear inheritance" class="md-nav__link">
+    Chaingear inheritance
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#registry-inheritance" title="Registry inheritance" class="md-nav__link">
+    Registry inheritance
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ps-oz-stands-to-open-zeppelin-contracts" title="PS: OZ stands to Open Zeppelin contracts" class="md-nav__link">
+    PS: OZ stands to Open Zeppelin contracts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#chaingear" title="/chaingear" class="md-nav__link">
     /chaingear
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#common" title="/common" class="md-nav__link">
     /common
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#registry" title="/registry" class="md-nav__link">
     /registry
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#entrybasic-interface-should-be-implemented-in-user-entrycore-contract" title="EntryBasic interface (should be implemented in user EntryCore contract)" class="md-nav__link">
+    EntryBasic interface (should be implemented in user EntryCore contract)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-entrycore-with-example-custom-structure-and-required-functions" title="Example EntryCore (with example custom structure and required functions)" class="md-nav__link">
+    Example EntryCore (with example custom structure and required functions)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1188,91 +1308,412 @@
                 
                 
                 <h1 id="contracts-overview">Contracts Overview<a class="headerlink" href="#contracts-overview" title="Permanent link">&para;</a></h1>
+<h2 id="design-rationale">Design rationale<a class="headerlink" href="#design-rationale" title="Permanent link">&para;</a></h2>
+<p>Main design principle goes from ERC721 NFT tokenization of Registries (in Chaingear) and Entries (in custom Registry). </p>
+<p>In reason of Registries tokenization in Chaingear which allows token holder acts as administrator of their Registry, Chaingear acts to Registry as owner, which sets holder as administrator on creation phase, changes administrator when holder transfers token to another user, and transfers ownership when user unregister Registry in Chaingear, giving them full control to contract. Registry deep-linked to Chaingear registry token. In other words, token ownership means control to Registry. Also, Chaingear supports multiple Registry Creators, and allows Chaingear owners provide different kind and versioning of Registries.</p>
+<p>In reason of providing user functionality to describe their custom registry data structures and CRUD operations, a user creates their custom smart-contract, which implements the EntryBasic interface. This contract acts as inner storage and Registry acts them on token operations (creating and deleting). A user may deploy erroneous or vulnerable EntryCore contract, but this should not crash Chaingear-Registry NFT-token logic and Registry inner entry NFT-logic too.</p>
+<p>This brings us to tokenized (<strong>C</strong> <em>RU</em> <strong>D</strong>) operations in Registry and public (<em>C</em> <strong>RU</strong> <em>D</em>) actions / inner private (<strong>C</strong> <em>RU</em> <strong>D</strong>) in EntryCore.</p>
+<h2 id="chaingear-inheritance">Chaingear inheritance<a class="headerlink" href="#chaingear-inheritance" title="Permanent link">&para;</a></h2>
+<p><img alt="chaingear_inheritance" src="../mermaid/contracts-chaingear_inheritance.svg" /></p>
+<h2 id="registry-inheritance">Registry inheritance<a class="headerlink" href="#registry-inheritance" title="Permanent link">&para;</a></h2>
+<p><img alt="registry_inheritance" src="../mermaid/contracts-registry_inheritance.svg" /></p>
+<h5 id="ps-oz-stands-to-open-zeppelin-contracts">PS: OZ stands to Open Zeppelin contracts<a class="headerlink" href="#ps-oz-stands-to-open-zeppelin-contracts" title="Permanent link">&para;</a></h5>
 <h3 id="chaingear">/chaingear<a class="headerlink" href="#chaingear" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong><em>Chaingear</em></strong> allows any user to create his own registry. Building fee is collecting by new registry creation. All builded registries are tokenized with ERC721 NFT token standard and saved in Chaingear metaregistry with registry metainformation. Creator of registry may transfer tokenized ownership of registry and destroy registry with token burning. Chaingear supports multiple benefitiaries witch have access to collected fees.</li>
-</ul>
-<p>###### depends on:
-    - <em>ERC721Token</em>
-    - <em>SplitPaymentChangeable</em>
-    - <em>ChaingearCore</em>
-    - <em>Registry (int)</em></p>
-<ul>
-<li><strong><em>ChaingearCore</em></strong> holds general logic of Chaingear. Allows change chaingear's metainformation, amount of registration fee, set registry creator contract.</li>
-</ul>
-<p>###### depends on:
-    - <em>RegistryBase</em>
-    - <em>IPFSeable</em>
-    - <em>Destructible</em>
-    - <em>Pausable</em>
-    - <em>RegistryCreator (int)</em></p>
-<ul>
+<li>
+<p><strong><em>Chaingear</em></strong> allows any user to create his own registry. Building fee is collecting by new registry creation. All builded registries are tokenized with ERC721 NFT token standard and saved in Chaingear metaregistry with registry metainformation. Creator of registry may transfer tokenized ownership of registry and destroy registry with token burning. Tokenized registries Entries may collect funds by users. Chaingear supports multiple benefitiaries witch have access to collected fees. </p>
+</li>
+<li>
+<p><strong><em>ChaingearCore</em></strong> holds general logic of Chaingear. Allows change chaingear's metainformation, amount of registration fee, adding multiple registry creator contracts based on versioning or/and functionality.</p>
+</li>
 <li>
 <p><strong><em>RegistryBase</em></strong> holds struct of data with describes registry metainformation which associated with token, views function for registry metainformation.</p>
 </li>
 <li>
-<p><strong><em>RegistryCreator</em></strong> contains the bytecode of current version of Registry. This bytecode used by Chaingear for Registry Creation. Registry Creator address can be changed in Chaingear by it's owner. Creation function can be only called by setted out chaingear address.</p>
+<p><strong><em>RegistryCreator</em></strong> contains the code of specified version of Registry. This code used by Chaingear for Registry creation process. Registry Creator should be added with specified version and description to Chaingear Registry Creators inner registry. Chaingear contract should be added as builder to Registry Creator with reason to allow creation calls only by Chaingear contact.</p>
 </li>
 </ul>
-<p>###### depends on:
-    - <em>Registry</em>
-    - <em>Ownable</em></p>
 <h3 id="common">/common<a class="headerlink" href="#common" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
-<p><a href="https://github.com/pouladzade/Seriality">Seriality</a> is a library for serializing and de-serializing all the Solidity types in a very efficient way which mostly written in solidity-assembly.</p>
+<p><strong><em>IPFSeable</em></strong> contains logic which allows view and save links to CID in IPFS with ABI, source code and contract metainformation.</p>
 </li>
 <li>
-<p><strong><em>IPFSeable</em></strong> contains logic which allows view and save links to CID in IPFS with ABI, source code and contract metainformation. Inherited by Chaingear and Registry.</p>
+<p><strong><em>RegistySafe</em></strong> allows inherited contract transfer ETHs to safe and client claim from safe, accounting logic holded by inherited contract.</p>
+</li>
+<li>
+<p><strong><em>SplitPaymentChangeable</em></strong> allows add beneficiaries to contract (addresses and shares amount) and change payee address. Beneficiaries can claim ETHs from contract proportionally to their shares.</p>
+</li>
+<li>
+<p><strong><em>Adminable</em></strong> implements the same logic as Ownable, but based on transaction origin creator.</p>
 </li>
 </ul>
-<p>###### depends on:
-    - <em>Ownable</em></p>
-<ul>
-<li><strong><em>RegistySafe</em></strong> allows inherited contract transfer ETHs to safe and client claim from safe, accounting logic holded by inherited contract. Inherited by Chaingear and Registry.</li>
-</ul>
-<p>###### depends on:
-    - <em>Ownable</em>
-    - <em>Destructible</em></p>
-<ul>
-<li><strong><em>SplitPaymentChangeable</em></strong> allows add beneficiaries to contract (addresses and shares amount) and change payee address. Beneficiaries can claim ETHs from contract proportionally to their shares. Inherited by Chaingear and Registry.</li>
-</ul>
-<p>###### depends on:
-    - <em>Ownable</em>
-    - <a href="https://zeppelin-solidity/blob/master/contracts/payment/SplitPayment.sol"><em>SplitPayment</em></a></p>
 <h3 id="registry">/registry<a class="headerlink" href="#registry" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong><em>Chaingeareable</em></strong> holds basic logic of Registry as registry basic information, balance and fees amount. Contains getters and setters for registry name, desciption, tags, entry base address.</li>
-</ul>
-<p>###### depends on:
-    - <em>IPFSeable</em>
-    - <em>RegistryAccessControl</em></p>
-<ul>
 <li>
-<p><strong><em>EntryBase</em></strong> base for <em>EntryCore</em>. Holds entry metainformation and interfaces of functions (<strong>C</strong> <em>R</em> <strong>UD</strong>) which should be implemented in <em>EntryCore</em>.</p>
+<p><strong><em>Chaingeareable</em></strong> holds basic logic of Registry as registry basic information, balance and fees amount. Contains getters and setters for registry name, description, tags, entry base address.</p>
 </li>
 <li>
-<p><strong><em>EntryCore</em></strong> partilly codegenerated contract where registry creator setup their custom entry structure and setters/getters. <em>EntryCore</em> then goes to Registry constructor as bytecode, where <em>EntryCore</em> contract creates. Registry goes as owner of contract (and acts as proxy) with entries creating, transfering and deleting.</p>
+<p><strong><em>EntryBasic</em></strong> interface for <em>EntryCore</em>. Holds entry metainformation and interfaces of functions (<strong>C</strong> <em>R</em> <strong>UD</strong>) which should be implemented in <em>EntryCore</em>. Uses for interaction between Registry and EntryCore.</p>
+</li>
+<li>
+<p><strong><em>EntryCore</em></strong> partially code-generated contract where registry creator setup their custom entry structure and setters/getters. <em>EntryCore</em> then initializes in Registry by their creator (as admin) and completes Registry setup process. Provides public (<em>C</em> <strong>RU</strong> <em>D</em>) actions for users and inner (<strong>C</strong> <em>RU</em> <strong>D</strong>) tokenized actions for Chaingear.  Registry goes as owner of contract (and acts as proxy) with entries creating, token-based transferring and deleting.</p>
+</li>
+<li>
+<p><strong><em>Registry</em></strong> contract witch tokenize entries as NFT tokens via ERC721 standard. Users can create tokenized empty entries according to entry access policy setted in Registry. Registry provides tokenized (<strong>C</strong> <em>RU</em> <strong>D</strong>) actions, after creation of token and empty registry object, user should initialize them in EntryCore. Also users can fund entries with ETHs which send to <em>RegistrySafe</em> where owner of entry token can claim funds.</p>
+</li>
+<li>
+<p><strong><em>RegistryAccessControl</em></strong> holds logic of controlling registry and accessing to entries creation. Policy options to entries creation are OnlyAdministrator, Whitelist, AllUsers. Chaingear acts as owner of Registry and creator of registry acts of administrator with separated policies to Registry functions.</p>
 </li>
 </ul>
-<p>###### depends on:
-    - <em>EntryBase</em>
-    - <em>Ownable</em>
-    - <em>Seriality</em></p>
-<ul>
-<li><strong><em>Registry</em></strong> contract witch tokenize entries as NFT tokens via ERC721 standard. Users can create entries with structure described in <em>EntryCore</em> sent serialized params according to entry access policy. Also users can fund entries with ETHs which send to <em>RegistrySafe</em> where owner of entry can claim funds.</li>
-</ul>
-<p>###### depends on:
-    - <em>Chaingeareable</em>
-    - <em>ERC721Token</em>
-    - <em>SplitPaymentChangeable</em>
-    - <em>EntryBase (int)</em></p>
-<ul>
-<li><strong><em>RegistryAccessControl</em></strong> holds logic of controlling registry and accessing to entries creation. Policy options to entries creation are OnlyCreator, Whitelist, AllUsers. Chaingear acts as owner of registry and creator of registry acts of creator with separated policies to Registry functions.</li>
-</ul>
-<p>###### depends on:
-    - <em>Ownable</em>
-    - <em>Destructible</em></p>
+<h4 id="entrybasic-interface-should-be-implemented-in-user-entrycore-contract">EntryBasic interface (should be implemented in user EntryCore contract)<a class="headerlink" href="#entrybasic-interface-should-be-implemented-in-user-entrycore-contract" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="nx">pragma</span> <span class="nx">solidity</span> <span class="mf">0.4.23</span><span class="p">;</span>
+
+
+<span class="nx">contract</span> <span class="nx">EntryBasic</span> <span class="p">{</span>
+
+    <span class="nx">struct</span> <span class="nx">EntryMeta</span> <span class="p">{</span>
+        <span class="nx">address</span> <span class="nx">owner</span><span class="p">;</span>
+        <span class="nx">address</span> <span class="nx">creator</span><span class="p">;</span>
+        <span class="nx">uint</span> <span class="nx">createdAt</span><span class="p">;</span>
+        <span class="nx">uint</span> <span class="nx">lastUpdateTime</span><span class="p">;</span>
+
+        <span class="c1">//TODO think about move this vars to Registry</span>
+        <span class="nx">uint</span> <span class="nx">currentEntryBalanceETH</span><span class="p">;</span>
+        <span class="nx">uint</span> <span class="nx">accumulatedOverallEntryETH</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">entriesAmount</span><span class="p">()</span> <span class="kr">public</span> <span class="nx">view</span> <span class="nx">returns</span> <span class="p">(</span><span class="nx">uint256</span> <span class="nx">entryID</span><span class="p">);</span>
+
+    <span class="kd">function</span> <span class="nx">createEntry</span><span class="p">()</span> <span class="kr">public</span> <span class="nx">returns</span> <span class="p">(</span><span class="nx">uint256</span> <span class="nx">entryID</span><span class="p">);</span>
+    <span class="kd">function</span> <span class="nx">deleteEntry</span><span class="p">(</span><span class="nx">uint256</span> <span class="nx">_entryIndex</span><span class="p">)</span> <span class="kr">public</span><span class="p">;</span>
+
+    <span class="kd">function</span> <span class="nx">updateEntryOwnership</span><span class="p">(</span><span class="nx">uint256</span> <span class="nx">_entryID</span><span class="p">,</span> <span class="nx">address</span> <span class="nx">_newOwner</span><span class="p">)</span> <span class="kr">public</span><span class="p">;</span>
+    <span class="kd">function</span> <span class="nx">updateEntryFund</span><span class="p">(</span><span class="nx">uint256</span> <span class="nx">_entryID</span><span class="p">,</span> <span class="nx">uint256</span> <span class="nx">_amount</span><span class="p">)</span> <span class="kr">public</span><span class="p">;</span>
+    <span class="kd">function</span> <span class="nx">claimEntryFund</span><span class="p">(</span><span class="nx">uint256</span> <span class="nx">_entryID</span><span class="p">,</span> <span class="nx">uint256</span> <span class="nx">_amount</span><span class="p">)</span> <span class="kr">public</span><span class="p">;</span>
+
+    <span class="kd">function</span> <span class="nx">entryOwnerOf</span><span class="p">(</span><span class="nx">uint256</span> <span class="nx">_entryID</span><span class="p">)</span> <span class="kr">public</span> <span class="nx">view</span> <span class="nx">returns</span> <span class="p">(</span><span class="nx">address</span><span class="p">);</span>
+    <span class="kd">function</span> <span class="nx">creatorOf</span><span class="p">(</span><span class="nx">uint256</span> <span class="nx">_entryID</span><span class="p">)</span> <span class="kr">public</span> <span class="nx">view</span> <span class="nx">returns</span> <span class="p">(</span><span class="nx">address</span><span class="p">);</span>
+    <span class="kd">function</span> <span class="nx">createdAtOf</span><span class="p">(</span><span class="nx">uint256</span> <span class="nx">_entryID</span><span class="p">)</span> <span class="kr">public</span> <span class="nx">view</span> <span class="nx">returns</span> <span class="p">(</span><span class="nx">uint</span><span class="p">);</span>
+    <span class="kd">function</span> <span class="nx">lastUpdateTimeOf</span><span class="p">(</span><span class="nx">uint256</span> <span class="nx">_entryID</span><span class="p">)</span> <span class="kr">public</span> <span class="nx">view</span> <span class="nx">returns</span> <span class="p">(</span><span class="nx">uint</span><span class="p">);</span>
+    <span class="kd">function</span> <span class="nx">currentEntryBalanceETHOf</span><span class="p">(</span><span class="nx">uint256</span> <span class="nx">_entryID</span><span class="p">)</span> <span class="kr">public</span> <span class="nx">view</span> <span class="nx">returns</span> <span class="p">(</span><span class="nx">uint</span><span class="p">);</span>
+    <span class="kd">function</span> <span class="nx">accumulatedOverallEntryETHOf</span><span class="p">(</span><span class="nx">uint256</span> <span class="nx">_entryID</span><span class="p">)</span> <span class="kr">public</span> <span class="nx">view</span> <span class="nx">returns</span> <span class="p">(</span><span class="nx">uint</span><span class="p">);</span>
+
+    <span class="kd">function</span> <span class="nx">entryMeta</span><span class="p">(</span><span class="nx">uint256</span> <span class="nx">_entryId</span><span class="p">)</span>
+        <span class="kr">public</span>
+        <span class="nx">view</span>
+        <span class="nx">returns</span> <span class="p">(</span><span class="nx">address</span><span class="p">,</span> <span class="nx">address</span><span class="p">,</span> <span class="nx">uint</span><span class="p">,</span> <span class="nx">uint</span><span class="p">,</span> <span class="nx">uint</span><span class="p">,</span> <span class="nx">uint</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="nx">entryOwnerOf</span><span class="p">(</span><span class="nx">_entryId</span><span class="p">),</span>
+            <span class="nx">creatorOf</span><span class="p">(</span><span class="nx">_entryId</span><span class="p">),</span>
+            <span class="nx">createdAtOf</span><span class="p">(</span><span class="nx">_entryId</span><span class="p">),</span>
+            <span class="nx">lastUpdateTimeOf</span><span class="p">(</span><span class="nx">_entryId</span><span class="p">),</span>
+            <span class="nx">currentEntryBalanceETHOf</span><span class="p">(</span><span class="nx">_entryId</span><span class="p">),</span>
+            <span class="nx">accumulatedOverallEntryETHOf</span><span class="p">(</span><span class="nx">_entryId</span><span class="p">)</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+
+
+<h4 id="example-entrycore-with-example-custom-structure-and-required-functions">Example EntryCore (with example custom structure and required functions)<a class="headerlink" href="#example-entrycore-with-example-custom-structure-and-required-functions" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="nx">pragma</span> <span class="nx">solidity</span> <span class="mf">0.4.23</span><span class="p">;</span>
+
+<span class="kr">import</span> <span class="s2">&quot;../common/EntryBasic.sol&quot;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="s2">&quot;openzeppelin-solidity/contracts/math/SafeMath.sol&quot;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="s2">&quot;openzeppelin-solidity/contracts/ownership/Ownable.sol&quot;</span><span class="p">;</span>
+
+<span class="c1">//todo remove from here. Maybe move into /contracts/test??</span>
+<span class="cm">/**</span>
+<span class="cm">* @title Entries engine for Chaingear</span>
+<span class="cm">* @author Cyber•Congress</span>
+<span class="cm">* @dev not recommend to use before release!</span>
+<span class="cm">*/</span>
+<span class="nx">contract</span> <span class="nx">EntryCore</span> <span class="nx">is</span> <span class="nx">EntryBasic</span><span class="p">,</span> <span class="nx">Ownable</span> <span class="p">{</span>
+
+    <span class="nx">using</span> <span class="nx">SafeMath</span> <span class="k">for</span> <span class="nx">uint256</span><span class="p">;</span>
+
+    <span class="cm">/*</span>
+<span class="cm">    * @dev original structure of entry for example</span>
+<span class="cm">    */</span>
+    <span class="nx">struct</span> <span class="nx">Entry</span> <span class="p">{</span>
+        <span class="nx">address</span> <span class="nx">expensiveAddress</span><span class="p">;</span>
+        <span class="nx">uint256</span> <span class="nx">expensiveUint</span><span class="p">;</span>
+        <span class="nx">int128</span> <span class="nx">expensiveInt</span><span class="p">;</span>
+        <span class="nx">string</span> <span class="nx">expensiveString</span><span class="p">;</span>
+
+        <span class="nx">EntryMeta</span> <span class="nx">metainformation</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// @dev initial structure of entries</span>
+    <span class="nx">Entry</span><span class="p">[]</span> <span class="nx">internal</span> <span class="nx">entries</span><span class="p">;</span>
+
+    <span class="nx">modifier</span> <span class="nx">onlyEntryOwner</span><span class="p">(</span><span class="nx">uint256</span> <span class="nx">_entryId</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">require</span><span class="p">(</span><span class="nx">entries</span><span class="p">[</span><span class="nx">_entryId</span><span class="p">].</span><span class="nx">metainformation</span><span class="p">.</span><span class="nx">owner</span> <span class="o">==</span> <span class="nx">msg</span><span class="p">.</span><span class="nx">sender</span><span class="p">);</span>
+        <span class="nx">_</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">    * @dev entries amount getter</span>
+<span class="cm">    * @return uint256</span>
+<span class="cm">    */</span>
+    <span class="kd">function</span> <span class="nx">entriesAmount</span><span class="p">()</span>
+        <span class="kr">public</span>
+        <span class="nx">view</span>
+        <span class="nx">returns</span> <span class="p">(</span><span class="nx">uint256</span> <span class="nx">entryID</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">entries</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">    * @dev example of custom variables getters</span>
+<span class="cm">    */</span>
+    <span class="kd">function</span> <span class="nx">expensiveAddressOf</span><span class="p">(</span><span class="nx">uint256</span> <span class="nx">_entryId</span><span class="p">)</span>
+        <span class="kr">public</span>
+        <span class="nx">view</span>
+        <span class="nx">returns</span> <span class="p">(</span><span class="nx">address</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">entries</span><span class="p">[</span><span class="nx">_entryId</span><span class="p">].</span><span class="nx">expensiveAddress</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">expensiveUintOf</span><span class="p">(</span><span class="nx">uint256</span> <span class="nx">_entryId</span><span class="p">)</span>
+        <span class="kr">public</span>
+        <span class="nx">view</span>
+        <span class="nx">returns</span> <span class="p">(</span><span class="nx">uint256</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">entries</span><span class="p">[</span><span class="nx">_entryId</span><span class="p">].</span><span class="nx">expensiveUint</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">expensiveIntOf</span><span class="p">(</span><span class="nx">uint256</span> <span class="nx">_entryId</span><span class="p">)</span>
+        <span class="kr">public</span>
+        <span class="nx">view</span>
+        <span class="nx">returns</span> <span class="p">(</span><span class="nx">int128</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">entries</span><span class="p">[</span><span class="nx">_entryId</span><span class="p">].</span><span class="nx">expensiveInt</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">expensiveStringOf</span><span class="p">(</span><span class="nx">uint256</span> <span class="nx">_entryId</span><span class="p">)</span>
+        <span class="kr">public</span>
+        <span class="nx">view</span>
+        <span class="nx">returns</span> <span class="p">(</span><span class="nx">string</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">entries</span><span class="p">[</span><span class="nx">_entryId</span><span class="p">].</span><span class="nx">expensiveString</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">entryInfo</span><span class="p">(</span><span class="nx">uint256</span> <span class="nx">_entryId</span><span class="p">)</span>
+        <span class="kr">public</span>
+        <span class="nx">view</span>
+        <span class="nx">returns</span> <span class="p">(</span><span class="nx">address</span><span class="p">,</span> <span class="nx">uint256</span><span class="p">,</span> <span class="nx">int128</span><span class="p">,</span> <span class="nx">string</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="nx">expensiveAddressOf</span><span class="p">(</span><span class="nx">_entryId</span><span class="p">),</span>
+            <span class="nx">expensiveUintOf</span><span class="p">(</span><span class="nx">_entryId</span><span class="p">),</span>
+            <span class="nx">expensiveIntOf</span><span class="p">(</span><span class="nx">_entryId</span><span class="p">),</span>
+            <span class="nx">expensiveStringOf</span><span class="p">(</span><span class="nx">_entryId</span><span class="p">)</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">    * @dev entry creation method</span>
+<span class="cm">    * @return uint256</span>
+<span class="cm">    */</span>
+    <span class="kd">function</span> <span class="nx">createEntry</span><span class="p">()</span>
+        <span class="kr">public</span>
+        <span class="nx">onlyOwner</span>
+        <span class="nx">returns</span> <span class="p">(</span><span class="nx">uint256</span> <span class="nx">entryId</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nx">EntryMeta</span> <span class="nx">memory</span> <span class="nx">meta</span> <span class="o">=</span> <span class="p">(</span><span class="nx">EntryMeta</span><span class="p">(</span>
+        <span class="p">{</span>
+            <span class="nx">lastUpdateTime</span><span class="o">:</span> <span class="nx">block</span><span class="p">.</span><span class="nx">timestamp</span><span class="p">,</span>
+            <span class="nx">createdAt</span><span class="o">:</span> <span class="nx">block</span><span class="p">.</span><span class="nx">timestamp</span><span class="p">,</span>
+            <span class="nx">owner</span><span class="o">:</span> <span class="nx">tx</span><span class="p">.</span><span class="nx">origin</span><span class="p">,</span>
+            <span class="nx">creator</span><span class="o">:</span> <span class="nx">tx</span><span class="p">.</span><span class="nx">origin</span><span class="p">,</span>
+            <span class="nx">currentEntryBalanceETH</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="nx">accumulatedOverallEntryETH</span><span class="o">:</span> <span class="mi">0</span>
+        <span class="p">}));</span>
+
+        <span class="nx">Entry</span> <span class="nx">memory</span> <span class="nx">entry</span> <span class="o">=</span> <span class="p">(</span><span class="nx">Entry</span><span class="p">(</span>
+        <span class="p">{</span>
+            <span class="nx">expensiveAddress</span><span class="o">:</span> <span class="nx">address</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
+            <span class="nx">expensiveUint</span><span class="o">:</span> <span class="nx">uint256</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
+            <span class="nx">expensiveInt</span><span class="o">:</span> <span class="nx">int128</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
+            <span class="nx">expensiveString</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nx">metainformation</span><span class="o">:</span> <span class="nx">meta</span>
+        <span class="p">}));</span>
+
+        <span class="nx">uint256</span> <span class="nx">newEntryId</span> <span class="o">=</span> <span class="nx">entries</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">entry</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+
+        <span class="k">return</span> <span class="nx">newEntryId</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">    * @dev Entry custom information setter</span>
+<span class="cm">    * @notice custom variables</span>
+<span class="cm">    */</span>
+    <span class="kd">function</span> <span class="nx">updateEntry</span><span class="p">(</span>
+        <span class="nx">uint256</span> <span class="nx">_entryId</span><span class="p">,</span> 
+        <span class="nx">address</span> <span class="nx">_newAddress</span><span class="p">,</span> 
+        <span class="nx">uint256</span> <span class="nx">_newUint</span><span class="p">,</span> 
+        <span class="nx">int128</span> <span class="nx">_newInt</span><span class="p">,</span> 
+        <span class="nx">string</span> <span class="nx">_newString</span>
+    <span class="p">)</span>
+        <span class="nx">onlyEntryOwner</span><span class="p">(</span><span class="nx">_entryId</span><span class="p">)</span>
+        <span class="kr">public</span>
+    <span class="p">{</span>
+        <span class="nx">entries</span><span class="p">[</span><span class="nx">_entryId</span><span class="p">].</span><span class="nx">expensiveAddress</span> <span class="o">=</span> <span class="nx">_newAddress</span><span class="p">;</span>
+        <span class="nx">entries</span><span class="p">[</span><span class="nx">_entryId</span><span class="p">].</span><span class="nx">expensiveUint</span> <span class="o">=</span> <span class="nx">_newUint</span><span class="p">;</span>
+        <span class="nx">entries</span><span class="p">[</span><span class="nx">_entryId</span><span class="p">].</span><span class="nx">expensiveInt</span> <span class="o">=</span> <span class="nx">_newInt</span><span class="p">;</span>
+        <span class="nx">entries</span><span class="p">[</span><span class="nx">_entryId</span><span class="p">].</span><span class="nx">expensiveString</span> <span class="o">=</span> <span class="nx">_newString</span><span class="p">;</span>
+
+        <span class="nx">entries</span><span class="p">[</span><span class="nx">_entryId</span><span class="p">].</span><span class="nx">metainformation</span><span class="p">.</span><span class="nx">lastUpdateTime</span> <span class="o">=</span> <span class="nx">block</span><span class="p">.</span><span class="nx">timestamp</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">    * @dev remove entry method</span>
+<span class="cm">    * @param _entryIndex uint256</span>
+<span class="cm">    */</span>
+    <span class="kd">function</span> <span class="nx">deleteEntry</span><span class="p">(</span><span class="nx">uint256</span> <span class="nx">_entryIndex</span><span class="p">)</span>
+        <span class="nx">onlyOwner</span>
+        <span class="kr">public</span>
+    <span class="p">{</span>
+        <span class="nx">uint256</span> <span class="nx">lastEntryIndex</span> <span class="o">=</span> <span class="nx">entries</span><span class="p">.</span><span class="nx">length</span><span class="p">.</span><span class="nx">sub</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+        <span class="nx">Entry</span> <span class="nx">storage</span> <span class="nx">lastEntry</span> <span class="o">=</span> <span class="nx">entries</span><span class="p">[</span><span class="nx">lastEntryIndex</span><span class="p">];</span>
+
+        <span class="nx">entries</span><span class="p">[</span><span class="nx">_entryIndex</span><span class="p">]</span> <span class="o">=</span> <span class="nx">lastEntry</span><span class="p">;</span>
+        <span class="k">delete</span> <span class="nx">entries</span><span class="p">[</span><span class="nx">lastEntryIndex</span><span class="p">];</span>
+        <span class="nx">entries</span><span class="p">.</span><span class="nx">length</span><span class="o">--</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">    * @dev entry ownership setter</span>
+<span class="cm">    * @param _entryID uint256</span>
+<span class="cm">    * @param _newOwner address of new owner</span>
+<span class="cm">    */</span>
+    <span class="kd">function</span> <span class="nx">updateEntryOwnership</span><span class="p">(</span>
+        <span class="nx">uint256</span> <span class="nx">_entryID</span><span class="p">,</span> 
+        <span class="nx">address</span> <span class="nx">_newOwner</span>
+    <span class="p">)</span>
+        <span class="nx">onlyOwner</span>
+        <span class="kr">public</span>
+    <span class="p">{</span>
+        <span class="nx">entries</span><span class="p">[</span><span class="nx">_entryID</span><span class="p">].</span><span class="nx">metainformation</span><span class="p">.</span><span class="nx">owner</span> <span class="o">=</span> <span class="nx">_newOwner</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// TODO move out</span>
+    <span class="cm">/**</span>
+<span class="cm">    * @dev entry fund setter</span>
+<span class="cm">    * @param _entryID uint256</span>
+<span class="cm">    * @param _amount uint256</span>
+<span class="cm">    */</span>
+    <span class="kd">function</span> <span class="nx">updateEntryFund</span><span class="p">(</span>
+        <span class="nx">uint256</span> <span class="nx">_entryID</span><span class="p">,</span>
+        <span class="nx">uint256</span> <span class="nx">_amount</span>
+    <span class="p">)</span>
+        <span class="nx">onlyOwner</span>
+        <span class="kr">public</span>
+    <span class="p">{</span>
+        <span class="nx">entries</span><span class="p">[</span><span class="nx">_entryID</span><span class="p">].</span><span class="nx">metainformation</span><span class="p">.</span><span class="nx">currentEntryBalanceETH</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">_amount</span><span class="p">);</span>
+        <span class="nx">entries</span><span class="p">[</span><span class="nx">_entryID</span><span class="p">].</span><span class="nx">metainformation</span><span class="p">.</span><span class="nx">accumulatedOverallEntryETH</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">_amount</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">// TODO move out</span>
+    <span class="cm">/**</span>
+<span class="cm">    * @dev entry fund claim</span>
+<span class="cm">    * @param _entryID uint256</span>
+<span class="cm">    * @param _amount uint256</span>
+<span class="cm">    */</span>
+    <span class="kd">function</span> <span class="nx">claimEntryFund</span><span class="p">(</span>
+        <span class="nx">uint256</span> <span class="nx">_entryID</span><span class="p">,</span> 
+        <span class="nx">uint256</span> <span class="nx">_amount</span>
+    <span class="p">)</span>
+        <span class="nx">onlyOwner</span>
+        <span class="kr">public</span>
+    <span class="p">{</span>
+        <span class="nx">entries</span><span class="p">[</span><span class="nx">_entryID</span><span class="p">].</span><span class="nx">metainformation</span><span class="p">.</span><span class="nx">currentEntryBalanceETH</span><span class="p">.</span><span class="nx">sub</span><span class="p">(</span><span class="nx">_amount</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">    * @dev entry owner getter</span>
+<span class="cm">    * @param _entryID index uint256</span>
+<span class="cm">    * @return address owner</span>
+<span class="cm">    */</span>
+    <span class="kd">function</span> <span class="nx">entryOwnerOf</span><span class="p">(</span><span class="nx">uint256</span> <span class="nx">_entryID</span><span class="p">)</span>
+        <span class="kr">public</span>
+        <span class="nx">view</span>
+        <span class="nx">returns</span> <span class="p">(</span><span class="nx">address</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nx">entries</span><span class="p">[</span><span class="nx">_entryID</span><span class="p">].</span><span class="nx">metainformation</span><span class="p">.</span><span class="nx">owner</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">    * @dev entry creator getter</span>
+<span class="cm">    * @param _entryID index uint256</span>
+<span class="cm">    * @return address creator</span>
+<span class="cm">    */</span>
+    <span class="kd">function</span> <span class="nx">creatorOf</span><span class="p">(</span><span class="nx">uint256</span> <span class="nx">_entryID</span><span class="p">)</span>
+        <span class="kr">public</span>
+        <span class="nx">view</span>
+        <span class="nx">returns</span> <span class="p">(</span><span class="nx">address</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nx">entries</span><span class="p">[</span><span class="nx">_entryID</span><span class="p">].</span><span class="nx">metainformation</span><span class="p">.</span><span class="nx">creator</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">    * @dev entry creating timestamp getter</span>
+<span class="cm">    * @param _entryID uint256</span>
+<span class="cm">    * @return uint creation timestamp uint</span>
+<span class="cm">    */</span>
+    <span class="kd">function</span> <span class="nx">createdAtOf</span><span class="p">(</span><span class="nx">uint256</span> <span class="nx">_entryID</span><span class="p">)</span>
+        <span class="kr">public</span>
+        <span class="nx">view</span>
+        <span class="nx">returns</span> <span class="p">(</span><span class="nx">uint</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nx">entries</span><span class="p">[</span><span class="nx">_entryID</span><span class="p">].</span><span class="nx">metainformation</span><span class="p">.</span><span class="nx">createdAt</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">    * @dev entry UPD timestamp getter</span>
+<span class="cm">    * @param _entryID uint256</span>
+<span class="cm">    * @return uint UPD timestamp uint</span>
+<span class="cm">    */</span>
+    <span class="kd">function</span> <span class="nx">lastUpdateTimeOf</span><span class="p">(</span><span class="nx">uint256</span> <span class="nx">_entryID</span><span class="p">)</span>
+        <span class="kr">public</span>
+        <span class="nx">view</span>
+        <span class="nx">returns</span> <span class="p">(</span><span class="nx">uint</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">entries</span><span class="p">[</span><span class="nx">_entryID</span><span class="p">].</span><span class="nx">metainformation</span><span class="p">.</span><span class="nx">lastUpdateTime</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">    * @dev entry current ETH balance getter</span>
+<span class="cm">    * @param _entryID uint256</span>
+<span class="cm">    * @return uint balance of entry ETH</span>
+<span class="cm">    */</span>
+    <span class="kd">function</span> <span class="nx">currentEntryBalanceETHOf</span><span class="p">(</span><span class="nx">uint256</span> <span class="nx">_entryID</span><span class="p">)</span>
+        <span class="kr">public</span>
+        <span class="nx">view</span>
+        <span class="nx">returns</span> <span class="p">(</span><span class="nx">uint</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">entries</span><span class="p">[</span><span class="nx">_entryID</span><span class="p">].</span><span class="nx">metainformation</span><span class="p">.</span><span class="nx">currentEntryBalanceETH</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">    * @dev entry accumulated ETH balance getter</span>
+<span class="cm">    * @param _entryID uint256</span>
+<span class="cm">    * @return uint current balance of entry ETH</span>
+<span class="cm">    */</span>
+    <span class="kd">function</span> <span class="nx">accumulatedOverallEntryETHOf</span><span class="p">(</span><span class="nx">uint256</span> <span class="nx">_entryID</span><span class="p">)</span>
+        <span class="kr">public</span>
+        <span class="nx">view</span>
+        <span class="nx">returns</span> <span class="p">(</span><span class="nx">uint</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">entries</span><span class="p">[</span><span class="nx">_entryID</span><span class="p">].</span><span class="nx">metainformation</span><span class="p">.</span><span class="nx">accumulatedOverallEntryETH</span><span class="p">;</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
                 
                   
                 
