@@ -441,6 +441,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#reset-gke-node" title="Reset GKE Node" class="md-nav__link">
+    Reset GKE Node
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#forward-pod-port-on-localhost" title="Forward pod port on localhost" class="md-nav__link">
     Forward pod port on localhost
   </a>
@@ -556,8 +563,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../staging/setup/" title="Mars setup" class="md-nav__link">
-      Mars setup
+    <a href="../staging/setup/" title="Setup" class="md-nav__link">
+      Setup
     </a>
   </li>
 
@@ -1167,6 +1174,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#reset-gke-node" title="Reset GKE Node" class="md-nav__link">
+    Reset GKE Node
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#forward-pod-port-on-localhost" title="Forward pod port on localhost" class="md-nav__link">
     Forward pod port on localhost
   </a>
@@ -1211,8 +1225,23 @@
 </pre></div>
 
 
+<p>Get logs of previously running container (if it failed and then restarts):</p>
+<div class="codehilite"><pre><span></span>kubectl logs mypod --previous
+</pre></div>
+
+
+<h2 id="reset-gke-node">Reset GKE Node<a class="headerlink" href="#reset-gke-node" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span>gcloud compute instances reset gke-kubia-default-pool-b46381f1-zwko
+</pre></div>
+
+
 <h2 id="forward-pod-port-on-localhost">Forward pod port on localhost<a class="headerlink" href="#forward-pod-port-on-localhost" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span>kubectl port-forward -n monitoring prometheus-kube-prometheus-0 <span class="m">9090</span>
+</pre></div>
+
+
+<p>Forward port of first found pod with specific namespace and label: </p>
+<div class="codehilite"><pre><span></span>kubectl port-forward -n chains <span class="k">$(</span>kubectl get pod -n chains -l <span class="nv">chain</span><span class="o">=</span>bitcoind-btc -o <span class="nv">jsonpath</span><span class="o">=</span><span class="s2">&quot;{.items[0].metadata.name}&quot;</span><span class="k">)</span> <span class="m">8332</span>
 </pre></div>
 
 
