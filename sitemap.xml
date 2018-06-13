@@ -1,180 +1,208 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-    
     <url>
      <loc>/</loc>
-     <lastmod>2018-06-07</lastmod>
+     <lastmod>2018-06-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
-    
-
-    
     <url>
      <loc>/contribute/</loc>
-     <lastmod>2018-06-07</lastmod>
+     <lastmod>2018-06-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
-    
-
-    
-        
     <url>
-     <loc>/cybernode/about/</loc>
-     <lastmod>2018-06-07</lastmod>
+     <loc>/cyb/requirements/</loc>
+     <lastmod>2018-06-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
-        
     <url>
-     <loc>/cybernode/k8s-cheat-sheet/</loc>
-     <lastmod>2018-06-07</lastmod>
+     <loc>/cyb/staging/</loc>
+     <lastmod>2018-06-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
-        
     <url>
-     <loc>/cybernode/dev-setup/</loc>
-     <lastmod>2018-06-07</lastmod>
+     <loc>/cyb/whitepaper/</loc>
+     <lastmod>2018-06-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
-        
     <url>
-     <loc></loc>
-     <lastmod></lastmod>
+     <loc>/cyb-js/build/</loc>
+     <lastmod>2018-06-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
-        
     <url>
-     <loc></loc>
-     <lastmod></lastmod>
+     <loc>/cyb-js/overwiev/</loc>
+     <lastmod>2018-06-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
-        
     <url>
-     <loc></loc>
-     <lastmod></lastmod>
+     <loc>/cyber-markets/README/</loc>
+     <lastmod>2018-06-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
-        
-    
-
-    
-        
     <url>
-     <loc>/cyberSearch/about-search/</loc>
-     <lastmod>2018-06-07</lastmod>
+     <loc>/cyber-markets/about-markets/</loc>
+     <lastmod>2018-06-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
-        
     <url>
-     <loc></loc>
-     <lastmod></lastmod>
+     <loc>/cyber-markets/api/README/</loc>
+     <lastmod>2018-06-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
-        
     <url>
-     <loc></loc>
-     <lastmod></lastmod>
+     <loc>/cyber-markets/components/overview/</loc>
+     <lastmod>2018-06-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
-        
-    
-
-    
-        
     <url>
-     <loc>/cyberMarkets/about-markets/</loc>
-     <lastmod>2018-06-07</lastmod>
+     <loc>/cyber-markets/contributing/cheat-sheet/</loc>
+     <lastmod>2018-06-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
-        
     <url>
-     <loc></loc>
-     <lastmod></lastmod>
+     <loc>/cyber-markets/contributing/contributing/</loc>
+     <lastmod>2018-06-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
-        
     <url>
-     <loc></loc>
-     <lastmod></lastmod>
+     <loc>/cyber-markets/contributing/dev-environment/</loc>
+     <lastmod>2018-06-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
-        
-    
-
-    
-        
     <url>
-     <loc>/cyberJS/overview/</loc>
-     <lastmod>2018-06-07</lastmod>
+     <loc>/cyber-search/about-search/</loc>
+     <lastmod>2018-06-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
-        
     <url>
-     <loc>/cyberJS/build/</loc>
-     <lastmod>2018-06-07</lastmod>
+     <loc>/cyber-search/api/README/</loc>
+     <lastmod>2018-06-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
-        
-    
-
-    
-        
     <url>
-     <loc>/cyberBrowser/Vision_and_Scope/</loc>
-     <lastmod>2018-06-07</lastmod>
+     <loc>/cyber-search/components/bitcoin/</loc>
+     <lastmod>2018-06-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
-        
     <url>
-     <loc>/cyberBrowser/staging/</loc>
-     <lastmod>2018-06-07</lastmod>
+     <loc>/cyber-search/components/ethereum/</loc>
+     <lastmod>2018-06-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
-        
     <url>
-     <loc>/cyberBrowser/Changelog/</loc>
-     <lastmod>2018-06-07</lastmod>
+     <loc>/cyber-search/components/overview/</loc>
+     <lastmod>2018-06-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
-        
-    
-
-    
-        
     <url>
-     <loc>/Chaingear/overview/</loc>
-     <lastmod>2018-06-07</lastmod>
+     <loc>/cyber-search/contributing/cheat-sheet/</loc>
+     <lastmod>2018-06-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
-        
     <url>
-     <loc>/Chaingear/contracts/</loc>
-     <lastmod>2018-06-07</lastmod>
+     <loc>/cyber-search/contributing/contributing/</loc>
+     <lastmod>2018-06-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
-        
     <url>
-     <loc>/Chaingear/development/</loc>
-     <lastmod>2018-06-07</lastmod>
+     <loc>/cyber-search/contributing/dev-environment/</loc>
+     <lastmod>2018-06-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
-        
     <url>
-     <loc>/Chaingear/pipelines/</loc>
-     <lastmod>2018-06-07</lastmod>
+     <loc>/cyber-search/contributing/pump-development/</loc>
+     <lastmod>2018-06-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
-        
-    
-
-    
-        
     <url>
      <loc>/cyberd/cyberd/</loc>
-     <lastmod>2018-06-07</lastmod>
+     <lastmod>2018-06-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
-        
-    
-
+    <url>
+     <loc>/cyberd/roadmap/</loc>
+     <lastmod>2018-06-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>/cybernode/about/</loc>
+     <lastmod>2018-06-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>/cybernode/dev-setup/</loc>
+     <lastmod>2018-06-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>/cybernode/k8s-cheat-sheet/</loc>
+     <lastmod>2018-06-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>/cybernode/chains/bitcoin/</loc>
+     <lastmod>2018-06-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>/cybernode/chains/ethereum/</loc>
+     <lastmod>2018-06-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>/cybernode/components/chain-nodes/</loc>
+     <lastmod>2018-06-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>/cybernode/components/monitoring/</loc>
+     <lastmod>2018-06-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>/cybernode/components/requirments/</loc>
+     <lastmod>2018-06-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>/cybernode/staging/chains/</loc>
+     <lastmod>2018-06-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>/cybernode/staging/continuous-delivery/</loc>
+     <lastmod>2018-06-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>/cybernode/staging/kubernetes/</loc>
+     <lastmod>2018-06-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>/cybernode/staging/run/</loc>
+     <lastmod>2018-06-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>/cybernode/staging/setup/</loc>
+     <lastmod>2018-06-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>/сhaingear/contracts/</loc>
+     <lastmod>2018-06-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>/сhaingear/development/</loc>
+     <lastmod>2018-06-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>/сhaingear/overview/</loc>
+     <lastmod>2018-06-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
 </urlset>
