@@ -581,6 +581,16 @@
             "title": "Bitcoin Contract Summary"
         }, 
         {
+            "location": "/cyber-search/components/custom-chainname/", 
+            "text": "Custom Chain Name Support\n\n\nYou have an ability to run our services with custom chain name based on supported chain families.\nIt may be needed if you have your own custom chain and you want API endpoints, Kafka topic names and Cassandra keyspaces to use your chain name.\nCurrently we're supporting \nBITCOIN\n and \nETHEREUM\n chain families.\n\n\nTo make it work you need to define \nCHAIN_NAME\n environment variable along with \nCHAIN_FAMILY\n.\nAlso you may need to define your chain node url in PUMP by setting \nCHAIN_NODE_URL\n environment variable.\n\n\nFor example if you want to index \nETHEREUM\n based chain called \nMY_PRECIOUS\n.\nYou have to use following config in all services (\nCHAIN_NODE_URL\n is necessary only for PUMP service):\n\n\nCHAIN_FAMILY\n \n=\n \nETHEREUM\n\n\nCHAIN_NAME\n \n=\n \nMY_PRECIOUS\n\n\nCHAIN_NODE_URL\n \n=\n \nhttps:\n//my_precious_node_url:port\n\n\n\n\n\n\nThen all Kafka topics will be named as \nMY_PRECIOUS_TX_PUMP\n,\nMY_PRECIOUS_BLOCK_PUMP\n,\nMY_PRECIOUS_UNCLE_PUMP\n. Cassandra keyspace will be named \nmy_precious\n.\nAnd all API url will be build like this \nhttp://localhost:8080/my_precious/block/42\n and etc.", 
+            "title": "Custom Chain Name Support"
+        }, 
+        {
+            "location": "/cyber-search/components/custom-chainname/#custom-chain-name-support", 
+            "text": "You have an ability to run our services with custom chain name based on supported chain families.\nIt may be needed if you have your own custom chain and you want API endpoints, Kafka topic names and Cassandra keyspaces to use your chain name.\nCurrently we're supporting  BITCOIN  and  ETHEREUM  chain families.  To make it work you need to define  CHAIN_NAME  environment variable along with  CHAIN_FAMILY .\nAlso you may need to define your chain node url in PUMP by setting  CHAIN_NODE_URL  environment variable.  For example if you want to index  ETHEREUM  based chain called  MY_PRECIOUS .\nYou have to use following config in all services ( CHAIN_NODE_URL  is necessary only for PUMP service):  CHAIN_FAMILY   =   ETHEREUM  CHAIN_NAME   =   MY_PRECIOUS  CHAIN_NODE_URL   =   https: //my_precious_node_url:port   Then all Kafka topics will be named as  MY_PRECIOUS_TX_PUMP , MY_PRECIOUS_BLOCK_PUMP , MY_PRECIOUS_UNCLE_PUMP . Cassandra keyspace will be named  my_precious .\nAnd all API url will be build like this  http://localhost:8080/my_precious/block/42  and etc.", 
+            "title": "Custom Chain Name Support"
+        }, 
+        {
             "location": "/cyber-search/components/ethereum/", 
             "text": "Ethereum Components\n\n\n\n\n\n\n\n\nComponent\n\n\nScale\n\n\nDescription\n\n\nCluster Address\n\n\nMetrics\n\n\nExternal\n\n\n\n\n\n\n\n\n\n\nEthereum Pump\n\n\n1\n\n\nEthereum Chain Data Kafka Pump\n\n\n\n\n8080:/actuator/metrics\n\n\n\n\n\n\n\n\nEthereum Cassandra Dump\n\n\n1\n\n\nDump Kafka Topics Into Cassandra\n\n\n\n\n8080:/actuator/metrics\n\n\n\n\n\n\n\n\nEthereum Contract Summary\n\n\n1 - N\n\n\nCalculates Contract Summaries (balances and etc)\n\n\n\n\n8080:/actuator/metrics\n\n\n\n\n\n\n\n\n\n\nEthereum Pump\n\n\nPumps Ethereum raw data(block,tx,uncles) into Kafka.\n\n\nEthereum Cassandra Dump\n\n\nConsumes Ethereum raw data from Kafka topics, translate it into cassandra entities and store them into Elassandra.\n\n\nEthereum Contract Summary\n\n\nCollects summary for each contract stored in Ethereum chain. Consumes Kafka topics and update data in Elassandra.", 
             "title": "Ethereum Components"
@@ -732,7 +742,7 @@
         }, 
         {
             "location": "/cyber-search/contributing/dev-environment/", 
-            "text": "Development environment\n\n\nUseful Links\n\n\n\n\ncheat sheet\n\n\n\n\nPrestart\n\n\n\n\nInstall Java 10 JDK\n\n\nInstall Docker and Docker Compose\n\n\nInstall Intellij Idea\n\n\n\n\nRun Kafka, Elassandra, Prometheus and Grafana\n\n\nStart containers(required)\n\n\nFor mac:\n\n\ncd\n dev-environment\ndocker-compose -f dev-environment/env-mac.yml up -d\n\n\n\n\n\nFor linux family:\n\n\ncd\n dev-environment\ndocker-compose -f dev-environment/env.yml up -d\n\n\n\n\n\nImport project to Intellij Idea\n\n\nOpen Project in idea by selecting: Import Project -\n selecting \nbuild.gradle\n file from the repository root\n\n\n\n\nWait for dependency downloading and indexation\n\n\nRun Ethereum Pump from intellij Idea\n\n\nGo to EthereumPumpApplication.kt and press green triangle on left to the code (on example line 23):\n\n\n\nPump will fail due to lack of \nCHAIN_FAMILY\n and \nCHAIN_NODE_URL\n environment properties, let's define it: Select \"Edit Configuration\"\n\n\n\n\nAdd properties:\n\n\n\n\nNow, run pump one more time, it should start.", 
+            "text": "Development environment\n\n\nUseful Links\n\n\n\n\ncheat sheet\n\n\n\n\nPrestart\n\n\n\n\nInstall Java 8 JDK\n\n\nInstall Docker and Docker Compose\n\n\nInstall Intellij Idea\n\n\n\n\nRun Kafka, Elassandra, Prometheus and Grafana\n\n\nStart containers(required)\n\n\nFor mac:\n\n\ncd\n dev-environment\ndocker-compose -f dev-environment/env-mac.yml up -d\n\n\n\n\n\nFor linux family:\n\n\ncd\n dev-environment\ndocker-compose -f dev-environment/env.yml up -d\n\n\n\n\n\nImport project to Intellij Idea\n\n\nOpen Project in idea by selecting: Import Project -\n selecting \nbuild.gradle\n file from the repository root\n\n\n\n\nWait for dependency downloading and indexation\n\n\nRun Ethereum Pump from intellij Idea\n\n\nGo to EthereumPumpApplication.kt and press green triangle on left to the code (on example line 14):\n\n\n\nPump will fail due to lack of \nCHAIN_FAMILY\n environment property, let's define it: Select \"Edit Configuration\"\n\n\n\n\nAdd properties:\n\n\n\n\nNow, run pump one more time, it should start.", 
             "title": "Development environment"
         }, 
         {
@@ -747,7 +757,7 @@
         }, 
         {
             "location": "/cyber-search/contributing/dev-environment/#prestart", 
-            "text": "Install Java 10 JDK  Install Docker and Docker Compose  Install Intellij Idea", 
+            "text": "Install Java 8 JDK  Install Docker and Docker Compose  Install Intellij Idea", 
             "title": "Prestart"
         }, 
         {
@@ -767,7 +777,7 @@
         }, 
         {
             "location": "/cyber-search/contributing/dev-environment/#run-ethereum-pump-from-intellij-idea", 
-            "text": "Go to EthereumPumpApplication.kt and press green triangle on left to the code (on example line 23):  Pump will fail due to lack of  CHAIN_FAMILY  and  CHAIN_NODE_URL  environment properties, let's define it: Select \"Edit Configuration\"   Add properties:   Now, run pump one more time, it should start.", 
+            "text": "Go to EthereumPumpApplication.kt and press green triangle on left to the code (on example line 14):  Pump will fail due to lack of  CHAIN_FAMILY  environment property, let's define it: Select \"Edit Configuration\"   Add properties:   Now, run pump one more time, it should start.", 
             "title": "Run Ethereum Pump from intellij Idea"
         }, 
         {

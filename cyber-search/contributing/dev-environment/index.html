@@ -738,6 +738,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../components/custom-chainname/" title="Custom Chain Name Support" class="md-nav__link">
+      Custom Chain Name Support
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../components/ethereum/" title="Ethereum Components" class="md-nav__link">
       Ethereum Components
     </a>
@@ -1352,7 +1364,7 @@
 </ul>
 <h2 id="prestart">Prestart<a class="headerlink" href="#prestart" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Install Java 10 JDK</li>
+<li>Install Java 8 JDK</li>
 <li>Install Docker and Docker Compose</li>
 <li>Install Intellij Idea</li>
 </ul>
@@ -1376,9 +1388,9 @@ docker-compose -f dev-environment/env.yml up -d
 <img alt="Import Settings" src="../images/gradle-settings.png" />
 Wait for dependency downloading and indexation</p>
 <h2 id="run-ethereum-pump-from-intellij-idea">Run Ethereum Pump from intellij Idea<a class="headerlink" href="#run-ethereum-pump-from-intellij-idea" title="Permanent link">&para;</a></h2>
-<p>Go to EthereumPumpApplication.kt and press green triangle on left to the code (on example line 23):
+<p>Go to EthereumPumpApplication.kt and press green triangle on left to the code (on example line 14):
 <img alt="Start Pump" src="../images/start-pump.png" /></p>
-<p>Pump will fail due to lack of <strong>CHAIN_FAMILY</strong> and <strong>CHAIN_NODE_URL</strong> environment properties, let's define it: Select "Edit Configuration"</p>
+<p>Pump will fail due to lack of <strong>CHAIN_FAMILY</strong> environment property, let's define it: Select "Edit Configuration"</p>
 <p><img alt="Select Edit Run Configuration" src="../images/select-edit-configuration.png" /></p>
 <p>Add properties:</p>
 <p><img alt="Add variables" src="../images/add-environment-variables.png" /></p>
