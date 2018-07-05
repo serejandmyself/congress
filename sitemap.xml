@@ -86,17 +86,12 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>/cyber-search/components/bitcoin/</loc>
-     <lastmod>2018-07-05</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
      <loc>/cyber-search/components/custom-chainname/</loc>
      <lastmod>2018-07-05</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>/cyber-search/components/ethereum/</loc>
+     <loc>/cyber-search/components/ethereum-components/</loc>
      <lastmod>2018-07-05</lastmod>
      <changefreq>daily</changefreq>
     </url>
