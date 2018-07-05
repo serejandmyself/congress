@@ -547,12 +547,7 @@
         }, 
         {
             "location": "/cyber-search/api/README/", 
-            "text": "README\n\n\nBuild and Run locally\n\n\ndocker build -t build/raw-api -f ./docs/api/Dockerfile ./ \n docker run -p \n8080\n:8080 build/raw-api", 
-            "title": "README"
-        }, 
-        {
-            "location": "/cyber-search/api/README/#readme", 
-            "text": "", 
+            "text": "Build and Run locally\n\n\ndocker build -t build/raw-api -f ./docs/api/Dockerfile ./ \n docker run -p \n8080\n:8080 build/raw-api", 
             "title": "README"
         }, 
         {
@@ -582,6 +577,31 @@
         }, 
         {
             "location": "/cyber-search/components/bitcoin-components/#bitcoin-contract-summary", 
+            "text": "Collects summary for each contract stored in Bitcoin chain. Consumes Kafka topics and update data in Elassandra.", 
+            "title": "Bitcoin Contract Summary"
+        }, 
+        {
+            "location": "/cyber-search/components/bitcoin/", 
+            "text": "Ethereum Components\n\n\n\n\n\n\n\n\nComponent\n\n\nScale\n\n\nDescription\n\n\nCluster Address\n\n\nMetrics\n\n\nExternal\n\n\n\n\n\n\n\n\n\n\nBitcoin Pump\n\n\n1\n\n\nBitcoin Chain Data Kafka Pump\n\n\n\n\n8080:/actuator/metrics\n\n\n\n\n\n\n\n\nBitcoin Cassandra Dump\n\n\n1\n\n\nDump Kafka Topics Into Cassandra\n\n\n\n\n8080:/actuator/metrics\n\n\n\n\n\n\n\n\nBitcoin Contract Summary\n\n\n1 - N\n\n\nCalculates Contract Summaries (balances and etc)\n\n\n\n\n8080:/actuator/metrics\n\n\n\n\n\n\n\n\n\n\nBitcoin Pump\n\n\nPumps Bitcoin raw data(block,tx,uncles) into Kafka.\n\n\nBitcoin Cassandra Dump\n\n\nConsumes Bitcoin raw data from Kafka topics, translate it into cassandra entities and store them into Elassandra.\n\n\nBitcoin Contract Summary\n\n\nCollects summary for each contract stored in Bitcoin chain. Consumes Kafka topics and update data in Elassandra.", 
+            "title": "Ethereum Components"
+        }, 
+        {
+            "location": "/cyber-search/components/bitcoin/#ethereum-components", 
+            "text": "Component  Scale  Description  Cluster Address  Metrics  External      Bitcoin Pump  1  Bitcoin Chain Data Kafka Pump   8080:/actuator/metrics     Bitcoin Cassandra Dump  1  Dump Kafka Topics Into Cassandra   8080:/actuator/metrics     Bitcoin Contract Summary  1 - N  Calculates Contract Summaries (balances and etc)   8080:/actuator/metrics", 
+            "title": "Ethereum Components"
+        }, 
+        {
+            "location": "/cyber-search/components/bitcoin/#bitcoin-pump", 
+            "text": "Pumps Bitcoin raw data(block,tx,uncles) into Kafka.", 
+            "title": "Bitcoin Pump"
+        }, 
+        {
+            "location": "/cyber-search/components/bitcoin/#bitcoin-cassandra-dump", 
+            "text": "Consumes Bitcoin raw data from Kafka topics, translate it into cassandra entities and store them into Elassandra.", 
+            "title": "Bitcoin Cassandra Dump"
+        }, 
+        {
+            "location": "/cyber-search/components/bitcoin/#bitcoin-contract-summary", 
             "text": "Collects summary for each contract stored in Bitcoin chain. Consumes Kafka topics and update data in Elassandra.", 
             "title": "Bitcoin Contract Summary"
         }, 
