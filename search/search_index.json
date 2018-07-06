@@ -581,14 +581,14 @@
             "title": "Bitcoin Contract Summary"
         }, 
         {
-            "location": "/cyber-search/components/custom-chainname/", 
-            "text": "Custom Chain\n\n\nYou have an ability to run our services with custom chain name based on supported chain families.\nIt may be needed if you have your own custom chain and you want API endpoints, Kafka topic names and Cassandra keyspaces to use your chain name.\nCurrently we're supporting \nBITCOIN\n and \nETHEREUM\n chain families.\n\n\nTo make it work you need to define \nCHAIN_NAME\n environment variable along with \nCHAIN_FAMILY\n.\nAlso you may need to define your chain node url in PUMP by setting \nCHAIN_NODE_URL\n environment variable.\n\n\nFor example if you want to index \nETHEREUM\n based chain called \nMY_PRECIOUS\n.\nYou have to use following config in all services (\nCHAIN_NODE_URL\n is necessary only for PUMP service):\n\n\nCHAIN_FAMILY\n \n=\n \nETHEREUM\n\n\nCHAIN_NAME\n \n=\n \nMY_PRECIOUS\n\n\nCHAIN_NODE_URL\n \n=\n \nhttps:\n//my_precious_node_url:port\n\n\n\n\n\n\nThen all Kafka topics will be named as \nMY_PRECIOUS_TX_PUMP\n,\nMY_PRECIOUS_BLOCK_PUMP\n,\nMY_PRECIOUS_UNCLE_PUMP\n. Cassandra keyspace will be named \nmy_precious\n.\nAnd all API url will be build like this \nhttp://localhost:8080/my_precious/block/42\n and etc.", 
-            "title": "Custom Chain"
+            "location": "/cyber-search/components/custom-chain-name/", 
+            "text": "Custom Chain Name\n\n\nYou have an ability to run our services with custom chain name based on supported chain families.\nIt may be needed if you have your own custom chain and you want API endpoints, Kafka topic names and Cassandra keyspaces to use your chain name.\nCurrently we're supporting \nBITCOIN\n and \nETHEREUM\n chain families.\n\n\nTo make it work you need to define \nCHAIN_NAME\n environment variable along with \nCHAIN_FAMILY\n.\nAlso you may need to define your chain node url in PUMP by setting \nCHAIN_NODE_URL\n environment variable.\n\n\nFor example if you want to index \nETHEREUM\n based chain called \nMY_PRECIOUS\n.\nYou have to use following config in all services (\nCHAIN_NODE_URL\n is necessary only for PUMP service):\n\n\nCHAIN_FAMILY\n \n=\n \nETHEREUM\n\n\nCHAIN_NAME\n \n=\n \nMY_PRECIOUS\n\n\nCHAIN_NODE_URL\n \n=\n \nhttps:\n//my_precious_node_url:port\n\n\n\n\n\n\nThen all Kafka topics will be named as \nMY_PRECIOUS_TX_PUMP\n,\nMY_PRECIOUS_BLOCK_PUMP\n,\nMY_PRECIOUS_UNCLE_PUMP\n. Cassandra keyspace will be named \nmy_precious\n.\nAnd all API url will be build like this \nhttp://localhost:8080/my_precious/block/42\n and etc.", 
+            "title": "Custom Chain Name"
         }, 
         {
-            "location": "/cyber-search/components/custom-chainname/#custom-chain", 
+            "location": "/cyber-search/components/custom-chain-name/#custom-chain-name", 
             "text": "You have an ability to run our services with custom chain name based on supported chain families.\nIt may be needed if you have your own custom chain and you want API endpoints, Kafka topic names and Cassandra keyspaces to use your chain name.\nCurrently we're supporting  BITCOIN  and  ETHEREUM  chain families.  To make it work you need to define  CHAIN_NAME  environment variable along with  CHAIN_FAMILY .\nAlso you may need to define your chain node url in PUMP by setting  CHAIN_NODE_URL  environment variable.  For example if you want to index  ETHEREUM  based chain called  MY_PRECIOUS .\nYou have to use following config in all services ( CHAIN_NODE_URL  is necessary only for PUMP service):  CHAIN_FAMILY   =   ETHEREUM  CHAIN_NAME   =   MY_PRECIOUS  CHAIN_NODE_URL   =   https: //my_precious_node_url:port   Then all Kafka topics will be named as  MY_PRECIOUS_TX_PUMP , MY_PRECIOUS_BLOCK_PUMP , MY_PRECIOUS_UNCLE_PUMP . Cassandra keyspace will be named  my_precious .\nAnd all API url will be build like this  http://localhost:8080/my_precious/block/42  and etc.", 
-            "title": "Custom Chain"
+            "title": "Custom Chain Name"
         }, 
         {
             "location": "/cyber-search/components/ethereum-components/", 
@@ -616,32 +616,32 @@
             "title": "Ethereum Contract Summary"
         }, 
         {
-            "location": "/cyber-search/components/overview/", 
+            "location": "/cyber-search/components/search-common-components/", 
             "text": "Search Common Components\n\n\n\n\n\n\n\n\nComponent\n\n\nScale\n\n\nDescription\n\n\nCluster Address\n\n\nMetrics\n\n\nExternal\n\n\n\n\n\n\n\n\n\n\nKafka\n\n\n1\n\n\nData Entry\n\n\n\n\n\n\n\n\n\n\n\n\nKafka Manager\n\n\n1\n\n\nKafka Explorer\n\n\n\n\n\n\n\n\n\n\n\n\nElassandra\n\n\n1 - N\n\n\nData Back And Search\n\n\nelassandra.search.svc:9042\n\n\n\n\n\n\n\n\n\n\nSearch Api\n\n\n1 - N\n\n\nApi To Search Chain Entities\n\n\nsearch-api.search.svc:80\n\n\n8080:/actuator/metrics\n\n\ny\n\n\n\n\n\n\nSearch Api Docs\n\n\n1 - N\n\n\nSearch Api Docs Based On Swagger\n\n\nsearch-api-docs.search.svc:80\n\n\n\n\ny\n\n\n\n\n\n\n\n\n\n\nChains Components\n\n\n\n\nEthereum\n\n\nBitcoin\n\n\n\n\nKafka\n\n\nKafka\n is message queue used as main data entry. All raw data firstly goes into kafka, than \n various services consume it to provide new functionality.\n\n\nElassandra (Elastic + Cassandra)\n\n\nElassandra\n is used as main backend storage with linear growth fulltext-search\n index on source cassandra data.\n\n\nSearch Api\n\n\nMain search access endpoint. See \napi calls documentations\n.", 
             "title": "Search Common Components"
         }, 
         {
-            "location": "/cyber-search/components/overview/#search-common-components", 
+            "location": "/cyber-search/components/search-common-components/#search-common-components", 
             "text": "Component  Scale  Description  Cluster Address  Metrics  External      Kafka  1  Data Entry       Kafka Manager  1  Kafka Explorer       Elassandra  1 - N  Data Back And Search  elassandra.search.svc:9042      Search Api  1 - N  Api To Search Chain Entities  search-api.search.svc:80  8080:/actuator/metrics  y    Search Api Docs  1 - N  Search Api Docs Based On Swagger  search-api-docs.search.svc:80   y", 
             "title": "Search Common Components"
         }, 
         {
-            "location": "/cyber-search/components/overview/#chains-components", 
+            "location": "/cyber-search/components/search-common-components/#chains-components", 
             "text": "Ethereum  Bitcoin", 
             "title": "Chains Components"
         }, 
         {
-            "location": "/cyber-search/components/overview/#kafka", 
+            "location": "/cyber-search/components/search-common-components/#kafka", 
             "text": "Kafka  is message queue used as main data entry. All raw data firstly goes into kafka, than \n various services consume it to provide new functionality.", 
             "title": "Kafka"
         }, 
         {
-            "location": "/cyber-search/components/overview/#elassandra-elastic-cassandra", 
+            "location": "/cyber-search/components/search-common-components/#elassandra-elastic-cassandra", 
             "text": "Elassandra  is used as main backend storage with linear growth fulltext-search\n index on source cassandra data.", 
             "title": "Elassandra (Elastic + Cassandra)"
         }, 
         {
-            "location": "/cyber-search/components/overview/#search-api", 
+            "location": "/cyber-search/components/search-common-components/#search-api", 
             "text": "Main search access endpoint. See  api calls documentations .", 
             "title": "Search Api"
         }, 

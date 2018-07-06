@@ -40,7 +40,7 @@
     
     
       
-        <title>Custom Chain - сyber•Search docs</title>
+        <title>Search Common Components - сyber•Search docs</title>
       
     
     
@@ -103,7 +103,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
     
-      <a href="#custom-chain" tabindex="1" class="md-skip">
+      <a href="#search-common-components" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -129,7 +129,7 @@
                 сyber•Search docs
               </span>
               <span class="md-header-nav__topic">
-                Custom Chain
+                Search Common Components
               </span>
             
           
@@ -738,6 +738,30 @@
           
           
 
+
+  <li class="md-nav__item">
+    <a href="../custom-chain-name/" title="Custom Chain Name" class="md-nav__link">
+      Custom Chain Name
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ethereum-components/" title="Ethereum Components" class="md-nav__link">
+      Ethereum Components
+    </a>
+  </li>
+
+        
+          
+          
+          
+
   
 
 
@@ -748,34 +772,60 @@
       
     
     
-    <a href="./" title="Custom Chain" class="md-nav__link md-nav__link--active">
-      Custom Chain
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Search Common Components
+      </label>
+    
+    <a href="./" title="Search Common Components" class="md-nav__link md-nav__link--active">
+      Search Common Components
     </a>
     
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ethereum-components/" title="Ethereum components" class="md-nav__link">
-      Ethereum components
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../overview/" title="Overview" class="md-nav__link">
-      Overview
-    </a>
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#chains-components" title="Chains Components" class="md-nav__link">
+    Chains Components
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kafka" title="Kafka" class="md-nav__link">
+    Kafka
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elassandra-elastic-cassandra" title="Elassandra (Elastic + Cassandra)" class="md-nav__link">
+    Elassandra (Elastic + Cassandra)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#search-api" title="Search Api" class="md-nav__link">
+    Search Api
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -1217,6 +1267,43 @@
     
   
   
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#chains-components" title="Chains Components" class="md-nav__link">
+    Chains Components
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kafka" title="Kafka" class="md-nav__link">
+    Kafka
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elassandra-elastic-cassandra" title="Elassandra (Elastic + Cassandra)" class="md-nav__link">
+    Elassandra (Elastic + Cassandra)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#search-api" title="Search Api" class="md-nav__link">
+    Search Api
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1227,25 +1314,78 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/cybercongress/congress/edit/master/knowledge/docs/cyber-search/components/custom-chainname.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/cybercongress/congress/edit/master/knowledge/docs/cyber-search/components/search-common-components.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="custom-chain">Custom Chain<a class="headerlink" href="#custom-chain" title="Permanent link">&para;</a></h1>
-<p>You have an ability to run our services with custom chain name based on supported chain families.
-It may be needed if you have your own custom chain and you want API endpoints, Kafka topic names and Cassandra keyspaces to use your chain name.
-Currently we're supporting <code>BITCOIN</code> and <code>ETHEREUM</code> chain families.</p>
-<p>To make it work you need to define <code>CHAIN_NAME</code> environment variable along with <code>CHAIN_FAMILY</code>.
-Also you may need to define your chain node url in PUMP by setting <code>CHAIN_NODE_URL</code> environment variable.</p>
-<p>For example if you want to index <code>ETHEREUM</code> based chain called <code>MY_PRECIOUS</code>.
-You have to use following config in all services (<code>CHAIN_NODE_URL</code> is necessary only for PUMP service):</p>
-<div class="codehilite"><pre><span></span><span class="n">CHAIN_FAMILY</span> <span class="o">=</span> <span class="n">ETHEREUM</span>
-<span class="n">CHAIN_NAME</span> <span class="o">=</span> <span class="n">MY_PRECIOUS</span>
-<span class="n">CHAIN_NODE_URL</span> <span class="o">=</span> <span class="nl">https:</span><span class="c1">//my_precious_node_url:port</span>
-</pre></div>
-
-
-<p>Then all Kafka topics will be named as <code>MY_PRECIOUS_TX_PUMP</code>,<code>MY_PRECIOUS_BLOCK_PUMP</code>,<code>MY_PRECIOUS_UNCLE_PUMP</code>. Cassandra keyspace will be named <code>my_precious</code>.
-And all API url will be build like this <code>http://localhost:8080/my_precious/block/42</code> and etc.</p>
+                <h1 id="search-common-components">Search Common Components<a class="headerlink" href="#search-common-components" title="Permanent link">&para;</a></h1>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Scale</th>
+<th>Description</th>
+<th>Cluster Address</th>
+<th>Metrics</th>
+<th>External</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kafka</td>
+<td>1</td>
+<td>Data Entry</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Kafka Manager</td>
+<td>1</td>
+<td>Kafka Explorer</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Elassandra</td>
+<td>1 - N</td>
+<td>Data Back And Search</td>
+<td>elassandra.search.svc:9042</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Search Api</td>
+<td>1 - N</td>
+<td>Api To Search Chain Entities</td>
+<td>search-api.search.svc:80</td>
+<td>8080:/actuator/metrics</td>
+<td>y</td>
+</tr>
+<tr>
+<td>Search Api Docs</td>
+<td>1 - N</td>
+<td>Search Api Docs Based On Swagger</td>
+<td>search-api-docs.search.svc:80</td>
+<td></td>
+<td>y</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Basic Overview" src="../images/architecture.png" /></p>
+<h2 id="chains-components">Chains Components<a class="headerlink" href="#chains-components" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../ethereum-components/">Ethereum</a></li>
+<li><a href="../bitcoin-components/">Bitcoin</a></li>
+</ul>
+<h2 id="kafka">Kafka<a class="headerlink" href="#kafka" title="Permanent link">&para;</a></h2>
+<p><a href="https://kafka.apache.org/">Kafka</a> is message queue used as main data entry. All raw data firstly goes into kafka, than 
+ various services consume it to provide new functionality.</p>
+<h2 id="elassandra-elastic-cassandra">Elassandra (Elastic + Cassandra)<a class="headerlink" href="#elassandra-elastic-cassandra" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/strapdata/elassandra">Elassandra</a> is used as main backend storage with linear growth fulltext-search
+ index on source cassandra data.</p>
+<h2 id="search-api">Search Api<a class="headerlink" href="#search-api" title="Permanent link">&para;</a></h2>
+<p>Main search access endpoint. See <a href="http://docs.cybersearch.io">api calls documentations</a>.</p>
                 
                   
                 
@@ -1266,7 +1406,7 @@ And all API url will be build like this <code>http://localhost:8080/my_precious/
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../bitcoin-components/" title="Bitcoin Components" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../ethereum-components/" title="Ethereum Components" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1275,19 +1415,19 @@ And all API url will be build like this <code>http://localhost:8080/my_precious/
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Bitcoin Components
+                Ethereum Components
               </span>
             </div>
           </a>
         
         
-          <a href="../ethereum-components/" title="Ethereum components" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../contributing/cheat-sheet/" title="Cheat sheet" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Ethereum components
+                Cheat sheet
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
