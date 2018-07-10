@@ -40,7 +40,7 @@
     
     
       
-        <title>Circle Ci job example - сyber•Search docs</title>
+        <title>Continuous delivery - сyber•Search docs</title>
       
     
     
@@ -129,7 +129,7 @@
                 сyber•Search docs
               </span>
               <span class="md-header-nav__topic">
-                Circle Ci job example
+                Continuous delivery
               </span>
             
           
@@ -1011,7 +1011,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../components/chain-nodes/" title="Chain Nodes Components" class="md-nav__link">
+    <a href="../../components/chain-nodes-components/" title="Chain Nodes Components" class="md-nav__link">
       Chain Nodes Components
     </a>
   </li>
@@ -1023,8 +1023,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../components/monitoring/" title="Monitoring Components" class="md-nav__link">
-      Monitoring Components
+    <a href="../../components/components-requirments/" title="Components requirements" class="md-nav__link">
+      Components requirements
     </a>
   </li>
 
@@ -1035,8 +1035,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../components/requirments/" title="Components requirements" class="md-nav__link">
-      Components requirements
+    <a href="../../components/monitoring-components/" title="Monitoring Components" class="md-nav__link">
+      Monitoring Components
     </a>
   </li>
 
@@ -1087,12 +1087,44 @@
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
     
-      
     
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Continuous delivery
+      </label>
     
-    <a href="./" title="Circle Ci job example" class="md-nav__link md-nav__link--active">
-      Circle Ci job example
+    <a href="./" title="Continuous delivery" class="md-nav__link md-nav__link--active">
+      Continuous delivery
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#circle-ci-job-example" title="Circle Ci job example" class="md-nav__link">
+    Circle Ci job example
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-build-and-deploy-for-all-commits-in-master" title="Example: build and deploy for all commits in master" class="md-nav__link">
+    Example: build and deploy for all commits in master
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -1214,8 +1246,29 @@
 <nav class="md-nav md-nav--secondary">
   
   
-    
   
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#circle-ci-job-example" title="Circle Ci job example" class="md-nav__link">
+    Circle Ci job example
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-build-and-deploy-for-all-commits-in-master" title="Example: build and deploy for all commits in master" class="md-nav__link">
+    Example: build and deploy for all commits in master
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1230,7 +1283,9 @@
                   <a href="https://github.com/cybercongress/congress/edit/master/knowledge/docs/cybernode/staging/continuous-delivery.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="circle-ci-job-example">Circle Ci job example<a class="headerlink" href="#circle-ci-job-example" title="Permanent link">&para;</a></h1>
+                  <h1>Continuous delivery</h1>
+                
+                <h2 id="circle-ci-job-example">Circle Ci job example<a class="headerlink" href="#circle-ci-job-example" title="Permanent link">&para;</a></h2>
 <p>To enable auto staging-redeploy for your application you should:</p>
 <ol>
 <li>
@@ -1243,7 +1298,7 @@
 <p>Add a CircleCi job, depended on docker build&amp;push job. It's all.</p>
 </li>
 </ol>
-<h1 id="example-build-and-deploy-for-all-commits-in-master">Example: build and deploy for all commits in master<a class="headerlink" href="#example-build-and-deploy-for-all-commits-in-master" title="Permanent link">&para;</a></h1>
+<h2 id="example-build-and-deploy-for-all-commits-in-master">Example: build and deploy for all commits in master<a class="headerlink" href="#example-build-and-deploy-for-all-commits-in-master" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span>aliases:
  - &amp;staging_filter
     filters:

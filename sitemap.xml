@@ -2,212 +2,212 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
      <loc>/</loc>
-     <lastmod>2018-07-06</lastmod>
+     <lastmod>2018-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/contribute/</loc>
-     <lastmod>2018-07-06</lastmod>
+     <lastmod>2018-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/cyb/requirements/</loc>
-     <lastmod>2018-07-06</lastmod>
+     <lastmod>2018-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/cyb/staging/</loc>
-     <lastmod>2018-07-06</lastmod>
+     <lastmod>2018-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/cyb/whitepaper/</loc>
-     <lastmod>2018-07-06</lastmod>
+     <lastmod>2018-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/cyb-js/build/</loc>
-     <lastmod>2018-07-06</lastmod>
+     <lastmod>2018-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/cyb-js/overwiev/</loc>
-     <lastmod>2018-07-06</lastmod>
+     <lastmod>2018-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/cyber-markets/README/</loc>
-     <lastmod>2018-07-06</lastmod>
+     <lastmod>2018-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/cyber-markets/about-markets/</loc>
-     <lastmod>2018-07-06</lastmod>
+     <lastmod>2018-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/cyber-markets/api/README/</loc>
-     <lastmod>2018-07-06</lastmod>
+     <lastmod>2018-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/cyber-markets/components/overview/</loc>
-     <lastmod>2018-07-06</lastmod>
+     <lastmod>2018-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/cyber-markets/contributing/cheat-sheet/</loc>
-     <lastmod>2018-07-06</lastmod>
+     <lastmod>2018-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/cyber-markets/contributing/contributing/</loc>
-     <lastmod>2018-07-06</lastmod>
+     <lastmod>2018-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/cyber-markets/contributing/dev-environment/</loc>
-     <lastmod>2018-07-06</lastmod>
+     <lastmod>2018-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/cyber-search/about-search/</loc>
-     <lastmod>2018-07-06</lastmod>
+     <lastmod>2018-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/cyber-search/api/README/</loc>
-     <lastmod>2018-07-06</lastmod>
+     <lastmod>2018-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/cyber-search/components/bitcoin-components/</loc>
-     <lastmod>2018-07-06</lastmod>
+     <lastmod>2018-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/cyber-search/components/custom-chain-name/</loc>
-     <lastmod>2018-07-06</lastmod>
+     <lastmod>2018-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/cyber-search/components/ethereum-components/</loc>
-     <lastmod>2018-07-06</lastmod>
+     <lastmod>2018-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/cyber-search/components/search-common-components/</loc>
-     <lastmod>2018-07-06</lastmod>
+     <lastmod>2018-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/cyber-search/contributing/cheat-sheet/</loc>
-     <lastmod>2018-07-06</lastmod>
+     <lastmod>2018-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/cyber-search/contributing/contributing/</loc>
-     <lastmod>2018-07-06</lastmod>
+     <lastmod>2018-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/cyber-search/contributing/dev-environment/</loc>
-     <lastmod>2018-07-06</lastmod>
+     <lastmod>2018-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/cyber-search/contributing/pump-development/</loc>
-     <lastmod>2018-07-06</lastmod>
+     <lastmod>2018-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/cyberd/cyberd/</loc>
-     <lastmod>2018-07-06</lastmod>
+     <lastmod>2018-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/cyberd/roadmap/</loc>
-     <lastmod>2018-07-06</lastmod>
+     <lastmod>2018-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/cybernode/about/</loc>
-     <lastmod>2018-07-06</lastmod>
+     <lastmod>2018-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/cybernode/dev-setup/</loc>
-     <lastmod>2018-07-06</lastmod>
+     <lastmod>2018-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/cybernode/k8s-cheat-sheet/</loc>
-     <lastmod>2018-07-06</lastmod>
+     <lastmod>2018-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/cybernode/chains/bitcoin/</loc>
-     <lastmod>2018-07-06</lastmod>
+     <lastmod>2018-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/cybernode/chains/ethereum/</loc>
-     <lastmod>2018-07-06</lastmod>
+     <lastmod>2018-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>/cybernode/components/chain-nodes/</loc>
-     <lastmod>2018-07-06</lastmod>
+     <loc>/cybernode/components/chain-nodes-components/</loc>
+     <lastmod>2018-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>/cybernode/components/monitoring/</loc>
-     <lastmod>2018-07-06</lastmod>
+     <loc>/cybernode/components/components-requirments/</loc>
+     <lastmod>2018-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>/cybernode/components/requirments/</loc>
-     <lastmod>2018-07-06</lastmod>
+     <loc>/cybernode/components/monitoring-components/</loc>
+     <lastmod>2018-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/cybernode/staging/chains/</loc>
-     <lastmod>2018-07-06</lastmod>
+     <lastmod>2018-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/cybernode/staging/continuous-delivery/</loc>
-     <lastmod>2018-07-06</lastmod>
+     <lastmod>2018-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/cybernode/staging/kubernetes/</loc>
-     <lastmod>2018-07-06</lastmod>
+     <lastmod>2018-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/cybernode/staging/run/</loc>
-     <lastmod>2018-07-06</lastmod>
+     <lastmod>2018-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/cybernode/staging/setup/</loc>
-     <lastmod>2018-07-06</lastmod>
+     <lastmod>2018-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/сhaingear/contracts/</loc>
-     <lastmod>2018-07-06</lastmod>
+     <lastmod>2018-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/сhaingear/development/</loc>
-     <lastmod>2018-07-06</lastmod>
+     <lastmod>2018-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/сhaingear/overview/</loc>
-     <lastmod>2018-07-06</lastmod>
+     <lastmod>2018-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
