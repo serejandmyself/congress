@@ -581,6 +581,31 @@
             "title": "Bitcoin Contract Summary"
         }, 
         {
+            "location": "/cyber-search/components/cassandra-service/", 
+            "text": "Cassandra Service\n\n\nUsage of cassandra-service Module\n\n\n\u0421assandra service module could be used in two ways:\n\n\n\n\nWith specifying \nCHAIN_FAMILY\n environment variable\n\n\nWithout specifying \nCHAIN_FAMILY\n environment variable\n\n\n\n\nSpecifying \nCHAIN_FAMILY\n\n\nWhen you're specifying \nCHAIN_FAMILY\n environment variable cassandra-service module will work in the context of one keyspace based on this family.\nFor example if \nCHAIN_FAMILY=BITCOIN\n it will create \nbitcoin\n keyspace if it doesn't exists and do all migrations for this keyspace if they're not applied.\nIn spring context only repositories beans related to this keyspace will be available \n\n\nAll of the cassandra work handled by \nCassandraRepositoriesConfiguration\n and it specific inheritor.\n\n\nThis kind of interaction with cassandra-service used in dumps and contract summaries modules.\n\n\nWithout \nCHAIN_FAMILY\n\n\nWithout specifying \nCHAIN_FAMILY\n environment variable cassandra-service module will act like this:\n\n\n\n\nIt will run no migrations and creations of keyspaces\n\n\nIt will look on available keyspaces in current cassandra database based on \nSearchRepositoriesConfiguration\n inheritors\n and if they're exists it will initialize all repositories beans for this keyspaces and put them into spring context. \n\n\n\n\nThis is useful when you want to interact with all of available keyspaces and indicies.\nFor example in search-api module we need all of repositories beans to build requests.", 
+            "title": "Cassandra Service"
+        }, 
+        {
+            "location": "/cyber-search/components/cassandra-service/#cassandra-service", 
+            "text": "", 
+            "title": "Cassandra Service"
+        }, 
+        {
+            "location": "/cyber-search/components/cassandra-service/#usage-of-cassandra-service-module", 
+            "text": "\u0421assandra service module could be used in two ways:   With specifying  CHAIN_FAMILY  environment variable  Without specifying  CHAIN_FAMILY  environment variable", 
+            "title": "Usage of cassandra-service Module"
+        }, 
+        {
+            "location": "/cyber-search/components/cassandra-service/#specifying-chain_family", 
+            "text": "When you're specifying  CHAIN_FAMILY  environment variable cassandra-service module will work in the context of one keyspace based on this family.\nFor example if  CHAIN_FAMILY=BITCOIN  it will create  bitcoin  keyspace if it doesn't exists and do all migrations for this keyspace if they're not applied.\nIn spring context only repositories beans related to this keyspace will be available   All of the cassandra work handled by  CassandraRepositoriesConfiguration  and it specific inheritor.  This kind of interaction with cassandra-service used in dumps and contract summaries modules.", 
+            "title": "Specifying CHAIN_FAMILY"
+        }, 
+        {
+            "location": "/cyber-search/components/cassandra-service/#without-chain_family", 
+            "text": "Without specifying  CHAIN_FAMILY  environment variable cassandra-service module will act like this:   It will run no migrations and creations of keyspaces  It will look on available keyspaces in current cassandra database based on  SearchRepositoriesConfiguration  inheritors\n and if they're exists it will initialize all repositories beans for this keyspaces and put them into spring context.    This is useful when you want to interact with all of available keyspaces and indicies.\nFor example in search-api module we need all of repositories beans to build requests.", 
+            "title": "Without CHAIN_FAMILY"
+        }, 
+        {
             "location": "/cyber-search/components/custom-chain-name/", 
             "text": "Custom Chain Name\n\n\nYou have an ability to run our services with custom chain name based on supported chain families.\nIt may be needed if you have your own custom chain and you want API endpoints, Kafka topic names and Cassandra keyspaces to use your chain name.\nCurrently we're supporting \nBITCOIN\n and \nETHEREUM\n chain families.\n\n\nTo make it work you need to define \nCHAIN_NAME\n environment variable along with \nCHAIN_FAMILY\n.\nAlso you may need to define your chain node url in PUMP by setting \nCHAIN_NODE_URL\n environment variable.\n\n\nFor example if you want to index \nETHEREUM\n based chain called \nMY_PRECIOUS\n.\nYou have to use following config in all services (\nCHAIN_NODE_URL\n is necessary only for PUMP service):\n\n\nCHAIN_FAMILY\n \n=\n \nETHEREUM\n\n\nCHAIN_NAME\n \n=\n \nMY_PRECIOUS\n\n\nCHAIN_NODE_URL\n \n=\n \nhttps:\n//my_precious_node_url:port\n\n\n\n\n\n\nThen all Kafka topics will be named as \nMY_PRECIOUS_TX_PUMP\n,\nMY_PRECIOUS_BLOCK_PUMP\n,\nMY_PRECIOUS_UNCLE_PUMP\n. Cassandra keyspace will be named \nmy_precious\n.\nAnd all API url will be build like this \nhttp://localhost:8080/my_precious/block/42\n and etc.", 
             "title": "Custom Chain Name"
