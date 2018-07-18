@@ -1031,6 +1031,51 @@
             "title": "Elassandra commands"
         }, 
         {
+            "location": "/cybernode/requirements/", 
+            "text": "Requirements\n\n\nFor near future(1.0 release) cybernode will act as a helping tool around docker images to instantiate p2p systems and app around them. For the first release, we consider to do next:\n\n\n1\n)\n cybernode settings\n   cybernode \nhelp\n\n\n\n2\n)\n cybernode status   \n\n\n3\n)\n cybernode chains ethereum\n|\nethereum_kovan\n|\nethereum_classic start \n(\n--light --autostartup\n)\n\n   cybernode chains ethereum stop\n\n   cybernode chains bitcoin \nhelp\n\n   cybernode chains bitcoin start \n(\n--autostartup\n)\n\n   cybernode chains bitcoin stop\n\n   cybernode chains status\n   cybernide chains \nhelp\n\n\n\n4\n)\n cybernode p2p ipfs start \n(\n--autostartup\n)\n\n   cybernode p2p ipfs stop\n\n\n5\n)\n cybernode apps\n|\nplatforms cyb start\n   cybernode apps\n|\nplatforms cyb stop\n\n\n\n\n\nFirst run initialization\n\n\nFor first run of cybernode, user should specify where to store data for applications:\n\n\ncybernode.data.location\n=\n~/.cybernode/data\n\n\n\n\n\nBy default, all cybernode configs|state will be stored in \n~/.cybernode\n path. Nonchangeble.\n\n\nResearch:\n- [] Path autocompletion?\n\n\ncybernode chains\n subcomands\n\n\nUser shoud be able to run chains with specified options.\nResearch:\n- [] UI for chains\n- [] Light clients for chains\n\n\ncybernode p2p\n subcomands\n\n\nUser shoud be able to run p2p systems with specified options.\nResearch:\n- [] Key pair managment if chain reuqired\n\n\napps|platforms\n subcomands\n\n\nUser should be able to run DApps. Each DApp also have dependencies on p2p or chains entities. This subcommand should start only missing entities.\n\n\ncybernode status\n\n\nShould display to user cybernode running|stopped entities.\nAlso should be available for all subcommands.\n\n\ncybernode help\n\n\nShould display help message to the user.\nAlso should be available for all subcommands.\n\n\ncybernode settings\n\n\nShould print current settings.\n\n\nResearch:\n- [] Possible solutions for autocomplete for MacOS, Linux systems\n- [] Language and framework for CLI\n- [] Package distribution for various platforms(brew, npm, deb etc)\n- [] Initial Message??", 
+            "title": "Requirements"
+        }, 
+        {
+            "location": "/cybernode/requirements/#requirements", 
+            "text": "For near future(1.0 release) cybernode will act as a helping tool around docker images to instantiate p2p systems and app around them. For the first release, we consider to do next:  1 )  cybernode settings\n   cybernode  help  2 )  cybernode status    3 )  cybernode chains ethereum | ethereum_kovan | ethereum_classic start  ( --light --autostartup ) \n   cybernode chains ethereum stop\n\n   cybernode chains bitcoin  help \n   cybernode chains bitcoin start  ( --autostartup ) \n   cybernode chains bitcoin stop\n\n   cybernode chains status\n   cybernide chains  help  4 )  cybernode p2p ipfs start  ( --autostartup ) \n   cybernode p2p ipfs stop 5 )  cybernode apps | platforms cyb start\n   cybernode apps | platforms cyb stop", 
+            "title": "Requirements"
+        }, 
+        {
+            "location": "/cybernode/requirements/#first-run-initialization", 
+            "text": "For first run of cybernode, user should specify where to store data for applications:  cybernode.data.location = ~/.cybernode/data  By default, all cybernode configs|state will be stored in  ~/.cybernode  path. Nonchangeble.  Research:\n- [] Path autocompletion?", 
+            "title": "First run initialization"
+        }, 
+        {
+            "location": "/cybernode/requirements/#cybernode-chains-subcomands", 
+            "text": "User shoud be able to run chains with specified options.\nResearch:\n- [] UI for chains\n- [] Light clients for chains", 
+            "title": "cybernode chains subcomands"
+        }, 
+        {
+            "location": "/cybernode/requirements/#cybernode-p2p-subcomands", 
+            "text": "User shoud be able to run p2p systems with specified options.\nResearch:\n- [] Key pair managment if chain reuqired", 
+            "title": "cybernode p2p subcomands"
+        }, 
+        {
+            "location": "/cybernode/requirements/#appsplatforms-subcomands", 
+            "text": "User should be able to run DApps. Each DApp also have dependencies on p2p or chains entities. This subcommand should start only missing entities.", 
+            "title": "apps|platforms subcomands"
+        }, 
+        {
+            "location": "/cybernode/requirements/#cybernode-status", 
+            "text": "Should display to user cybernode running|stopped entities.\nAlso should be available for all subcommands.", 
+            "title": "cybernode status"
+        }, 
+        {
+            "location": "/cybernode/requirements/#cybernode-help", 
+            "text": "Should display help message to the user.\nAlso should be available for all subcommands.", 
+            "title": "cybernode help"
+        }, 
+        {
+            "location": "/cybernode/requirements/#cybernode-settings", 
+            "text": "Should print current settings.  Research:\n- [] Possible solutions for autocomplete for MacOS, Linux systems\n- [] Language and framework for CLI\n- [] Package distribution for various platforms(brew, npm, deb etc)\n- [] Initial Message??", 
+            "title": "cybernode settings"
+        }, 
+        {
             "location": "/cybernode/chains/bitcoin/", 
             "text": "", 
             "title": "Bitcoin"
