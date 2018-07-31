@@ -887,8 +887,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#run-parity-nodecheat-sheet" title="Run parity node(cheat sheet)" class="md-nav__link">
-    Run parity node(cheat sheet)
+  <a href="#run-parity-node" title="Run parity node" class="md-nav__link">
+    Run parity node
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-bitcoind-node" title="Run bitcoind node" class="md-nav__link">
+    Run bitcoind node
   </a>
   
 </li>
@@ -1383,8 +1390,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#run-parity-nodecheat-sheet" title="Run parity node(cheat sheet)" class="md-nav__link">
-    Run parity node(cheat sheet)
+  <a href="#run-parity-node" title="Run parity node" class="md-nav__link">
+    Run parity node
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-bitcoind-node" title="Run bitcoind node" class="md-nav__link">
+    Run bitcoind node
   </a>
   
 </li>
@@ -1435,10 +1449,17 @@ docker rm elassandra-search
 
 
 <h2 id="chains">Chains<a class="headerlink" href="#chains" title="Permanent link">&para;</a></h2>
-<h3 id="run-parity-nodecheat-sheet">Run parity node(cheat sheet)<a class="headerlink" href="#run-parity-nodecheat-sheet" title="Permanent link">&para;</a></h3>
+<h3 id="run-parity-node">Run parity node<a class="headerlink" href="#run-parity-node" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span>sudo  docker run -d -p <span class="m">8545</span>:8545 --name parity_eth <span class="se">\</span>
 -v <span class="si">${</span><span class="nv">REPLACE_IT_BY_HOST_FOLDER</span><span class="si">}</span>:/cyberdata parity/parity:stable <span class="se">\</span>
 --db-path /cyberdata --jsonrpc-hosts all --jsonrpc-interface all --jsonrpc-threads <span class="m">4</span>
+</pre></div>
+
+
+<h3 id="run-bitcoind-node">Run bitcoind node<a class="headerlink" href="#run-bitcoind-node" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span>docker run -d -p 8332:8332 --name bitcoind --restart always \
+-v ${REPLACE_IT_BY_HOST_FOLDER}:/home/bitcoin/.bitcoin ruimarinho/bitcoin-core:0.15.1 \
+-server -rest -txindex -rpcpassword=cyber -rpcuser=cyber -rpcallowip=0.0.0.0/0
 </pre></div>
                 
                   

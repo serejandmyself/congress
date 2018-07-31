@@ -894,6 +894,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#run-chain-node-only-for-pumps" title="Run chain node (only for pumps)" class="md-nav__link">
+    Run chain node (only for pumps)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#import-project-to-intellij-idea" title="Import project to Intellij Idea" class="md-nav__link">
     Import project to Intellij Idea
   </a>
@@ -1349,6 +1356,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#run-chain-node-only-for-pumps" title="Run chain node (only for pumps)" class="md-nav__link">
+    Run chain node (only for pumps)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#import-project-to-intellij-idea" title="Import project to Intellij Idea" class="md-nav__link">
     Import project to Intellij Idea
   </a>
@@ -1396,16 +1410,39 @@
 <h3 id="start-containersrequired">Start containers(required)<a class="headerlink" href="#start-containersrequired" title="Permanent link">&para;</a></h3>
 <p>For mac:</p>
 <div class="codehilite"><pre><span></span><span class="nb">cd</span> dev-environment
-docker-compose -f dev-environment/env-mac.yml up -d
+docker-compose -f env-mac.yml up -d
 </pre></div>
 
 
 <p>For linux family:</p>
 <div class="codehilite"><pre><span></span><span class="nb">cd</span> dev-environment
-docker-compose -f dev-environment/env.yml up -d
+docker-compose -f env.yml up -d
 </pre></div>
 
 
+<h2 id="run-chain-node-only-for-pumps">Run chain node (only for pumps)<a class="headerlink" href="#run-chain-node-only-for-pumps" title="Permanent link">&para;</a></h2>
+<p>In order to fetch data from chains pumps need chain node to interact with. 
+To run chain node locally using docker use following commands:</p>
+<ol>
+<li>Parity for Ethereum</li>
+</ol>
+<div class="codehilite"><pre><span></span>sudo  docker run -d -p 8545:8545 --name parity_eth \
+-v ${REPLACE_IT_BY_HOST_FOLDER}:/cyberdata parity/parity:stable \
+--db-path /cyberdata --jsonrpc-hosts all --jsonrpc-interface all --jsonrpc-threads 4
+</pre></div>
+
+
+<ol>
+<li>Bitcoind for Bitcoin</li>
+</ol>
+<div class="codehilite"><pre><span></span>docker run -d -p 8332:8332 --name bitcoind --restart always \
+-v ${REPLACE_IT_BY_HOST_FOLDER}:/home/bitcoin/.bitcoin ruimarinho/bitcoin-core:0.15.1 \
+-server -rest -txindex -rpcpassword=cyber -rpcuser=cyber -rpcallowip=0.0.0.0/0
+</pre></div>
+
+
+<p>Or you could use any public available node (with appropriate settings)
+by passing <code>CHAIN_NODE_URL</code> environment variable to pump. For example <code>CHAIN_NODE_URL=http://127.0.0.1:8545</code>.</p>
 <h2 id="import-project-to-intellij-idea">Import project to Intellij Idea<a class="headerlink" href="#import-project-to-intellij-idea" title="Permanent link">&para;</a></h2>
 <p>Open Project in idea by selecting: Import Project -&gt; selecting <strong>build.gradle</strong> file from the repository root
 <img alt="Select Build Gradle" src="../images/select-build-gradle.png" />

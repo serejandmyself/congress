@@ -672,7 +672,7 @@
         }, 
         {
             "location": "/cyber-search/contributing/cheat-sheet/", 
-            "text": "Kafka\n\n\nStop kafka and delete kafka data(cheat sheet)\n\n\ndocker stop fast-data-dev-search\ndocker rm fast-data-dev-search\n\n\n\n\n\nElassandra\n\n\nStop elassandra and delete elassandra data(cheat sheet)\n\n\ndocker stop elassandra-search\ndocker rm elassandra-search\n\n\n\n\n\nGet indices info\n\n\ncurl -XGET \nlocalhost:9200/_cat/indices?v\npretty\n\n\n\n\n\n\nChains\n\n\nRun parity node(cheat sheet)\n\n\nsudo  docker run -d -p \n8545\n:8545 --name parity_eth \n\\\n\n-v \n${\nREPLACE_IT_BY_HOST_FOLDER\n}\n:/cyberdata parity/parity:stable \n\\\n\n--db-path /cyberdata --jsonrpc-hosts all --jsonrpc-interface all --jsonrpc-threads \n4", 
+            "text": "Kafka\n\n\nStop kafka and delete kafka data(cheat sheet)\n\n\ndocker stop fast-data-dev-search\ndocker rm fast-data-dev-search\n\n\n\n\n\nElassandra\n\n\nStop elassandra and delete elassandra data(cheat sheet)\n\n\ndocker stop elassandra-search\ndocker rm elassandra-search\n\n\n\n\n\nGet indices info\n\n\ncurl -XGET \nlocalhost:9200/_cat/indices?v\npretty\n\n\n\n\n\n\nChains\n\n\nRun parity node\n\n\nsudo  docker run -d -p \n8545\n:8545 --name parity_eth \n\\\n\n-v \n${\nREPLACE_IT_BY_HOST_FOLDER\n}\n:/cyberdata parity/parity:stable \n\\\n\n--db-path /cyberdata --jsonrpc-hosts all --jsonrpc-interface all --jsonrpc-threads \n4\n\n\n\n\n\n\nRun bitcoind node\n\n\ndocker run -d -p 8332:8332 --name bitcoind --restart always \\\n-v ${REPLACE_IT_BY_HOST_FOLDER}:/home/bitcoin/.bitcoin ruimarinho/bitcoin-core:0.15.1 \\\n-server -rest -txindex -rpcpassword=cyber -rpcuser=cyber -rpcallowip=0.0.0.0/0", 
             "title": "Cheat sheet"
         }, 
         {
@@ -706,9 +706,14 @@
             "title": "Chains"
         }, 
         {
-            "location": "/cyber-search/contributing/cheat-sheet/#run-parity-nodecheat-sheet", 
+            "location": "/cyber-search/contributing/cheat-sheet/#run-parity-node", 
             "text": "sudo  docker run -d -p  8545 :8545 --name parity_eth  \\ \n-v  ${ REPLACE_IT_BY_HOST_FOLDER } :/cyberdata parity/parity:stable  \\ \n--db-path /cyberdata --jsonrpc-hosts all --jsonrpc-interface all --jsonrpc-threads  4", 
-            "title": "Run parity node(cheat sheet)"
+            "title": "Run parity node"
+        }, 
+        {
+            "location": "/cyber-search/contributing/cheat-sheet/#run-bitcoind-node", 
+            "text": "docker run -d -p 8332:8332 --name bitcoind --restart always \\\n-v ${REPLACE_IT_BY_HOST_FOLDER}:/home/bitcoin/.bitcoin ruimarinho/bitcoin-core:0.15.1 \\\n-server -rest -txindex -rpcpassword=cyber -rpcuser=cyber -rpcallowip=0.0.0.0/0", 
+            "title": "Run bitcoind node"
         }, 
         {
             "location": "/cyber-search/contributing/contributing/", 
@@ -767,7 +772,7 @@
         }, 
         {
             "location": "/cyber-search/contributing/dev-environment/", 
-            "text": "Development environment\n\n\nUseful Links\n\n\n\n\ncheat sheet\n\n\n\n\nPrestart\n\n\n\n\nInstall Java 8 JDK\n\n\nInstall Docker and Docker Compose\n\n\nInstall Intellij Idea\n\n\n\n\nRun Kafka, Elassandra, Prometheus and Grafana\n\n\nStart containers(required)\n\n\nFor mac:\n\n\ncd\n dev-environment\ndocker-compose -f dev-environment/env-mac.yml up -d\n\n\n\n\n\nFor linux family:\n\n\ncd\n dev-environment\ndocker-compose -f dev-environment/env.yml up -d\n\n\n\n\n\nImport project to Intellij Idea\n\n\nOpen Project in idea by selecting: Import Project -\n selecting \nbuild.gradle\n file from the repository root\n\n\n\n\nWait for dependency downloading and indexation\n\n\nRun Ethereum Pump from intellij Idea\n\n\nGo to EthereumPumpApplication.kt and press green triangle on left to the code (on example line 14):\n\n\n\nPump will fail due to lack of \nCHAIN_FAMILY\n environment property, let's define it: Select \"Edit Configuration\"\n\n\n\n\nAdd properties:\n\n\n\n\nNow, run pump one more time, it should start.", 
+            "text": "Development environment\n\n\nUseful Links\n\n\n\n\ncheat sheet\n\n\n\n\nPrestart\n\n\n\n\nInstall Java 8 JDK\n\n\nInstall Docker and Docker Compose\n\n\nInstall Intellij Idea\n\n\n\n\nRun Kafka, Elassandra, Prometheus and Grafana\n\n\nStart containers(required)\n\n\nFor mac:\n\n\ncd\n dev-environment\ndocker-compose -f env-mac.yml up -d\n\n\n\n\n\nFor linux family:\n\n\ncd\n dev-environment\ndocker-compose -f env.yml up -d\n\n\n\n\n\nRun chain node (only for pumps)\n\n\nIn order to fetch data from chains pumps need chain node to interact with. \nTo run chain node locally using docker use following commands:\n\n\n\n\nParity for Ethereum\n\n\n\n\nsudo  docker run -d -p 8545:8545 --name parity_eth \\\n-v ${REPLACE_IT_BY_HOST_FOLDER}:/cyberdata parity/parity:stable \\\n--db-path /cyberdata --jsonrpc-hosts all --jsonrpc-interface all --jsonrpc-threads 4\n\n\n\n\n\n\n\nBitcoind for Bitcoin\n\n\n\n\ndocker run -d -p 8332:8332 --name bitcoind --restart always \\\n-v ${REPLACE_IT_BY_HOST_FOLDER}:/home/bitcoin/.bitcoin ruimarinho/bitcoin-core:0.15.1 \\\n-server -rest -txindex -rpcpassword=cyber -rpcuser=cyber -rpcallowip=0.0.0.0/0\n\n\n\n\n\nOr you could use any public available node (with appropriate settings)\nby passing \nCHAIN_NODE_URL\n environment variable to pump. For example \nCHAIN_NODE_URL=http://127.0.0.1:8545\n.\n\n\nImport project to Intellij Idea\n\n\nOpen Project in idea by selecting: Import Project -\n selecting \nbuild.gradle\n file from the repository root\n\n\n\n\nWait for dependency downloading and indexation\n\n\nRun Ethereum Pump from intellij Idea\n\n\nGo to EthereumPumpApplication.kt and press green triangle on left to the code (on example line 14):\n\n\n\nPump will fail due to lack of \nCHAIN_FAMILY\n environment property, let's define it: Select \"Edit Configuration\"\n\n\n\n\nAdd properties:\n\n\n\n\nNow, run pump one more time, it should start.", 
             "title": "Development environment"
         }, 
         {
@@ -792,8 +797,13 @@
         }, 
         {
             "location": "/cyber-search/contributing/dev-environment/#start-containersrequired", 
-            "text": "For mac:  cd  dev-environment\ndocker-compose -f dev-environment/env-mac.yml up -d  For linux family:  cd  dev-environment\ndocker-compose -f dev-environment/env.yml up -d", 
+            "text": "For mac:  cd  dev-environment\ndocker-compose -f env-mac.yml up -d  For linux family:  cd  dev-environment\ndocker-compose -f env.yml up -d", 
             "title": "Start containers(required)"
+        }, 
+        {
+            "location": "/cyber-search/contributing/dev-environment/#run-chain-node-only-for-pumps", 
+            "text": "In order to fetch data from chains pumps need chain node to interact with. \nTo run chain node locally using docker use following commands:   Parity for Ethereum   sudo  docker run -d -p 8545:8545 --name parity_eth \\\n-v ${REPLACE_IT_BY_HOST_FOLDER}:/cyberdata parity/parity:stable \\\n--db-path /cyberdata --jsonrpc-hosts all --jsonrpc-interface all --jsonrpc-threads 4   Bitcoind for Bitcoin   docker run -d -p 8332:8332 --name bitcoind --restart always \\\n-v ${REPLACE_IT_BY_HOST_FOLDER}:/home/bitcoin/.bitcoin ruimarinho/bitcoin-core:0.15.1 \\\n-server -rest -txindex -rpcpassword=cyber -rpcuser=cyber -rpcallowip=0.0.0.0/0  Or you could use any public available node (with appropriate settings)\nby passing  CHAIN_NODE_URL  environment variable to pump. For example  CHAIN_NODE_URL=http://127.0.0.1:8545 .", 
+            "title": "Run chain node (only for pumps)"
         }, 
         {
             "location": "/cyber-search/contributing/dev-environment/#import-project-to-intellij-idea", 
